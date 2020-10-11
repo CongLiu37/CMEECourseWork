@@ -1,7 +1,12 @@
 #!/bin/bash
-#Running in CMEECourseWork/Week1
-#Input: two files in Data/
+#Auther: cong.liu20@imperial.ac.uk
+#Script: ConcatenateTwoFiles.sh
+#Running: In CMEECourseWork/Week1
+#Input: Two files in Data/
+#Function: Merge input files
 #Output: Merged file of inputs, saved as Results/Merged
+#Usage: bash ConcatenateTwoFiles.sh [file1] [file2]
+#Date: Oct 2020
 
 if [ -e Data/$1 ];
     then

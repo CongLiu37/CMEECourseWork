@@ -1,7 +1,12 @@
 #!/bin/bash
-#Running in CMEECourseWork/Week1
-#Input: A directory contains tif format files
-#Output: jpg format of tif files in input directory, stored in Results/ 
+#Auther: cong.liu20@imperial.ac.uk
+#Script: tiff2png.sh
+#Running: In CMEECourseWork/Week1
+#Input: A directory contains tif format pictures
+#Function: Convert all tif format pictures in the input directory into jpg format
+#Output: Saved as jpg format in Results/
+#Usage: bash tiff2png.sh [directory]
+#Date: Oct 2020
 
 if [ -z $1 ];
     then 

@@ -1,7 +1,12 @@
 #!/bin/bash
+#Auther: cong.liu20@imperial.ac.uk
+#Script: csvtospace.sh
+#Running: In CMEECourseWork/Week1
 #Input: A comma-separated-values file in Data/
-#Function: Convert input file to a space-separated-values file
-#Output: Saved in Results/
+#Function: Convert input file to a space-separated-values(ssv) file
+#Output: A space-separated-values file in Results/
+#Usage: bash csvtospace.sh [file]
+#Date: Oct 2020
 
 if [ -z $1 ];
     then

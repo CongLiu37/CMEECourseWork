@@ -1,4 +1,0 @@
-     28 ./Data/407228326.fasta
-    127 ./Data/407228412.fasta
-  78104 ./Data/E.coli.fasta
-  78259 total

@@ -1,7 +1,12 @@
 #!/bin/bash
-#Runnin in CMEECourseWork/Week1
+#Auther: cong.liu20@imperial.ac.uk
+#Script: variables.sh
+#Running: In CMEECourseWork/Week1
+#Usage: bash variable.sh
+#Date: Oct 2020
 
-#Shows the use of variables
+
+#Input: A string
 MyVar="some string" #Defining variable
 echo "The current value of the variable is $MyVar"
 echo "Please enter a new string"
@@ -13,7 +18,7 @@ if [ -z "$MyVar" ]; #Checking if the length of MyVar is 0
         echo "The current value of the variable is $MyVar"
 fi
 
-#Read multiple variables
+#Input two numbers and output their sum
 echo "Enter two numbers separated by space."
 read a b #Inputting variables
 if echo "$a" | grep -qE '^[0-9,\.,-,]+$'; 
