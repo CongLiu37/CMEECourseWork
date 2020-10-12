@@ -1,1 +1,4 @@
-The output files of codes in week 1 
+Project: Results
+Description: The output files of scripts in week 1, details in each script saved in Code/
+Auther: cong.liu20@imperial.ac.uk
+ 

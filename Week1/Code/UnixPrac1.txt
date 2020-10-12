@@ -1,5 +1,11 @@
-#Unix and Linux practicals
-#Running in /CMEECourseWork/Week1
+#!/bin/bash
+#Auther:cong.liu20@imperial.ac.uk
+#Script: UnixPrac1.txt
+#Running: In /CMEECourseWork/Week1
+#Input: Files in Data/, seen in each command line 
+#Function: Seen in practicals of UNIX and Linux chapter in https://mhasoba.github.io/TheMulQuaBio/intro.html
+#Output: txt files, saved in Results/
+#Date: Oct, 2020
 
 #Practical 1
 wc -l ./Data/*.fasta >> ./Results/#1.txt
