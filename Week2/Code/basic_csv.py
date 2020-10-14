@@ -1,3 +1,4 @@
+
 import os
 os.chdir("./CMEECourseWork/Week2/")
 

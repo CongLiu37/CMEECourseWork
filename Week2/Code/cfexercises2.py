@@ -19,6 +19,9 @@ while z != 15:
     print('hello')
     z = z + 3
 
+#When z < 100, conduct the loop, and add 1 to z at the end of every cycle
+#In the loop, if z = 31, print "hello" 7 times; if z = 18, print "hello"
+#Start value of z is 12
 z = 12
 while z < 100:
     if z == 31:
