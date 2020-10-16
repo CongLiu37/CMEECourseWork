@@ -1,29 +1,40 @@
 #!/bin/bash
-#Auther: cong.liu20@imperial.ac.uk
+#Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: ConcatenateTwoFiles.sh
-#Running: In CMEECourseWork/Week1
-#Input: Two files in Data/
+#Work Path: CMEECourseWork/Week1
+#Input: Two files saved in Data/
 #Function: Merge input files
 #Output: Merged file of inputs, saved as Results/Merged
 #Usage: bash ConcatenateTwoFiles.sh [file1] [file2]
 #Date: Oct 2020
 
-if [ -e Data/$1 ];
+if [ -z $1 ];
     then
-        if [ -e Data/$2 ];
-            then 
-                file1=Data/$1
-                file2=Data/$2
-                file3=Results/Merged
-                cat $file1 >> $file3
-                cat $file2 >> $file3
-                echo "The merged file is"
-                cat $file3
-            else
-                echo "$2 does not exist in Data/"
-        fi
+        echo "Two files should be inputted"
     else
-        echo "$1 does not exist in Data/"
+        if [ -z $2 ];
+            then
+                echo "Only one file is inoutted"
+                echo "Two files should be inputted"
+            else
+                if [ -e Data/$1 ];
+                    then
+                        if [ -e Data/$2 ];
+                            then 
+                                file1=Data/$1
+                                file2=Data/$2
+                                file3=Results/Merged
+                                cat $file1 >> $file3
+                                cat $file2 >> $file3
+                                echo "The merged file is"
+                                cat $file3
+                            else
+                                echo "$2 does not exist in Data/"
+                        fi
+                    else
+                        echo "$1 does not exist in Data/"
+                fi
+        fi
 fi
-            
+
 echo "Done"

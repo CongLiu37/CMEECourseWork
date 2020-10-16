@@ -1,3 +1,13 @@
+"""Language: Python3
+   Auther: Cong Liu (cong.liu20@imperial.ac.uk)
+   Script: oaks.py
+   Work Path: CMEECourseWork/Week2
+   Input file:
+   Function: Practical of python programming
+   Output:
+   Usage: python oaks.py
+   Date: Oct, 2020"""
+
 ## Finds just those taxa that are oak trees from a list of species
 
 taxa = [ 'Quercus robur',

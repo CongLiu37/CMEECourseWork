@@ -1,15 +1,16 @@
 """Language: Python3
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: align_seqs.py
-   Running: in CMEECourseWork/Week2
-   Input file:  two sequences saved in Data/align.fasta
+   Work Path: CMEECourseWork/Week2
+   Input: Two sequences saved in Data/align.fasta
    Function: Align two sequences saved in input file
    Output: The best alignment and corresponding score, saved in Results/align.txt
-   Usage in terminal: python align_seqs.py
+   Usage: python align_seqs.py
    Date: Oct, 2020"""
 
 file1 = open("Data/align.fasta", "r")
 
+#Pattern of list2: [sequence name starting with ">", sequence, ...]
 list1 = []
 for line in file1:
     line = line.strip()
@@ -65,12 +66,8 @@ def calculate_score(s1, s2, l1, l2, startpoint):
 
     return score
 
-# Test the function with some example starting points:
-# calculate_score(s1, s2, l1, l2, 0)
-# calculate_score(s1, s2, l1, l2, 1)
-# calculate_score(s1, s2, l1, l2, 5)
 
-# now try to find the best match (highest score) for the two sequences
+#find the best match (highest score) for the two sequences
 my_best_align = None
 my_best_score = -1
 
@@ -83,6 +80,7 @@ print(my_best_align)
 print(s1)
 print("Best score:", my_best_score)
 
+#Save the output
 file2 = open("./Results/align.txt", "w")
 
 file2.write(my_best_align + "\n")

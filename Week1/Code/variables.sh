@@ -1,7 +1,7 @@
 #!/bin/bash
-#Auther: cong.liu20@imperial.ac.uk
+#Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: variables.sh
-#Running: In CMEECourseWork/Week1
+#Work Path: CMEECourseWork/Week1
 #Usage: bash variable.sh
 #Date: Oct 2020
 

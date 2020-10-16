@@ -1,7 +1,7 @@
 #!/bin/bash
-#Auther: cong.liu20@imperial.ac.uk
+#Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: CountLines.sh
-#Running: In CMEECourseWork/Week1
+#Work Path: CMEECourseWork/Week1
 #Input: A file in Data/
 #Function: Count how many lines the input file has
 #Output: The number of lines the input file has

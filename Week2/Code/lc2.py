@@ -1,3 +1,13 @@
+"""Language: Python3
+   Auther: Cong Liu (cong.liu20@imperial.ac.uk)
+   Script: lc2.py
+   Work Path: CMEECourseWork/Week2
+   Input file:
+   Function: Practical of python programming
+   Output:
+   Usage: python lc2.py
+   Date: Oct, 2020"""
+
 # Average UK Rainfall (mm) for 1910 by month
 # http://www.metoffice.gov.uk/climate/uk/datasets
 rainfall = (('JAN',111.4),

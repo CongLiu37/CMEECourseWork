@@ -1,8 +1,8 @@
 #!/bin/bash
-#Auther: cong.liu20@imperial.ac.uk
+#Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: tiff2png.sh
-#Running: In CMEECourseWork/Week1
-#Input: A directory contains tif format pictures
+#Work Path: CMEECourseWork/Week1
+#Input: A directory contains tif format pictures, saved in CMEECourseWork/Week1
 #Function: Convert all tif format pictures in the input directory into png format
 #Output: Saved as jpg format in Results/
 #Usage: bash tiff2png.sh [directory]

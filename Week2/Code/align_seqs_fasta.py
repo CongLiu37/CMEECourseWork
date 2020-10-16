@@ -1,21 +1,23 @@
 """Language: Python3
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: align_seqs_fasta.py
-   Running: In CMEECourseWork/Week2
-   Input file:  two fasta files saved in CMEECourseWork/Week1/Data
+   Work Path: CMEECourseWork/Week2
+   Input: Two fasta files saved in CMEECourseWork/Week1/Data
    Function: Align two sequences saved in input files. 
-             If input files were not provided, the script would take 407228326.fasta and 407228412.fasta as input.
+             If input files were not provided, the script would take Data/407228326.fasta and Data/407228412.fasta as default input.
    Output: The best alignment and corresponding score, saved in Results/align.txt
-   Usage in terminal: python align_seqs_fasta.py [file1] [file2]
+   Usage: python align_seqs_fasta.py [file1] [file2]
    Date: Oct, 2020"""
 
 #importing
 import sys
 import os
 
+#Save input file names as a list
 os.chdir("/home/cong/CMEECourseWork/")
 files = sys.argv[1:]
 
+#A function that convert fasta file to a list with such form: [sequence name start with ">", sequence, ...]
 def fasta(f):
     file = open("Week1/Data/" + str(f), "r")
     list1 = []
@@ -72,12 +74,8 @@ def calculate_score(s1, s2, l1, l2, startpoint):
 
     return score
 
-# Test the function with some example starting points:
-# calculate_score(s1, s2, l1, l2, 0)
-# calculate_score(s1, s2, l1, l2, 1)
-# calculate_score(s1, s2, l1, l2, 5)
 
-# now try to find the best match (highest score) for the two sequences
+#find the best match (highest score) for the two sequences
 my_best_align = None
 my_best_score = -1
 
@@ -90,6 +88,7 @@ print(my_best_align)
 print(s1)
 print("Best score:", my_best_score)
 
+#Save output
 output = open("Week2/Results/align.txt", "w")
 
 output.write(my_best_align + "\n")

@@ -1,3 +1,14 @@
+"""Language: Python3
+   Auther: Cong Liu (cong.liu20@imperial.ac.uk)
+   Script: basic_io3.py
+   Work Path: CMEECourseWork/Week2
+   Input file:
+   Function: Save a dictionary in Sandbox/testp.p as binary file
+             Print the dictionary
+   Output: Sandbox/testp.p
+   Usage: python basic_io3.py
+   Date: Oct, 2020"""
+
 #############################
 # STORING OBJECTS
 #############################

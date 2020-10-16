@@ -1,3 +1,13 @@
+"""Language: Python3
+   Auther: Cong Liu (cong.liu20@imperial.ac.uk)
+   Script: tuple.py
+   Work Path: CMEECourseWork/Week2
+   Input file:
+   Function: Practical in tuple.py
+   Output:
+   Usage: python tuple.py
+   Date: Oct, 2020"""
+
 birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
           ('Delichon urbica','House martin',19),
           ('Junco phaeonotus','Yellow-eyed junco',19.5),

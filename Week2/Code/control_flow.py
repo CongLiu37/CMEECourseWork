@@ -1,4 +1,13 @@
-"""Some functions exemplifying the use of control statements"""
+"""Language: Python3
+   Auther: Cong Liu (cong.liu20@imperial.ac.uk)
+   Script: control_flow.py
+   Work Path: CMEECourseWork/Week2
+   Input file:
+   Function: Exemplify the use of control statements by some functions
+   Output:
+   Usage: python control_flow.py
+   Date: Oct, 2020"""
+
 #docstrings are considered part of the running code (normal comments are
 #stripped). Hence, you can access your docstrings at run time.
 __author__ = 'Samraat Pawar (s.pawar@imperial.ac.uk)'

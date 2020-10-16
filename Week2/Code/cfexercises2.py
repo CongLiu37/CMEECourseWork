@@ -1,3 +1,13 @@
+"""Language: Python3
+   Auther: Cong Liu (cong.liu20@imperial.ac.uk)
+   Script: cfexercises2.py
+   Cong Liu: CMEECourseWork/Week2
+   Input file: 
+   Function: Show the usage of for and while loop
+   Output:
+   Usage: python cfexercise2.py
+   Date: Oct, 2020"""
+
 #For integers in interval [0,12), 
 #print "hello" when the integer are divided exactly by 3
 for j in range(12):

@@ -1,6 +1,14 @@
+"""Language: Python3
+   Auther: Cong Liu (cong.liu20@imperial.ac.uk)
+   Script: test_control_flow.py
+   Work Path: CMEECourseWork/Week2
+   Input file:
+   Function: Exemplify the use of control statement
+   Output:
+   Usage: python test_control_flow.py
+   Date: Oct, 2020"""
 
-"""Some functions exemplifying the use of control statements"""
-
+#Docstring
 __author__ = 'Your Name (Your.Name@your.email.address)'
 __version__ = '0.0.1'
 
@@ -30,7 +38,7 @@ def even_or_odd(x=0):
         return "%d is Even!" % x
     return "%d is Odd!" % x
 
-####### I SUPPRESSED THIS BLOCK: WHY? #######
+###########################################
 
 # def main(argv): 
 #     print even_or_odd(22)

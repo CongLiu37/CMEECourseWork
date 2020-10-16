@@ -1,7 +1,14 @@
+"""Language: Python3
+   Auther: Cong Liu (cong.liu20@imperial.ac.uk)
+   Script: boilerplate.py
+   Work Path: CMEECourseWork/Week2
+   Input file: 
+   Function: 
+   Output:
+   Usage: python boilerplate.py
+   Date: Oct, 2020"""
 
-"""Description of this program or application.
-	You can use several lines"""
-
+#Docstring
 __appname__ = '[application name here]'
 __author__ = 'Your Name (your@email.address)'
 __version__ = '0.0.1'

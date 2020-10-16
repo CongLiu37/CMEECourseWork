@@ -1,8 +1,8 @@
 #!/bin/bash
-#Auther: cong.liu20@imperial.ac.uk
+#Auther: Cong liu (cong.liu20@imperial.ac.uk)
 #Script: CompileLaTeX.sh
-#Running: In CMEECourseWork/Week1
-#Input: .tex and .bib in Code/
+#Work Path: CMEECourseWork/Week1
+#Input: .tex and .bib files in Code/
 #Function: Run LaTeX, save .pdf file in Writeup/ and remove other files
 #Output: .pdf file in Writeup/
 #Usage: bash Code/CompileLaTeX.sh [Base name of .tex]

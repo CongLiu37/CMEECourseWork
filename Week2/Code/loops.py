@@ -1,3 +1,13 @@
+"""Language: Python3
+   Auther: Cong Liu (cong.liu20@imperial.ac.uk)
+   Script: loops.py
+   Work Path: CMEECourseWork/Week2
+   Input file:
+   Function: Exemplify the loops in python
+   Output:
+   Usage: python loops.py
+   Date: Oct, 2020"""
+
 # FOR loops in Python
 #Print 0,1,2,3,4
 for i in range(5):
@@ -23,7 +33,9 @@ while z < 100:
     print(z)
 
 #An infinite while loop
-b = True
-while b:
-    print("GERONIMO! infinite loop! ctrl+c to stop!")
+
+#b = True
+#while b:
+#    print("GERONIMO! infinite loop! ctrl+c to stop!")
+
 # ctrl + c to stop!

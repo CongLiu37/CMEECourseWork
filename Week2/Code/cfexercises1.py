@@ -1,4 +1,14 @@
-"""Some functions in numberic calculation"""
+"""Language: Python3
+   Auther: Cong Liu (cong.liu20@imperial.ac.uk)
+   Script: cfexercises1.py
+   Work Path: CMEECourseWork/Week2
+   Input file: 
+   Function: Some functions for numberic calculation
+   Output: 
+   Usage: python cfexercises1.py
+   Date: Oct, 2020"""
+
+#Docstring
 __author__ = 'Cong Liu (cong.liu20@imperial.ac.uk)'
 __version__ = '0.0.1'
 

@@ -1,3 +1,13 @@
+"""Language: Python3
+   Auther: Cong Liu (cong.liu20@imperial.ac.uk)
+   Script: sysargv.py
+   Work Path: CMEECourseWork/Week2
+   Input file:
+   Function: Exemplify use of sys and argv
+   Output:
+   Usage: python sysargv.py
+   Date: Oct, 2020"""
+
 import sys
 print("This is the name of the script: ", sys.argv[0])
 print("Number of arguments: ", len(sys.argv))

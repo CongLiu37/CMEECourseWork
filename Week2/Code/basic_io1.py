@@ -1,3 +1,14 @@
+"""Language: Python3
+   Auther: Cong Liu (cong.liu20@imperial.ac.uk)
+   Script: basic_io1.py
+   Work Path: CMEECourseWork/Week2
+   Input file: Sandbox/test.txt
+   Function: Print all lines of input file
+             Print all lines that contains letters in input file
+   Output:
+   Usage: python basic_io1.py
+   Date: Oct, 2020"""
+
 #############################
 # FILE INPUT
 #############################

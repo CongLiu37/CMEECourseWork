@@ -1,3 +1,13 @@
+"""Language: Python3
+   Auther: Cong Liu (cong.liu20@imperial.ac.uk)
+   Script: dictionary.py
+   Work Path: CMEECourseWork/Week2
+   Input file:
+   Function: Practical of python programming
+   Output:
+   Usage: python dictionary.py
+   Date: Oct, 2020"""
+
 taxa = [ ('Myotis lucifugus','Chiroptera'),
          ('Gerbillus henleyi','Rodentia',),
          ('Peromyscus crinitus', 'Rodentia'),
