@@ -18,6 +18,7 @@ taxa = [ 'Quercus robur',
        ]
 
 def is_an_oak(name):
+    """Check whether the genus of input is Quercus"""
     return name.lower().startswith('quercus ') #Returns T or F
 
 ##Using for loops

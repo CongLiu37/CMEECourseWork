@@ -12,9 +12,6 @@
    Usage: python basic_csv.py
    Date: Oct, 2020"""
 
-import os
-os.chdir("./CMEECourseWork/Week2/")
-
 import csv
 
 # Read a file containing:

@@ -1,12 +1,11 @@
 """Language: Python3
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
-   Script: align_seqs_fasta.py
+   Script: align_seqs_better.py
    Work Path: CMEECourseWork
    Input: Two fasta files saved in CMEECourseWork/Week1/Data
    Function: Align two sequences saved in input files. 
-             If input files were not provided, the script would take Data/407228326.fasta and Data/407228412.fasta as default input.
-   Output: The best alignment and corresponding score, saved in Results/align.txt
-   Usage: python align_seqs_fasta.py [file1] [file2]
+   Output: All best alignments with equal and highest score, saved in Results/align.txt
+   Usage: python align_seqs_better.py [file1] [file2]
    Date: Oct, 2020"""
 
 #importing
@@ -16,8 +15,8 @@ import sys
 files = sys.argv[1:]
 
 def fasta(f):
-    """A function that convert fasta file to a list with such form: 
-    [sequence name start with ">", sequence, ...]"""
+    """convert fasta file to a list with such form: 
+       [sequence name start with ">", sequence, ...]"""
     file = open("Week1/Data/" + str(f), "r")
     list1 = []
     for line in file:
@@ -40,12 +39,8 @@ def fasta(f):
         
 # Assign the longer sequence s1, and the shorter to s2
 # l1 is length of the longest, l2 that of the shortest
-if len(files) != 0:
-    seq1 = fasta(files[0])[1]
-    seq2 = fasta(files[1])[1]
-else:
-    seq1 = fasta("407228326.fasta")[1]
-    seq2 = fasta("407228412.fasta")[1]
+seq1 = fasta(files[0])[1]
+seq2 = fasta(files[1])[1]
 
 
 l1 = len(seq1)
@@ -58,7 +53,8 @@ else:
     s2 = seq1
     l1, l2 = l2, l1 # swap the two lengths
 
-
+# A function that computes a score by returning the number of matches starting
+# from arbitrary startpoint (chosen by user)
 def calculate_score(s1, s2, l1, l2, startpoint):
     """A function that computes a score by returning the number of matches starting
        from arbitrary startpoint (chosen by user)"""
@@ -75,24 +71,30 @@ def calculate_score(s1, s2, l1, l2, startpoint):
     return score
 
 
-#find the best match (highest score) for the two sequences
+#find the best matches (highest score) for the two sequences
 my_best_align = None
-my_best_score = -1
-
-for i in range(l1): # Note that you just take the last alignment with the highest score
+scores = []
+startpoints = []
+for i in range(l1):
     z = calculate_score(s1, s2, l1, l2, i)
-    if z > my_best_score:
-        my_best_align = "." * i + s2
-        my_best_score = z 
-print(my_best_align)
-print(s1)
+    scores.append(z)
+    startpoints.append(i)
+
+my_best_score = sorted(scores)[-1]
+my_best_aligns = []
+for i in range(0, len(scores)):
+    if scores[i] == my_best_score:
+        my_best_align = "." * startpoints[i] + s2
+        my_best_aligns.append(my_best_align)
+
+print(my_best_aligns)
 print("Best score:", my_best_score)
 
 #Save output
 output = open("Week2/Results/align.txt", "w")
-
-output.write(my_best_align + "\n")
-output.write(s1 + "\n")
-output.write("Best score: " + str(my_best_score))
+output.write(">Best score: " + str(my_best_score) + "\n")
+for align in my_best_aligns:
+    output.write(align + "\n")
+    output.write(s1 + "\n" * 2)
 
 output.close()

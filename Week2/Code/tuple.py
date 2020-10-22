@@ -3,7 +3,7 @@
    Script: tuple.py
    Work Path: CMEECourseWork/Week2
    Input file:
-   Function: Practical in tuple.py
+   Function: Practical of Python
    Output:
    Usage: python tuple.py
    Date: Oct, 2020"""

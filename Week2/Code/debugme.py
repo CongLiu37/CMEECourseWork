@@ -9,6 +9,7 @@
    Date: Oct, 2020"""
 
 def makeabug(x):
+    """Calculate x**4, where x is input number"""
     y = x**4
     #z = 0.
     z = 1
