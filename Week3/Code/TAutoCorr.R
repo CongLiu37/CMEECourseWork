@@ -5,13 +5,13 @@
 #Dependency: ggplot2
 #Input: Data/KeyWestAnnualMeanTemperature.RData
 #Function: Test autocorrelation of each year's temperature 
-#Output: 
+#Output: TAutoCorr_Figure1.pdf
 #Usage:
 #Date: Oct, 2020
 
-setwd("CMEECourseWork/Week3")
-load("Data/KeyWestAnnualMeanTemperature.RData") #Import data
 
+load("Data/KeyWestAnnualMeanTemperature.RData") #Import data
+setwd("CMEECourseWork/Week3/Code")
 library(ggplot2)
 
 pdf("TAutoCorr_Figure1.pdf")
