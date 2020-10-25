@@ -1,8 +1,8 @@
-\documentclass[12pt]{paper}
+\documentclass[12pt]{article}
 
 \title{Autocorrelation of Annual Temperature in Key West, Florida for the 20th Century}
 
-\author{Cong Liu}
+\author{Cong Liu (cong.liu20@imperial.ac.uk)}
 
 \date{Oct, 2020}
 
@@ -10,12 +10,13 @@
 \usepackage{float}
 \usepackage{subfigure}
 \usepackage[colorlinks]{hyperref}
+\usepackage{hyperref}
 
 \begin{document}
   \maketitle
   \tableofcontents
   \begin{abstract}
-    This paper concerns whether temperatures of years are autocorrelated. Temperatures
+    This study concerns whether temperatures of years are autocorrelated. Temperatures
     in Key West, Florida for 20th century were used. Lag 1 autocorrelation was tested, and 
     \textit{p}-value was estimated using a simulation approach. The results showed a weak but significant
     correlation between temperature of one year and its successive year. 
@@ -42,7 +43,7 @@
     A R script was used to calculate Pearson's correlation coefficient between temperatures that
     are 1 year apart.
     
-    \subsection{Estimation of \textit{p}-value}
+    \subsection{Estimation of \texorpdfstring{$\mathit{p}$}{}-value}
     A R script is used to estimate \textit{p}-value. To begin with, values of temperature were
     rearranged randomly, and Pearson's correlation coefficient of lag 1 autocorrelation was calculated.
     This process was repeated 10,000 times, and the fraction of correlation coefficients whose absolute 
@@ -83,4 +84,6 @@
 
   \section{Supplement}
   All codes are wraped in TAutoCorr.R, which is accessible in 
+  \newline
+  \href{https://github.com/CongLiu37/CMEECourseWork/tree/main/Week3/Code}{https://github.com/CongLiu37/CMEECourseWork/tree/main/Week3/Code}
 \end{document}
