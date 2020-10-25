@@ -1,0 +1,86 @@
+\documentclass[12pt]{paper}
+
+\title{Autocorrelation of Annual Temperature in Key West, Florida for the 20th Century}
+
+\author{Cong Liu}
+
+\date{Oct, 2020}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage[colorlinks]{hyperref}
+
+\begin{document}
+  \maketitle
+  \tableofcontents
+  \begin{abstract}
+    This paper concerns whether temperatures of years are autocorrelated. Temperatures
+    in Key West, Florida for 20th century were used. Lag 1 autocorrelation was tested, and 
+    \textit{p}-value was estimated using a simulation approach. The results showed a weak but significant
+    correlation between temperature of one year and its successive year. 
+    
+  \end{abstract}
+  
+  \section{Introduction}
+  Autocorrelation refers to correlation between current values of a variable and its past values.
+  If autocorrelation is found between values that are \textit{k} time periods apart, it is called
+  a lag \textit{k} autocorrelation. In this paper, autocorrelation in temperatures of Key West, 
+  Florida in 20th century was tested and \textit{p}-value was estimated, showing a weak but significant
+  lag 1 autocorrelation.
+  
+  \section{Materials \& Methods}
+   
+    \subsection{Data of Temperatures}
+    The raw data file of temperatures is named as KeyWestAnnualMeanTemperature.Rdata, 
+    which is accessible in 
+    \newline
+    \href{https://github.com/mhasoba/TheMulQuaBio/tree/master/content/data}{https://github.com/mhasoba/TheMulQuaBio/tree/master/content/data}.
+    It was plotted by a R script.
+    
+    \subsection{Autocorrelation Test}
+    A R script was used to calculate Pearson's correlation coefficient between temperatures that
+    are 1 year apart.
+    
+    \subsection{Estimation of \textit{p}-value}
+    A R script is used to estimate \textit{p}-value. To begin with, values of temperature were
+    rearranged randomly, and Pearson's correlation coefficient of lag 1 autocorrelation was calculated.
+    This process was repeated 10,000 times, and the fraction of correlation coefficients whose absolute 
+    values are larger than that from raw data is approximate \textit{p}-value.
+  
+  \section{Results}
+    
+    \subsection{Plot of Raw Data}
+    Figure 1 illustrates temperatures in Key West, Florida for 20th century.
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{TAutoCorr_Figure1.pdf}
+        \caption{Temperature in Key West, Florida}
+        \label{Fig. 2}    
+    \end{figure}
+
+    \subsection{Test of Autocorrelation}
+    The correlation coefficient of temperatures 1 year apart is 0.3262, and approximate 
+    \textit{p}-value was 0.0013.
+
+  \section{Discussion}
+  Correlation coefficient measures the extent that two variables are linearly correlated.
+  A positive correlation coefficient means positive correlation between two variables. If 
+  the correlation coefficient is negative, then there is a negative correlation. The closer
+  the absolute value of correlation coefficient to 1, the stronger the correlation is. Here, the
+  correlation coefficient between one-year-apart temperatures is 0.3262, showing that there is a weak 
+  positive correlation between the temperatures of one year and its successive year.
+  \newline
+  The statistical significance is measured by \textit{p}-value. It is defined as the probability that
+  null hypothesis is rejected while it is true, namely, the false positive probability. A 
+  small \textit{p}-value means high significance. Here, the 
+  estimated \textit{p}-value was 0.0013, indicating the correlation is significant.
+
+  \section{Conclusion}
+  Overall, a weak but significant lag 1 autocorrelation was found in temperatures of Key West, Florida 
+  for 20th century.
+
+  \section{Supplement}
+  All codes are wraped in TAutoCorr.R, which is accessible in 
+\end{document}
