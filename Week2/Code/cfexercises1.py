@@ -59,6 +59,7 @@ def foo_6(x):
     return facto
 
 def main(argv):
+    """Test functions above"""
     print(foo_1(2))
     print(foo_2(5,9))
     print(foo_3(3,2,9))

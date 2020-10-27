@@ -40,6 +40,7 @@ def even_or_odd(x=0):
 
 
 def main(argv): 
+    """Test functions above"""
     print(even_or_odd(22))
     print(even_or_odd(33))
     return 0

@@ -9,9 +9,10 @@
 #Usage:
 #Date: Oct, 2020
 
-
+setwd("CMEECourseWork/Week3")
 load("Data/KeyWestAnnualMeanTemperature.RData") #Import data
-setwd("CMEECourseWork/Week3/Code")
+setwd("Code")
+
 library(ggplot2)
 
 pdf("TAutoCorr_Figure1.pdf")
@@ -30,6 +31,7 @@ yr1 = ats$Temp[2:100]
 autoco = cor(yr0,yr1)
 autoco
 
+#Simulation
 corrs = rep(NA, 10000)
 for (i in 1:10000) {
   yr = sample(ats$Temp, size = 100, replace = F)
@@ -39,6 +41,7 @@ for (i in 1:10000) {
 }
 corrs
 
+#Approximate p-value
 j = 0
 for (corr in corrs) {
   if (abs(corr) > abs(autoco)) {
