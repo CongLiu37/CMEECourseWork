@@ -50,8 +50,8 @@ stochrickvect<-function(p0=runif(1000,.5,1.5),r=1.2,K=1,sigma=0.2,numyears=100)
   return(N)
 }  
 
-print("Un-vectorized Stochastic Ricker takes:")
+print("Un-vectorized Stochastic Ricker of Vectorize2.R takes:")
 print(system.time(res2<-stochrick()))
 
-print("Vectorized Stochastic Ricker takes:")
+print("Vectorized Stochastic Ricker of Vectorize2.R takes:")
 print(system.time(res2<-stochrickvect()))

@@ -9,7 +9,7 @@
 #Date: Oct, 2020
 
 M <- matrix(runif(1000000),1000,1000)
-
+dim(M)
 SumAllElements <- function(M){
   Dimensions <- dim(M)
   Tot <- 0
@@ -21,8 +21,8 @@ SumAllElements <- function(M){
   return (Tot)
 }
 
-print("Using loops, the time taken is:")
+print("Using loops, the time taken by Vectorize1.R is:")
 print(system.time(SumAllElements(M)))
 
-print("Using the in-built vectorized function, the time taken is:")
+print("Using the in-built vectorized function, the time taken by Vectorize1.R is:")
 print(system.time(sum(M)))
