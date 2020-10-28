@@ -1,6 +1,6 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
-#Script: boilerplate.R
+#Script: TreeHeight.R
 #Work Path: CMEECourseWork/Week3
 #Input: Data/trees.csv
 #Function: Calculate heights of trees given distance of each tree 
@@ -24,9 +24,6 @@ TreeHeight <- function(degrees, distance){
   return (height)
 }
 
-
-getwd()
-setwd("CMEECourseWork/Week3")
 data = read.csv("Data/trees.csv", header = T)
 a = nrow(data)
 head(data)

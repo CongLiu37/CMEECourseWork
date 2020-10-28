@@ -3,3 +3,5 @@
 *.tif
 *.png
 !.gitkeep
+Group_*
+.Rhistory
