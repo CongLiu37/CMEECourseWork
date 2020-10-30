@@ -10,11 +10,9 @@
 #Date: Oct, 2020
 
 load("Data/KeyWestAnnualMeanTemperature.RData") #Import data
-setwd("Code")
 
 library(ggplot2)
 
-pdf("TAutoCorr_Figure1.pdf")
 p0 = ggplot(data = ats, aes(x = Year, y = Temp)) + #Plot temperatures 
   geom_point(size = 0.5) + #Adjust point size
   labs(x = "Year",
@@ -23,7 +21,7 @@ p0 = ggplot(data = ats, aes(x = Year, y = Temp)) + #Plot temperatures
         axis.title.x = element_text(size = 10), #Adjust word size of x axis title
         axis.title.y = element_text(size = 10)) #Adjust word size of y axis title
 p0
-dev.off()
+
 
 yr0 = ats$Temp[1:99]
 yr1 = ats$Temp[2:100]
@@ -47,4 +45,5 @@ for (corr in corrs) {
     j = j + 1
   }
 }
-j/10000
+ap-p = j/10000
+ap-p

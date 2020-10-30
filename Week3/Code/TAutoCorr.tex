@@ -3,7 +3,8 @@
 %Script: TAutoCOrr.tex
 %Work directory: CMEECourseWork/Week3/Code
 %Description: Written work of practical "Autocorrelation in weather"
-%PS. Figure 1 is given by TAutoCorr.R in pdf format. When running, the figure should be in Code
+%PS. Figure 1 is given by TAutoCorr.R in pdf format. When running, the figure should be in Code.
+%    So in order to run TAutoCorr.tex without error,
 
 \documentclass[12pt]{article}
 
@@ -44,7 +45,6 @@
     which is accessible in 
     \newline
     \href{https://github.com/mhasoba/TheMulQuaBio/tree/master/content/data}{https://github.com/mhasoba/TheMulQuaBio/tree/master/content/data}.
-    It was plotted by a R script.
     
     \subsection{Autocorrelation Test}
     A R script was used to calculate Pearson's correlation coefficient between temperatures that
@@ -57,15 +57,6 @@
     values are larger than that from raw data is approximate \textit{p}-value.
   
   \section{Results}
-    
-    \subsection{Plot of Raw Data}
-    Figure 1 illustrates temperatures in Key West, Florida for 20th century.
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.7\textwidth]{TAutoCorr_Figure1.pdf}
-        \caption{Temperature in Key West, Florida}
-        \label{Fig. 2}    
-    \end{figure}
 
     \subsection{Test of Autocorrelation}
     The correlation coefficient of temperatures 1 year apart is 0.3262, and approximate 
@@ -81,7 +72,7 @@
   \newline
   The statistical significance is measured by \textit{p}-value. It is defined as the probability that
   null hypothesis is rejected while it is true, namely, the false positive probability. A 
-  small \textit{p}-value means high significance. Here, the 
+  small \textit{p}-value means high significance, and the rejection of null hypothesis. Here, the 
   estimated \textit{p}-value was 0.0013, indicating the correlation is significant.
 
   \section{Conclusion}
