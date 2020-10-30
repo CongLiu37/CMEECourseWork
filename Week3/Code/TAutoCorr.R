@@ -9,7 +9,6 @@
 #Usage:
 #Date: Oct, 2020
 
-setwd("CMEECourseWork/Week3")
 load("Data/KeyWestAnnualMeanTemperature.RData") #Import data
 setwd("Code")
 
