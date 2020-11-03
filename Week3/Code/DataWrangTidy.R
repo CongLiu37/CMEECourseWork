@@ -10,14 +10,15 @@
 #Date: Oct, 2020
 
 rm(list = ls())
+library(tidyverse)
 
 ############# Load the dataset ###############
 # header = false because the raw data don't have real headers
-MyData <- as.matrix(read.csv("Data/PoundHillData.csv", header = FALSE))
-
+MyData = readr::read_csv("Data/PoundHillData.csv",col_names = F)
+MyData = as_tibble(MyData)
 # header = true because we do have metadata headers
-MyMetaData <- read.csv("Data/PoundHillMetaData.csv", header = TRUE, sep = ";")
-
+MyMetaData = readr::read_csv("Data/PoundHillMetaData.csv")
+MyMetaData = as_tibble(MyMetaData)
 ############# Inspect the dataset ###############
 head(MyData)
 dim(MyData)
@@ -27,24 +28,22 @@ fix(MyMetaData)
 
 ############# Transpose ###############
 # To get those species into columns and treatments into rows 
-MyData <- t(MyData) 
+MyData <- as_tibble(t(as.data.frame(MyData))) 
 head(MyData)
 dim(MyData)
 
 ############# Replace species absences with zeros ###############
-MyData[MyData == ""] = 0
+MyData = as.data.frame(MyData)
+MyData[is.na(MyData)] = 0
 
 ############# Convert raw matrix to data frame ###############
-
-TempData <- as.data.frame(MyData[-1,],stringsAsFactors = F) #stringsAsFactors = F is important!
+TempData <- MyData[-1,] #stringsAsFactors = F is important!
 colnames(TempData) <- MyData[1,] # assign column names from original data
-
-library(tidyverse)
 
 MyWrangledData = gather(TempData, 
                         key = "species", 
-                        value = "count", 
-                        -Cultivation,-Block,-Plot,-Quadrat)
+                        value = "count",
+                        -"Cultivation", -"Block", -"Plot", -"Quadrat")
 
 MyWrangledData[, "Cultivation"] <- as.factor(MyWrangledData[, "Cultivation"])
 MyWrangledData[, "Block"] <- as.factor(MyWrangledData[, "Block"])
@@ -61,4 +60,3 @@ tibble::as_tibble(MyWrangledData)
 dplyr::glimpse(MyWrangledData) #like str(), but nicer!
 dplyr::filter(MyWrangledData, Count>100) #like subset(), but nicer!
 dplyr::slice(MyWrangledData, 10:15) # Look at an arbitrary set of data rows
-

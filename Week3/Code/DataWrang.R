@@ -12,7 +12,7 @@
 ################################################################
 ################## Wrangling the Pound Hill Dataset ############
 ################################################################
-
+rm(list = ls())
 ############# Load the dataset ###############
 # header = false because the raw data don't have real headers
 MyData <- as.matrix(read.csv("Data/PoundHillData.csv", header = FALSE))
