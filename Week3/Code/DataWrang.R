@@ -4,9 +4,9 @@
 #Work Path: CMEECourseWork/Week3
 #Dependency: reshape2
 #Input:
-#Function: Data wrangling.R
+#Function: Data wrangling usin reshape2 packae
 #Output:
-#Usage:
+#Usage: Rscript DataWrang.R
 #Date: Oct, 2020
 
 ################################################################

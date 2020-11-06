@@ -1,6 +1,6 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
-#Script: Vectorize.R
+#Script: Vectorize2.R
 #Work Path: CMEECourseWork/Week3
 #Input:
 #Function: Simulate stochastic Ricker model in vectorized and un-victorized way,

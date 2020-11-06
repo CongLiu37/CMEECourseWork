@@ -4,9 +4,9 @@
 #Work Path: CMEECourseWork/Week3
 #Dependency: tidyverse
 #Input:
-#Function: Data wrangling.R
+#Function: Data wrangling using tidyverse package
 #Output:
-#Usage:
+#Usage: Rscript DataWranTidy.R
 #Date: Oct, 2020
 
 rm(list = ls())

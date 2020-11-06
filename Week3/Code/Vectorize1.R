@@ -3,7 +3,8 @@
 #Script: Vectoriza1.R
 #Work Path: CMEECourseWork/Week3
 #Input:
-#Function: Exemplify vectorization's effect in computing efficiency and low speed of loops
+#Function: Exemplify vectorization's effect in computing efficiency and 
+#          low speed of loops
 #Output:
 #Usage: Rscript Vectorize1.R
 #Date: Oct, 2020

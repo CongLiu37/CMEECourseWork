@@ -2,12 +2,12 @@
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: PP_Regress.R
 #Work Path: CMEECourseWork/Week3
-#Dependency: ggplot2, scales
+#Dependency: ggplot2, scales, broom
 #Input: Data/EcolArchives-E089-51-D1.csv
 #Function: Regress prey mass and predator mass for each 
 #          Feeding Type × Predator life Stage combination and
 #          save results in Results/PP_Regress_Results.csv.
-#          For each combination, if it has only two pairs of data or 
+#          For each combination, if it has only two sample poits or 
 #          there is no correlation (R-square = 0), it will not be saved in csv file.
 #          Plot the regression, saved as Results/PP_Regress_Results.pdf
 #Output: Results/PP_Regress_Results.pdf 
@@ -57,7 +57,6 @@ for (i in FeedType){
     }
   }
 }
-Reg
 
 write.csv(Reg,"Results/PP_Regress_Results.csv",row.names = F)
 
@@ -76,7 +75,7 @@ ggplot(data, aes(x = Prey.mass,
   theme(strip.text.y = element_text(size = 6)) + #Adjust size of tags of y
   scale_y_continuous(trans = "log10") + #Show y in form of log10
   scale_x_continuous(trans = "log10") + #show x in form of log10
-  stat_smooth(method = lm, fullrange = T, level = 0.95,size = 0.5)+ #draw regression curve
+  stat_smooth(method = lm, fullrange = T, level = 0.95,size = 0.5)+ #Draw regression curve
   xlab("Prey Mass in grams") +
   ylab("Predator Mass in grams") +
   theme(legend.position = "bottom",

@@ -13,9 +13,6 @@
 
 load("Data/GPDDFiltered.RData")
 library(ggplot2)
-library(ggmap)
-library(sp)
-library(maptools)
 library(maps)
 
 visit.x<-gpdd$long
@@ -33,8 +30,8 @@ mp1<-mp + geom_point(aes(x=visit.x,
 mp1
 #The locations from which there is data are distributed unevenly among the world.
 #Most locations are in Europe and North America, especially in United Kingdom
-#and western coastal line of America and Canada. One is in Japan, and one in Africa.
-#No location in South America and Australia.
+#and western coastal line of America and Canada. There is only one
+#in Aisa, and one in Africa. No location is in South America and Australia.
 #When the data is analysized at global level, areas including South America, Africa, Asia
 #and Australia are not represented appropriately, which cause biase.
 #When focus on data from North America, most locations are in western coastal line and Canada,
