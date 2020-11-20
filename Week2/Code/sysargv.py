@@ -1,7 +1,7 @@
 """Language: Python3
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: sysargv.py
-   Work Path: CMEECourseWork/Week2
+   Work Path: CMEECourseWork/Week2/Code
    Input file:
    Function: Exemplify use of sys and argv
    Output:

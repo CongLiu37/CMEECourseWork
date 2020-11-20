@@ -1,7 +1,7 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: MyBars.R
-#Work Path: CMEECourseWork/Week3
+#Work Path: CMEECourseWork/Week3/Code
 #Dependency: ggplot2
 #Input: Data/Results.txt
 #Function: Exemplify annotating a plot
@@ -10,12 +10,12 @@
 #Date: Oct, 2020
 
 library("ggplot2")
-a <- read.table("Data/Results.txt", header = TRUE)
+a <- read.table("../Data/Results.txt", header = TRUE)
 head(a)
 
 a$ymin <- rep(0, dim(a)[1]) # append a column of zeros
 
-pdf("Results/MyBars.pdf")
+pdf("../Results/MyBars.pdf")
 
 # Print the first linerange
 p <- ggplot(a)

@@ -1,14 +1,14 @@
 #!/bin/bash
 #Auther: Cong liu (cong.liu20@imperial.ac.uk)
 #Script: CompileLaTeX.sh
-#Work Path: CMEECourseWork/Week1
+#Work Path: CMEECourseWork/Week1/Code
 #Input: .tex and .bib files in Code/
 #Function: Run LaTeX, save .pdf file in Writeup/ and remove other files
 #Output: .pdf file in Writeup/
 #Usage: bash Code/CompileLaTeX.sh [Base name of .tex]
 #Date: Oct 2020
 
-cd Code
+
 pdflatex $1.tex
 pdflatex $1.tex
 bibtex $1
@@ -25,5 +25,6 @@ rm *.snm
 rm *.toc
 rm *.bbl
 rm *.blg
-cd ..
-mv Code/*.pdf Writeup
+
+
+mv *.pdf ../Writeup

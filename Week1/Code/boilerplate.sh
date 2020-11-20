@@ -1,7 +1,7 @@
 #!/bin/bash
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: boilerplate.sh
-#Work Path: CMEECourseWork/Week1
+#Work Path: CMEECourseWork/Week1/Code
 #Input: None
 #Function: Simple boilerplate for shell scripts
 #Output:

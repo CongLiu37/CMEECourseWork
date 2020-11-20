@@ -1,7 +1,7 @@
 """Language: Python3
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: basic_csv.py
-   Work Path: CMEECourseWork/Week2
+   Work Path: CMEECourseWork/Week2/Code
    Input: testcsv.csv saved in CMEECourseWork/Week1/Data
    Function: Print all rows of input file
              Print species names of input file
@@ -16,7 +16,7 @@ import csv
 
 # Read a file containing:
 # 'Species','Infraorder','Family','Distribution','Body mass male (Kg)'
-f = open('./Data/testcsv.csv','r')
+f = open('../Data/testcsv.csv','r')
 
 csvread = csv.reader(f) #Each line is splitted by comma and saved as a list
 
@@ -29,8 +29,8 @@ for row in csvread:
 f.close()
 
 # write a file containing only species name and Body mass
-f = open('./Data/testcsv.csv','r')
-g = open('./Results/bodymass.csv','w')
+f = open('../Data/testcsv.csv','r')
+g = open('../Results/bodymass.csv','w')
 
 csvread = csv.reader(f)
 csvwrite = csv.writer(g)

@@ -1,7 +1,7 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: boilerplate.R
-#Work Path: CMEECourseWork/Week3
+#Work Path: CMEECourseWork/Week3/COde
 #Input:
 #Function: Illustrate skipping to next iteration of a loop
 #Output:

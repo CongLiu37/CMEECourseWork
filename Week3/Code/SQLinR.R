@@ -1,7 +1,7 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: SQLinR.R
-#Work Path: CMEECourseWork/Week3
+#Work Path: CMEECourseWork/Week3/Code
 #Dependency:
 #Input:
 #Function: Build, manipulate and access database using SQLite
@@ -55,7 +55,7 @@ dbGetQuery(db, "SELECT * FROM Consumer WHERE ConPhylum='Chordata'")
 # The easiest way is to read the csv files into R as data frames.
 # Then the data frames are imported into the database.
 
-Resource <- read.csv("Data/Resource.csv")  # Read csv files into R
+Resource <- read.csv("../Data/Resource.csv")  # Read csv files into R
 
 # Import data frames into database
  dbWriteTable(conn = db, name = "Resource", value = Resource, row.names = FALSE)

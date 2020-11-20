@@ -1,9 +1,10 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: DataWrang.R
-#Work Path: CMEECourseWork/Week3
+#Work Path: CMEECourseWork/Week3/Code
 #Dependency: tidyverse
-#Input:
+#Input: Data/PoundHillData.csv
+#       Data/PoundHillMetaData.csv
 #Function: Data wrangling using tidyverse package
 #Output:
 #Usage: Rscript DataWranTidy.R
@@ -14,10 +15,10 @@ library(tidyverse)
 
 ############# Load the dataset ###############
 # header = false because the raw data don't have real headers
-MyData = readr::read_csv("Data/PoundHillData.csv",col_names = F)
+MyData = readr::read_csv("../Data/PoundHillData.csv",col_names = F)
 MyData = as_tibble(MyData)
 # header = true because we do have metadata headers
-MyMetaData = readr::read_csv("Data/PoundHillMetaData.csv")
+MyMetaData = readr::read_csv("../Data/PoundHillMetaData.csv")
 MyMetaData = as_tibble(MyMetaData)
 ############# Inspect the dataset ###############
 head(MyData)

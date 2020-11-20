@@ -1,7 +1,7 @@
 """Language: Python3
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: cfexercises2.py
-   Cong Liu: CMEECourseWork/Week2
+   Cong Liu: CMEECourseWork/Week2/Code
    Input file: 
    Function: Show the usage of for and while loop
    Output:

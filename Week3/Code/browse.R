@@ -1,7 +1,7 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: browse.R
-#Work Path: CMEECourseWork/Week3
+#Work Path: CMEECourseWork/Week3/Code
 #Input:
 #Function: An exemple of debugging
 #Output:

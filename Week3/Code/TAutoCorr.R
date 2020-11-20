@@ -1,7 +1,7 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: TAutoCorr.R
-#Work Directory: CMEECourseWork/Week3
+#Work Directory: CMEECourseWork/Week3/Code
 #Dependency: ggplot2
 #Input: Data/KeyWestAnnualMeanTemperature.RData
 #Function: Test autocorrelation of each year's temperature 
@@ -9,7 +9,7 @@
 #Usage:
 #Date: Oct, 2020
 
-load("Data/KeyWestAnnualMeanTemperature.RData") #Import data
+load("../Data/KeyWestAnnualMeanTemperature.RData") #Import data
 
 library(ggplot2)
 

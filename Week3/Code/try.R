@@ -1,7 +1,7 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: try.R
-#Work Path: CMEECourseWork/Week3
+#Work Path: CMEECourseWork/Week3/Code
 #Input:
 #Function: Exemplify the usage of try()
 #Output:

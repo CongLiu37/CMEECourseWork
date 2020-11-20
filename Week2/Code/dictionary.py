@@ -1,7 +1,7 @@
 """Language: Python3
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: dictionary.py
-   Work Path: CMEECourseWork/Week2
+   Work Path: CMEECourseWork/Week2/Code
    Input file:
    Function: Practical of python programming
    Output:

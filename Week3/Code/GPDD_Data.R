@@ -1,7 +1,7 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: GPDD.R
-#Work Path: CMEECourseWork/Week3
+#Work Path: CMEECourseWork/Week3/Code
 #Dependency: ggplot2, maps
 #Input: Data/GPDDFiltered.RData
 #Function: Create a world map, 
@@ -11,7 +11,7 @@
 #Usage: Rscript GPDD.R
 #Date: Oct, 2020
 
-load("Data/GPDDFiltered.RData")
+load("../Data/GPDDFiltered.RData")
 library(ggplot2)
 library(maps)
 

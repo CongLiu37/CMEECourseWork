@@ -1,7 +1,7 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: PP_Regress.R
-#Work Path: CMEECourseWork/Week3
+#Work Path: CMEECourseWork/Week3/Code
 #Dependency: ggplot2, scales, broom
 #Input: Data/EcolArchives-E089-51-D1.csv
 #Function: Regress prey mass and predator mass for each 
@@ -18,7 +18,14 @@
 rm(list = ls())
 
 #Import data
-data = read.csv("Data/EcolArchives-E089-51-D1.csv")
+data = read.csv("../Data/EcolArchives-E089-51-D1.csv")
+
+for (i in 1:nrow(data)){
+  if (data$Prey.mass.unit[i] == "mg"){
+    data$Prey.mass.unit[i] = "g"
+    data$Predator.mass[i] = data$Predator.mass[i] / 1000
+  }
+}
 
 FeedType = names(table(data$Type.of.feeding.interaction))
 PredatorStage = names(table(data$Predator.lifestage))
@@ -39,7 +46,7 @@ lmSum = function(a,b){
   c[6] = unname(glance(mol)$p.value)
   return(c)
 }
-
+data$Prey.mass.unit
 Reg = data.frame(RegTitle)
 n = names(Reg)
 k = 2
@@ -58,14 +65,14 @@ for (i in FeedType){
   }
 }
 
-write.csv(Reg,"Results/PP_Regress_Results.csv",row.names = F)
+write.csv(Reg,"../Results/PP_Regress_Results.csv",row.names = F)
 
 #Picture
 
 library(scales)
 library(ggplot2)
 
-pdf("Results/PP_Regress_Results.pdf")
+pdf("../Results/PP_Regress_Results.pdf")
 
 ggplot(data, aes(x = Prey.mass, 
                  y = Predator.mass, 
@@ -81,4 +88,5 @@ ggplot(data, aes(x = Prey.mass,
   theme(legend.position = "bottom",
         legend.title = element_text(size = 10),
         legend.key.size = unit("5", "pt"))
+
 dev.off()

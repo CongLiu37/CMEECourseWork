@@ -1,7 +1,7 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: plotLin.R
-#Work Path: CMEECourseWork/Week3
+#Work Path: CMEECourseWork/Week3/Code
 #Dependency: ggplot2
 #Input:
 #Function: Plot linear regression data
@@ -21,7 +21,7 @@ my_data <- data.frame(x = x, y = y)
 # perform a linear regression
 my_lm <- summary(lm(y ~ x, data = my_data))
 
-pdf("Results/MyLinReg.pdf")
+pdf("../Results/MyLinReg.pdf")
 # plot the data
 p <-  ggplot(my_data, aes(x = x, y = y,
                           colour = abs(my_lm$residual))

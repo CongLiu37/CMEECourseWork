@@ -1,23 +1,23 @@
 #!/bin/bash
 #Auther:Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: UnixPrac1.txt
-#Work Path: /CMEECourseWork/Week1
+#Work Path: /CMEECourseWork/Week1/Code
 #Input: Files in Data/, seen in each command line 
 #Function: Seen in practicals of UNIX and Linux chapter in https://mhasoba.github.io/TheMulQuaBio/intro.html
 #Output: txt files, saved in Results/
 #Date: Oct, 2020
 
 #Practical 1
-wc -l ./Data/*.fasta >> ./Results/#1.txt
+wc -l ../Data/*.fasta >> ../Results/#1.txt
 
 #Practical 2
-sed -n 2,78104p ./Data/E.coli.fasta >> ./Results/#2.txt 
+sed -n 2,78104p ../Data/E.coli.fasta >> ../Results/#2.txt 
 
 #Practical 3
-wc -m ./Results/#2.txt >> ./Results/#3.txt 
+wc -m ../Results/#2.txt >> ../Results/#3.txt 
 
 #Practical 4
-sed ':t;N;s/\n//;b t' ./Results/#2.txt | grep -o 'ATGC' | wc -l >> ./Results/#4.txt
+sed ':t;N;s/\n//;b t' ../Results/#2.txt | grep -o 'ATGC' | wc -l >> ../Results/#4.txt
 
 #Practical 5
-expr $(expr $(grep -o "A" ./Data/E.coli.fasta | wc -l)+$(grep -o "T" ./Data/E.coli.fasta | wc -l) | bc -l)/$(expr $(grep -o "C" ./Data/E.coli.fasta | wc -l)+$(grep -o "G" ./Data/E.coli.fasta | wc -l) | bc -l) | bc -l >> ./Results/#5.txt
+expr $(expr $(grep -o "A" ../Data/E.coli.fasta | wc -l)+$(grep -o "T" ../Data/E.coli.fasta | wc -l) | bc -l)/$(expr $(grep -o "C" ../Data/E.coli.fasta | wc -l)+$(grep -o "G" ../Data/E.coli.fasta | wc -l) | bc -l) | bc -l >> ../Results/#5.txt

@@ -1,7 +1,7 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: PP_Dists.R
-#Work Path: CMEECourseWork/Week3
+#Work Path: CMEECourseWork/Week3/Code
 #Dependency: ggplot2
 #Input: Data/EcolArchives-E089-51-D1.csv
 #Function: Plot distributions of predator mass, prey mass, 
@@ -18,7 +18,7 @@
 
 rm(list = ls())
 
-data = read.csv("Data/EcolArchives-E089-51-D1.csv")
+data = read.csv("../Data/EcolArchives-E089-51-D1.csv")
 
 log_predator_mass = log(data$Predator.mass)
 log_prey_mass = log(data$Prey.mass)
@@ -34,7 +34,7 @@ TempData = data.frame(data$Type.of.feeding.interaction,
 library(ggplot2)
 
 #Plots of Predator
-pdf("Results/Pred_Subplots.pdf")
+pdf("../Results/Pred_Subplots.pdf")
 attach(mtcars)
 opar = par(no.readonly = T)
 par(mfcol=c(2,3))
@@ -76,7 +76,7 @@ hist(subset(TempData,
 dev.off()
 
 #Plots of Prey
-pdf("Results/Prey_Subplots.pdf")
+pdf("../Results/Prey_Subplots.pdf")
 attach(mtcars)
 par(mfcol=c(2,3))
 par(mfg=c(1,1))
@@ -117,7 +117,7 @@ hist(subset(TempData,
 dev.off()
 
 #Plots of Ratio
-pdf("Results/SizeRatio_Subplots.pdf")
+pdf("../Results/SizeRatio_Subplots.pdf")
 attach(mtcars)
 par(mfcol=c(2,3))
 par(mfg=c(1,1))
@@ -208,4 +208,4 @@ re = data.frame(type = ty,log_Prey_means, log_Prey_medians,
                 log_Predator_means, log_Predator_medians,
                 log_ratio_means,log_ratio_medians)
 
-write.csv(re, "Results/PP_Results.csv", row.names = F)
+write.csv(re, "../Results/PP_Results.csv", row.names = F)

@@ -1,7 +1,7 @@
 """Language: Python3
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: test_control_flow.py
-   Work Path: CMEECourseWork/Week2
+   Work Path: CMEECourseWork/Week2/Code
    Input file:
    Function: Exemplify the use of control statement
    Output:

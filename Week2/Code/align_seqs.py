@@ -1,14 +1,14 @@
 """Language: Python3
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: align_seqs.py
-   Work Path: CMEECourseWork/Week2
+   Work Path: CMEECourseWork/Week2/Code
    Input: Two sequences saved in Data/align.fasta
    Function: Align two sequences saved in input file
    Output: The best alignment and corresponding score, saved in Results/align.txt
    Usage: python align_seqs.py
    Date: Oct, 2020"""
 
-file1 = open("Data/align.fasta", "r")
+file1 = open("../Data/align.fasta", "r")
 
 list1 = []
 for line in file1:
@@ -81,7 +81,7 @@ print(s1)
 print("Best score:", my_best_score)
 
 #Save the output
-file2 = open("./Results/align.txt", "w")
+file2 = open("../Results/align.txt", "w")
 
 file2.write(my_best_align + "\n")
 file2.write(s1 + "\n")

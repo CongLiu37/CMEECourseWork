@@ -1,7 +1,7 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: Girko.R
-#Work Path: CMEECourseWork/Week3
+#Work Path: CMEECourseWork/Week3/Code
 #Dependency: ggplot2
 #Input:
 #Function: Simulate Girko’s circular law.
@@ -32,7 +32,7 @@ ellDF <- build_ellipse(my_radius, my_radius) # Dataframe to plot the ellipse
 names(ellDF) <- c("Real", "Imaginary") # rename the columns
 
 # plot the eigenvalues
-pdf("Results/Girko.pdf")
+pdf("../Results/Girko.pdf")
 library(ggplot2)
 p <- ggplot(eigDF, aes(x = Real, y = Imaginary))
 p <- p +

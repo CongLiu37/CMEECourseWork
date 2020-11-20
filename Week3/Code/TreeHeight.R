@@ -1,7 +1,7 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: TreeHeight.R
-#Work Path: CMEECourseWork/Week3
+#Work Path: CMEECourseWork/Week3/Code
 #Input: Data/trees.csv
 #Function: Calculate heights of trees given distance of each tree 
 #          from its base and angle to its top, using  the trigonometric formula 
@@ -24,7 +24,7 @@ TreeHeight <- function(degrees, distance){
   return (height)
 }
 
-data = read.csv("Data/trees.csv", header = T)
+data = read.csv("../Data/trees.csv", header = T)
 a = nrow(data)
 head(data)
 
@@ -38,5 +38,5 @@ for ( i in 1:a ){
 
 data_more = data.frame(data, Tree.Height.m)
 head(data_more)
-write.csv(data_more, "Results/TreeHts.csv", row.names = F)
+write.csv(data_more, "../Results/TreeHts.csv", row.names = F)
 

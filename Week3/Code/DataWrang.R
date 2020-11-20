@@ -1,9 +1,10 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: DataWrang.R
-#Work Path: CMEECourseWork/Week3
+#Work Path: CMEECourseWork/Week3/Code
 #Dependency: reshape2
-#Input:
+#Input: Data/PoundHillData.csv
+#       Data/PoundHillMetaData.csv
 #Function: Data wrangling usin reshape2 packae
 #Output:
 #Usage: Rscript DataWrang.R
@@ -15,10 +16,10 @@
 rm(list = ls())
 ############# Load the dataset ###############
 # header = false because the raw data don't have real headers
-MyData <- as.matrix(read.csv("Data/PoundHillData.csv", header = FALSE))
+MyData <- as.matrix(read.csv("../Data/PoundHillData.csv", header = FALSE))
 
 # header = true because we do have metadata headers
-MyMetaData <- read.csv("Data/PoundHillMetaData.csv", header = TRUE, sep = ";")
+MyMetaData <- read.csv("../Data/PoundHillMetaData.csv", header = TRUE, sep = ";")
 
 ############# Inspect the dataset ###############
 head(MyData)

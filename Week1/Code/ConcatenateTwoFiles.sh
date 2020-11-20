@@ -1,7 +1,7 @@
 #!/bin/bash
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: ConcatenateTwoFiles.sh
-#Work Path: CMEECourseWork/Week1
+#Work Path: CMEECourseWork/Week1/Code
 #Input: Two files saved in Data/
 #Function: Merge input files
 #Output: Merged file of inputs, saved as Results/Merged
@@ -17,9 +17,9 @@ if [ -z $1 ];
                 echo "Only one file is inoutted"
                 echo "Two files should be inputted"
             else
-                if [ -e Data/$1 ];
+                if [ -e ../Data/$1 ];
                     then
-                        if [ -e Data/$2 ];
+                        if [ -e ../Data/$2 ];
                             then 
                                 file1=Data/$1
                                 file2=Data/$2
