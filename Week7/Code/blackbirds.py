@@ -17,14 +17,18 @@ text = text.decode('ascii', 'ignore') # Now decode back to string
 
 # Now extend this script so that it captures the Kingdom, Phylum and Species
 # name for each species and prints it out to screen neatly.
+
+#Regular expressions for names of kindom, phylum and species
 kingdom = r"(Kingdom\s\w+)"
 phylum = r"(Phylum\s\w+)"
 species = r"(Species\s\w+\s\w+)"
 
+#Match regular expressions to text
 k = re.findall(kingdom, text)
 p = re.findall(phylum, text)
 s = re.findall(species, text)
 
+#Print kindoms, pylum and species
 for i in range(0,len(k)):
     print(k[i])
     print(p[i])

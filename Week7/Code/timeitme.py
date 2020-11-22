@@ -2,10 +2,9 @@
    Author: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: timeitme.py
    Work Path: CMEECourseWork/Week7/Code
-   Dependencies: profileme.py
-                 profileme.py
-                 timeit, time
-   Input:
+   Dependencies: timeit, time
+   Input: Profileme.py
+          Profileme2.py
    Function: Another two ways of profiling code.
    Output: 
    Usage: python profileme.py
@@ -33,12 +32,13 @@ from profileme import my_join as my_join_join
 
 from profileme2 import my_join as my_join
 
-
+#Print the running time of function in Profileme.py, which uses loops.
 import time
 start = time.time()
 my_squares_loops(iters)
 print("my_squares_loops takes %f s to run." % (time.time() - start))
 
+#Print the running time of function in Profileme2.py, which uses vectorization.
 start = time.time()
 my_squares_lc(iters)
 print("my_squares_lc takes %f s to run." % (time.time() - start))

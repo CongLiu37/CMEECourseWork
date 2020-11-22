@@ -3,9 +3,12 @@
 
 cat("Reading CSV\n")
 
+#Import files
 nagy <- read.csv('../Data/NagyEtAl1999.csv', stringsAsFactors = FALSE)
 
 cat("Creating graph\n")
+
+#Plot
 pdf('../Results/fmr_plot.pdf', 11, 8.5)
 col <- c(Aves='purple3', Mammalia='red3', Reptilia='green3')
 plot(log10(nagy$M.g), log10(nagy$FMR.kJ.day.1), pch=19, col=col[nagy$Class], 

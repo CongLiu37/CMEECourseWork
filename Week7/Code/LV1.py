@@ -18,7 +18,7 @@ import sys
 
 def dCR_dt(pops, t=0):
     """Cauculate dR/dt and dC/dt, where t is time, 
-       R and C are densities of resources and consumers."""
+       R and C are densities of resource and consumer."""
     R = pops[0]
     C = pops[1]
     dRdt = r * R - a * R * C 
@@ -37,8 +37,10 @@ R0 = 10
 C0 = 5 
 RC0 = np.array([R0, C0])
 
+#Integration
 pops, infodict = integrate.odeint(dCR_dt, RC0, t, full_output=True)
 
+#Plotting
 f1 = p.figure()
 p.plot(t, pops[:,0], 'g-', label='Resource density') # Plot
 p.plot(t, pops[:,1]  , 'b-', label='Consumer density')

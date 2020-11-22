@@ -5,17 +5,19 @@
    Dependencies: sys, numpy, scipy.integrate, matplotlib.pylab
    Input: 
    Function: Simulate Lotka-Volterra model with prey density dependence 
-             and visualize results in two ways.
-             Fault values of parameters parameters are:
+             and visualize results in two ways. Parameters should be provided by user.
+             If no parameter is provided, following default values will be used:
              r = 1
              a = 0.1
              z = 1.5
              e = 0.75
              K =  1,000,000
+             The final densities of resource and consumer are printed.
    Output: Results/LV.pdf
            Results/LV1.pdf
-   Usage: python LV2.py 1 0.1 1.5 0.75 1000000
+   Usage: python LV2.py [r] [a] [z] [e] [K]
    Date: Nov, 2020"""
+
 import sys
 import os
 import numpy as np
@@ -54,9 +56,12 @@ R0 = 10
 C0 = 5 
 RC0 = np.array([R0, C0])
 
+#Integration
 pops, infodict = integrate.odeint(dCR_dt, RC0, t, full_output=True)
+
 print(pops[-1,:])
 
+#Plottin
 f1 = p.figure()
 p.plot(t, pops[:,0], 'g-', label='Resource density') # Plot
 p.plot(t, pops[:,1]  , 'b-', label='Consumer density')
