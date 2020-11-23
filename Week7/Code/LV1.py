@@ -6,8 +6,8 @@
    Input: 
    Function: Simulate Lotka-Volterra model for a predator-prey system 
              and visualize results in two ways. 
-   Output: Results/LV1_1.pdf
-           Results/LV1_2.pdf
+   Output: ../Results/LV1_1.pdf
+           ../Results/LV1_2.pdf
    Usage: python LV1.py
    Date: Nov, 2020"""
 

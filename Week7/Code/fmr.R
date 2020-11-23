@@ -1,3 +1,15 @@
+#Language: R 4.0.3
+#Author: Cong Liu (cong.liu20@imperial.ac.uk)
+#Work Path: CMEECourseWork/Week7/Code
+#Dependencies:
+#Input: ../Data/NagyEtAl1999.csv
+#Function: Plots log(field metabolic rate) against log(body mass) for the Nagy et al 
+#          1999 dataset to a file fmr.pdf.
+#Output: ../Results/fmr_plot.pdf
+#Usage: Rscript fmr.R
+#Date: Nov, 2020
+
+
 # Plots log(field metabolic rate) against log(body mass) for the Nagy et al 
 # 1999 dataset to a file fmr.pdf.
 

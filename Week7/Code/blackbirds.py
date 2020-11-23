@@ -1,3 +1,15 @@
+"""Language: Python3
+   Author: Cong Liu (cong.liu20@imperial.ac.uk)
+   Script: blackbirds.py
+   Work Path: CMEECourseWork/Week7/Code
+   Dependencies: re
+   Input: ../Data/blackbirds.txt
+   Function: Capture the Kingdom, Phylum and Species 
+             name for each species and prints it out to screen neatly
+   Output: 
+   Usage: python blackbirds.py
+   Date: Nov, 2020"""
+
 import re
 
 # Read the file (using a different, more python 3 way, just for fun!)

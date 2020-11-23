@@ -5,7 +5,7 @@
    Dependency: subprocess
    Input: fmr.R
    Function: Run fmr.R
-   Output: Results/fmr_plot.pdf
+   Output: ../Results/fmr_plot.pdf
    Usage: python run_fmr_R.py
    Date: Nov, 2020"""
 

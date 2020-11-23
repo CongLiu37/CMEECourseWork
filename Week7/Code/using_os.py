@@ -1,4 +1,15 @@
-""" This is blah blah"""
+"""Language: Python3
+   Author: Cong Liu (cong.liu20@imperial.ac.uk)
+   Script: using_os.py
+   Work Path: CMEECourseWork/Week7/Code
+   Dependencies: subprocess
+   Input: 
+   Function: Get a list of files and directories in home/ that start with 'C'.
+             Get files and directories in home/ that start with either an upper or lower case 'C'.
+             Get only directories in your home/ that start with either an upper or lower case 'C'.
+   Output: 
+   Usage: python profileme.py
+   Date: Nov, 2020"""
 
 # Use the subprocess.os module to get a list of files and directories 
 # in your ubuntu home directory 
