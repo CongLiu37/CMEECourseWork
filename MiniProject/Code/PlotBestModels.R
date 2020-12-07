@@ -43,28 +43,37 @@ for (i in 1:903){
   temp = seq(min(d$ConTemp), max(d$ConTemp), 0.1)
   
   p = ggplot(d, aes(x = ConTemp, y = OriginalTraitValue)) + geom_point() +
-    labs(title = as.character(i)) +
+    labs(title = paste("ID:", as.character(i))) +
     xlab("Temperature") +
-    ylab("Trait Value")
-  if (nrow(modq) != 0){
-  pre1 = modq$B0 + modq$B1*temp + modq$B2*temp^2
-  p = p + geom_line(data = data.frame(ConTemp = temp, OriginalTraitValue = pre1),
-                    aes(x = ConTemp, y = OriginalTraitValue, colour = "Quadratic"))}
-  if (nrow(modc) != 0){
-  pre2 = modc$B0 + modc$B1*temp + modc$B2*temp^2 + modc$B3*temp^3
-  p = p + geom_line(data = data.frame(ConTemp = temp, OriginalTraitValue = pre2),
-                    aes(x = ConTemp, y = OriginalTraitValue, colour = "Cubic"))}
+    ylab("Trait Value") +
+    theme(plot.title = element_text(hjust = 0.5))
   
+  pre1 = data.frame()
+  if (nrow(modq) != 0){
+    pre1 = modq$B0 + modq$B1*temp + modq$B2*temp^2
+    pre1 = data.frame(Model = rep("Quadratic", length(temp)),
+                      ConTemp = temp,
+                      OriginalTraitValue = pre1)}
+  pre2 = data.frame()
+  if (nrow(modc) != 0){
+    pre2 = modc$B0 + modc$B1*temp + modc$B2*temp^2 + modc$B3*temp^3
+    pre2 = data.frame(Model = rep("Cubic", length(temp)),
+                      ConTemp = temp,
+                      OriginalTraitValue = pre2)}
+  pre3 = data.frame()
   if (nrow(modb) != 0){
-    for (j in 1:nrow(modb)){
-      pre = as.numeric(modb$B0[j]) * temp * (temp-as.numeric(modb$T0[j])) * (as.numeric(modb$Tm[j])-temp)^0.5
-      p = p + geom_line(data = data.frame(ConTemp = temp, OriginalTraitValue = pre),
-                        aes(x = ConTemp, y = OriginalTraitValue, colour = "Briere"))}}
+    pre3 = as.numeric(modb$B0) * temp * (temp-as.numeric(modb$T0)) * (abs(as.numeric(modb$Tm)-temp))^0.5
+    pre3 = data.frame(Model = rep("Briere", length(pre3)),
+                      ConTemp = temp,
+                      OriginalTraitValue = pre3)}
+  pre4 = data.frame()
   if (nrow(modr) != 0){
-    for (j in 1:nrow(modr)){
-      pre = ((as.numeric(modr$a[j]) * (temp - as.numeric(modr$T0[j]))) * (1 - exp(as.numeric(modr$b[j]) * (temp - as.numeric(modr$Tm[j])))))^2
-      p = p + geom_line(data = data.frame(ConTemp = temp, OriginalTraitValue = pre),
-                        aes(x = ConTemp, y = OriginalTraitValue, colour = "Ratkowsky"))}}
+    pre4 = ((as.numeric(modr$a) * (temp - as.numeric(modr$T0))) * (1 - exp(as.numeric(modr$b) * (temp - as.numeric(modr$Tm)))))^2
+    pre4 = data.frame(Model = rep("Ratkowsky", length(temp)),
+                      ConTemp = temp,
+                      OriginalTraitValue = pre4)}
+  p = p + geom_line(data = rbind(pre1, pre2, pre3, pre4), 
+                    aes(x = ConTemp, y = OriginalTraitValue, colour = Model))
   print(p)
 }
 dev.off()
@@ -79,28 +88,36 @@ for (i in 1:903){
   temp = seq(min(d$ConTemp), max(d$ConTemp), 0.1)
   
   p = ggplot(d, aes(x = ConTemp, y = OriginalTraitValue)) + geom_point() +
-    labs(title = as.character(i)) +
+    labs(title = paste("ID:", as.character(i))) +
     xlab("Temperature") +
-    ylab("Trait Value")
+    ylab("Trait Value") +
+    theme(plot.title = element_text(hjust = 0.5))
+  pre1 = data.frame()
   if (nrow(modq) != 0){
     pre1 = modq$B0 + modq$B1*temp + modq$B2*temp^2
-    p = p + geom_line(data = data.frame(ConTemp = temp, OriginalTraitValue = pre1),
-                      aes(x = ConTemp, y = OriginalTraitValue, colour = "Quadratic"))}
+    pre1 = data.frame(Model = rep("Quadratic", length(temp)),
+                      ConTemp = temp,
+                      OriginalTraitValue = pre1)}
+  pre2 = data.frame()
   if (nrow(modc) != 0){
     pre2 = modc$B0 + modc$B1*temp + modc$B2*temp^2 + modc$B3*temp^3
-    p = p + geom_line(data = data.frame(ConTemp = temp, OriginalTraitValue = pre2),
-                      aes(x = ConTemp, y = OriginalTraitValue, colour = "Cubic"))}
-  
+    pre2 = data.frame(Model = rep("Cubic", length(temp)),
+                      ConTemp = temp,
+                      OriginalTraitValue = pre2)}
+  pre3 = data.frame()
   if (nrow(modb) != 0){
-    for (j in 1:nrow(modb)){
-      pre = as.numeric(modb$B0[j]) * temp * (temp-as.numeric(modb$T0[j])) * (as.numeric(modb$Tm[j])-temp)^0.5
-      p = p + geom_line(data = data.frame(ConTemp = temp, OriginalTraitValue = pre),
-                        aes(x = ConTemp, y = OriginalTraitValue, colour = "Briere"))}}
+    pre3 = as.numeric(modb$B0) * temp * (temp-as.numeric(modb$T0)) * (abs(as.numeric(modb$Tm)-temp))^0.5
+    pre3 = data.frame(Model = rep("Briere", length(pre3)),
+                      ConTemp = temp,
+                      OriginalTraitValue = pre3)}
+  pre4 = data.frame()
   if (nrow(modr) != 0){
-    for (j in 1:nrow(modr)){
-      pre = ((as.numeric(modr$a[j]) * (temp - as.numeric(modr$T0[j]))) * (1 - exp(as.numeric(modr$b[j]) * (temp - as.numeric(modr$Tm[j])))))^2
-      p = p + geom_line(data = data.frame(ConTemp = temp, OriginalTraitValue = pre),
-                        aes(x = ConTemp, y = OriginalTraitValue, colour = "Ratkowsky"))}}
+    pre4 = ((as.numeric(modr$a) * (temp - as.numeric(modr$T0))) * (1 - exp(as.numeric(modr$b) * (temp - as.numeric(modr$Tm)))))^2
+    pre4 = data.frame(Model = rep("Ratkowsky", length(temp)),
+                      ConTemp = temp,
+                      OriginalTraitValue = pre4)}
+  p = p + geom_line(data = rbind(pre1, pre2, pre3, pre4), 
+                    aes(x = ConTemp, y = OriginalTraitValue, colour = Model))
   print(p)
 }
 dev.off()

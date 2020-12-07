@@ -107,15 +107,18 @@ for (i in IDs){
   if (i %in% r_BIC$ID){mod[i,3] = "Ratkowsky"}
 }
 
-
+data = read.csv("../Data/ThermRespData.csv")
 a = subset(mod, bestAIC != bestBIC)
+
 p12 = paste(nrow(a), "curves are best fitted by different functions when different criterion",
             "of model selection is used")
 print(p12)
 print(a)
+write.csv(a, "../Results/a.csv", row.names = F)
 
-data = read.csv("../Data/ThermRespData.csv")
-table(data$Habitat)
+
+
+
 Metabolic = rep(NA, 903)
 Hab =  rep(NA, 903)
 for (i in 1:903){
@@ -136,7 +139,7 @@ table(subset(mod, Metabolic == "net photosynthesis rate")$bestAIC)
 print("For respiration rate")
 table(subset(mod, Metabolic == "respiration rate")$bestAIC)
 
-print("For species living in non-terrestrial habitat")
+print("For species living in terrestrial habitat")
 table(subset(mod,Habitat == "terrestrial")$bestAIC)
 print("For species living in non-terrestrial habitat")
 table(subset(mod,Habitat != "terrestrial")$bestAIC)

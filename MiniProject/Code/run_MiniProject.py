@@ -11,28 +11,34 @@
 
 import os
 
-#os.system("Rscript data_filter.R")
+os.system("Rscript data_filter.R")
 
 #Model fitting
-#os.system("Rscript quadratic_polynomial_model.R")
-#os.system("Rscript cubic_polynomial_model.R")
-#os.system("Rscript Briere_model.R")
-#os.system("Rscript Ratkowsky_model.R")
+os.system("Rscript quadratic_polynomial_model.R")
+os.system("Rscript cubic_polynomial_model.R")
+os.system("Rscript Briere_model.R")
+os.system("Rscript Ratkowsky_model.R")
 
-#Select Briere models and Ratkowsky models with lowest AIC or BIC of each curve.
-#os.system("Rscript ModelQC.R")
+
+os.system("Rscript ModelQC.R")
 
 #Plot all plausible models
 os.system("Rscript PlotValidModels.R")
 
-#Choose best fitting models of each curve,
+#Choose best model of each curve,
 #using either AIC or BIC as criteria
-#os.system("Rscript BestModel.R")
+os.system("Rscript BestModel.R")
 
-#os.system("Rscript StatisticsResults.R")
+os.system("Rscript StatisticsResults.R")
 
 #Plot best model or models of each curve
 os.system("Rscript PlotBestModels.R")
+
+os.system("Rscript StatisticsResults.R")
+
+os.system("Rscript FiguresInReport.R")
+
+os.system("bash CompileLaTeX.sh Report")
 
 
 
