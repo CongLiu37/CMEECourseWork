@@ -62,7 +62,7 @@ Output:
 Usage: python profileme2.py
 Date: Nov, 2020
 
-(5) re.py
+(5) re4.py
 Language: Python3
 Author: Cong Liu (cong.liu20@imperial.ac.uk)
 Work Path: CMEECourseWork/Week7/Code
@@ -70,7 +70,7 @@ Dependencies: re
 Input:
 Function: Extract email address by regular express
 Output: 
-Usage: python re.py
+Usage: python re4.py
 Date: Nov, 2020
 
 (6)run_fmr_R.py
