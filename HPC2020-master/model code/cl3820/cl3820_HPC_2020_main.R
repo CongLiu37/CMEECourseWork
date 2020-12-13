@@ -67,7 +67,7 @@ question_8 <- function() {
   plot(series, type = "l",
        xlab = "Generation", ylab = "Species richness")
   # clear any existing graphs and plot your graph within the R window
-  return("The system will converge to 1 if number of generations are large.
+  return("The system will converge to 1 if number of generations is large.
          This is because in each generation, there is a proportion of individuals 
          that die without offsprings. Given time that is long enough, all individuals 
          in the community will be traced back to a common ancestor, and species 
@@ -177,7 +177,7 @@ question_16 <- function()  {
           col = c("blue", "red"),
           xlab = "Abundance", ylab = "Species richness", beside = T)
   legend("topright", c("max", "min"), fill = c("blue", "red"))
-  return("The initial state does not influence the output obviously. 
+  return("The initial state does not influence the output significantly. 
   The reason is explained below.
   The abundances and richness of species is dependent on frequencies of species 
   since the overall number of individuals in the community is a constant.
@@ -185,7 +185,7 @@ question_16 <- function()  {
   driven by two factors: stochastic factor and speciation. Stochastic factor 
          decreases species richness and leads to homogeneity, while 
          speciation leads to diversity. In a long period of time, 
-         two opposite factors reach a balance dependent on number of individuals 
+         two opposite factors reach a dynamic equilibrium dependent on number of individuals 
          in the community and speciation rate, while the initial state of the community 
          has no influence on it.")
 }
@@ -324,19 +324,16 @@ chaos_game <- function()  {
   C = c(4,1)
   X = c(0,0)
 
-  plot(X[1],X[2],cex=0.1,xlim = c(-2,3),ylim = c(-2,3))
-  for (i in 1:100){
+  plot(X[1],X[2],cex=0.1, xlim = c(0,5), ylim = c(0,6))
+  for (i in 1:2000){
   b = sample(c(1,2,3),1)
   if (b==1){a = A}
   if (b==2){a = B}
   if (b==3){a = C}
-  segments(x0=X[1],y0=X[2], x1=0.5*(a-X)[1], y1=0.5*(a-X)[2])
-  X = 0.5*(a-X)
+  X = X + 0.5*(a-X)
+  points(X[1],X[2])
   }
-  return("The point moves in a limited range, which is approximately a 
-         rectangle with vertices (-2,-2), (-2,3), (3,-2) and (3,3). In 
-         the process of moving, the path pf point X tends to pass by 
-         three fixed points.")
+  return("The points form a Sierpinski gasket approximately.")
 }
 
 # Question 24
