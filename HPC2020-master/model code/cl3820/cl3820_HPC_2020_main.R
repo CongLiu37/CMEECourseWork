@@ -5,6 +5,7 @@ name <- "Cong Liu"
 preferred_name <- "Cong"
 email <- "cong.liu20@imperial.ac.uk"
 username <- "cl3820"
+personal_speciation_rate <- 0.0047648
 
 # please remember *not* to clear the workspace here, or 
 #anywhere in this file. If you do, it'll wipe out your username information 
@@ -65,7 +66,8 @@ neutral_time_series <- function(community,duration){
 question_8 <- function() {
   series = neutral_time_series(init_community_max(100), duration = 200)
   plot(series, type = "l",
-       xlab = "Generation", ylab = "Species richness")
+       xlab = "Generation", ylab = "Species richness",
+       main = "Fluctuation of Species Ricness")
   # clear any existing graphs and plot your graph within the R window
   return("The system will converge to 1 if number of generations is large.
          This is because in each generation, there is a proportion of individuals 
@@ -113,15 +115,16 @@ question_12 <- function()  {
   min = neutral_time_series_speciation(community = init_community_min(100),
                                        speciation_rate = 0.1, duration = 200)
   plot(max, type = "l",
-       xlab = "Generation", ylab = "Species richness", col = "red")
+       xlab = "Generation", ylab = "Species richness", col = "red",
+       main = "Fluctuation of Species Richness")
   lines(min, col = "blue")
   legend("topright",cex = 1, c("min","max"), col = c("blue", "red"), lty = 1)
   # clear any existing graphs and plot your graph within the R window
   
   return("The community reaches such a state that its species richness 
-         fluctuates in a narrow range, no matter what initial conditions 
-         it has. This is caused by a balance between speciation, which 
-         leads to the increase of species richness, and random factors, which 
+         fluctuates in a narrow range, no matter what initial condition 
+         it has. This is caused by a dynamic balance between speciation, which 
+         leads to the increase of species richness; and random factors, which 
          lead to the decrease of species richness.")
 }
 
@@ -175,19 +178,16 @@ question_16 <- function()  {
   average2 = sum2/100
   barplot(rbind(average1, average2), names.arg = c(1,2,3,4,5,6), 
           col = c("blue", "red"),
-          xlab = "Abundance", ylab = "Species richness", beside = T)
+          xlab = "Abundance", ylab = "Species richness", beside = T,
+          main = "Species Richness of Different Octave Abundance")
   legend("topright", c("max", "min"), fill = c("blue", "red"))
   return("The initial state does not influence the output significantly. 
-  The reason is explained below.
-  The abundances and richness of species is dependent on frequencies of species 
-  since the overall number of individuals in the community is a constant.
-  In the model simulated here, the fluctuation of frequencies of species is 
+  In the model simulated here, the state of community is 
   driven by two factors: stochastic factor and speciation. Stochastic factor 
          decreases species richness and leads to homogeneity, while 
-         speciation leads to diversity. In a long period of time, 
-         two opposite factors reach a dynamic equilibrium dependent on number of individuals 
-         in the community and speciation rate, while the initial state of the community 
-         has no influence on it.")
+         speciation leads to diversity in the community. In a long period of time, 
+         two opposite factors reach a dynamic equilibrium which is not influenced 
+         by initial condition.")
 }
 
 # Question 17
@@ -280,26 +280,26 @@ plot_cluster_results <- function()  {
   data(mtcars)
   attach(mtcars)
   opar = par(no.readonly = T)
-  par(mfrow = c(2,2))
+  par(mfrow = c(2,2), oma = c(0,0,3,0))
   barplot(combined_results[[1]], names.arg = 1:length(combined_results[[1]]), 
           xlab = "Abundance", ylab = "Species richness",
-          main = "Size = 500")
+          main = "Size = 500", ylim = c(0, ceiling(max(combined_results[[1]]))))
   barplot(combined_results[[2]], names.arg = 1:length(combined_results[[2]]), 
           xlab = "Abundance", ylab = "Species richness",
-          main = "Size = 1000")
+          main = "Size = 1000", ylim = c(0, ceiling(max(combined_results[[2]])+1)))
   barplot(combined_results[[3]], names.arg = 1:length(combined_results[[3]]), 
           xlab = "Abundance", ylab = "Species richness",
-          main = "Size = 2500")
+          main = "Size = 2500", ylim = c(0, ceiling(max(combined_results[[3]])+1)))
   barplot(combined_results[[4]], names.arg = 1:length(combined_results[[4]]), 
           xlab = "Abundance", ylab = "Species richness",
-          main = "Size = 5000")
+          main = "Size = 5000", ylim = c(0, ceiling(max(combined_results[[4]])+1)))
+  mtext(text = "Species Richness of Different Octave Abundance", side = 3,
+        line = 0, outer = T)
   par(opar)
   return(combined_results)
     # clear any existing graphs and plot your graph within the R window
     # load combined_results from your rda file
     # plot the graphs
-    
-    return(combined_results)
 }
 
 # Question 21
@@ -367,7 +367,8 @@ spiral <- function(start_position, direction, length)  {
 draw_spiral <- function(start_position=c(0,0), direction=pi/4, length=1)  {
   plot(start_position[1], start_position[2], cex = 0.1,
        xlim = c(start_position[1],start_position[1]+2.5*length),
-       ylim = c(start_position[2]-1.5*length, start_position[2]+length))
+       ylim = c(start_position[2]-1.5*length, start_position[2]+length),
+       main = "Spiral", xlab = "", ylab = "")
   spiral(start_position, direction, length)
   # clear any existing graphs and plot your graph within the R window
   return("The function plots a spiral starts from the input parameter start_position 
@@ -388,7 +389,8 @@ tree <- function(start_position, direction, length)  {
 draw_tree <- function(start_position=c(0,0), direction=pi/4, length=1)  {
   plot(start_position[1], start_position[2], cex = 0.1,
        xlim = c(start_position[1]-length,start_position[1]+2.5*length),
-       ylim = c(start_position[2]-1.5*length, start_position[2]+2.5*length))
+       ylim = c(start_position[2]-1.5*length, start_position[2]+2.5*length),
+       main = "Tree", xlab = "", ylab = "")
   tree(start_position, direction, length)
   # clear any existing graphs and plot your graph within the R window
 
@@ -405,7 +407,8 @@ fern <- function(start_position, direction, length)  {
 draw_fern <- function(start_position=c(0,0), direction=pi/4, length=1)  {
   plot(start_position[1], start_position[2], cex = 0.1,
        xlim = c(start_position[1]-length,start_position[1]+6*length),
-       ylim = c(start_position[2]-1.5*length, start_position[2]+6*length))
+       ylim = c(start_position[2]-1.5*length, start_position[2]+6*length),
+       main = "Fern", xlab = "", ylab = "")
   fern(start_position, direction, length)
   # clear any existing graphs and plot your graph within the R window
 
@@ -423,7 +426,8 @@ fern2 <- function(start_position, direction, length, dir)  {
 draw_fern2 <- function(start_position=c(0,0), direction=pi/4, length=1, dir=1)  {
   plot(start_position[1], start_position[2], cex = 0.1,
        xlim = c(start_position[1]-length,start_position[1]+6*length),
-       ylim = c(start_position[2]-1.5*length, start_position[2]+6*length))
+       ylim = c(start_position[2]-1.5*length, start_position[2]+6*length),
+       main = "Fern2", xlab = "", ylab = "")
   fern2(start_position, direction, length,dir)
   # clear any existing graphs and plot your graph within the R window
 
