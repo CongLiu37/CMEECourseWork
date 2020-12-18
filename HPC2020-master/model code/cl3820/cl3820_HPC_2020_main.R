@@ -179,7 +179,7 @@ question_16 <- function()  {
   barplot(rbind(average1, average2), names.arg = c(1,2,3,4,5,6), 
           col = c("blue", "red"),
           xlab = "Abundance", ylab = "Species richness", beside = T,
-          main = "Species Richness of Different Octave Abundance")
+          main = "Species Richness of Different Octave Abundance", cex.main = 0.8)
   legend("topright", c("max", "min"), fill = c("blue", "red"))
   return("The initial state does not influence the output significantly. 
   In the model simulated here, the state of community is 
@@ -282,16 +282,20 @@ plot_cluster_results <- function()  {
   opar = par(no.readonly = T)
   par(mfrow = c(2,2), oma = c(0,0,3,0))
   barplot(combined_results[[1]], names.arg = 1:length(combined_results[[1]]), 
-          xlab = "Abundance", ylab = "Species richness",
+          xlab = "Abundance", ylab = "Species richness", cex.lab = 0.5, cex.main = 0.5,
+          cex.axis = 0.5,
           main = "Size = 500", ylim = c(0, ceiling(max(combined_results[[1]]))))
   barplot(combined_results[[2]], names.arg = 1:length(combined_results[[2]]), 
-          xlab = "Abundance", ylab = "Species richness",
+          xlab = "Abundance", ylab = "Species richness", cex.lab = 0.5,cex.main = 0.5,
+          cex.axis = 0.5,
           main = "Size = 1000", ylim = c(0, ceiling(max(combined_results[[2]])+1)))
   barplot(combined_results[[3]], names.arg = 1:length(combined_results[[3]]), 
-          xlab = "Abundance", ylab = "Species richness",
+          xlab = "Abundance", ylab = "Species richness", cex.lab = 0.5,cex.main = 0.5,
+          cex.axis = 0.5,
           main = "Size = 2500", ylim = c(0, ceiling(max(combined_results[[3]])+1)))
   barplot(combined_results[[4]], names.arg = 1:length(combined_results[[4]]), 
-          xlab = "Abundance", ylab = "Species richness",
+          xlab = "Abundance", ylab = "Species richness", cex.lab = 0.5,cex.main = 0.5,
+          cex.axis = 0.5,
           main = "Size = 5000", ylim = c(0, ceiling(max(combined_results[[4]])+1)))
   mtext(text = "Species Richness of Different Octave Abundance", side = 3,
         line = 0, outer = T)
