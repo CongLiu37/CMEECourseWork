@@ -65,7 +65,9 @@ neutral_time_series <- function(community,duration){
 # Question 8
 question_8 <- function() {
   graphics.off()# clear any existing graphs and plot your graph within the R window
+  #Time series of species richness
   series = neutral_time_series(init_community_max(100), duration = 200)
+  #Plot
   plot(series, type = "l",
        xlab = "Generation", ylab = "Species richness",
        main = "Fluctuation of Species Ricness")
@@ -112,10 +114,12 @@ neutral_time_series_speciation <- function(community,speciation_rate,duration)  
 # Question 12
 question_12 <- function()  {
   graphics.off()# clear any existing graphs and plot your graph within the R window
+  #Simulate the fluctuation of species richness
   max = neutral_time_series_speciation(community = init_community_max(100),
                                           speciation_rate = 0.1, duration = 200)
   min = neutral_time_series_speciation(community = init_community_min(100),
                                        speciation_rate = 0.1, duration = 200)
+  #Plot
   plot(max, type = "l",
        xlab = "Generation", ylab = "Species richness", col = "red",
        main = "Fluctuation of Species Richness", ylim = c(0,100))
@@ -159,15 +163,16 @@ question_16 <- function()  {
   graphics.off()# clear any existing graphs and plot your graph within the R window
   community1 = init_community_max(100)
   community2 = init_community_min(100)
-  
+  #Speciation rate
   sr = 0.1
-
+  #Burn in 200 generations
   for (i in 1:200){
     community1 = neutral_generation_speciation(community1, sr)
     community2 = neutral_generation_speciation(community2, sr)
   }
   sum1 = c(0)
   sum2 = c(0)
+  #Simulate 2000 generations
   for (i in 1:2000){
     community1 = neutral_generation_speciation(community1, sr)
     community2 = neutral_generation_speciation(community2, sr)
@@ -179,6 +184,7 @@ question_16 <- function()  {
   
   average1 = sum1/100
   average2 = sum2/100
+  #Plot
   barplot(data_frame(average1, average2), names.arg = names(ncol(data_frame(average1, average2))), 
           col = c("blue", "red"),
           xlab = "Abundance", ylab = "Species richness", beside = T,
@@ -206,12 +212,18 @@ cluster_run <- function(speciation_rate, size, wall_time, interval_rich, interva
     while (unname(proc.time()[1]) - ptm <= 60*wall_time){
       community = neutral_generation_speciation(community,speciation_rate)
       i = i + 1
+      
+      #Burn in generations
       if (i <= burn_in_generations & i %% interval_rich == 0){
         richness = c(richness, species_richness(community))}
+      
+      #Octaves
       if (i %% interval_oct == 0){
         j = j + 1
         octaves_ls[[j]] = octaves(species_abundance(community))}}
+    #Overall running time
     time = paste(unname(proc.time()[1]) - ptm, "s")
+    #Save the outputs
     save(speciation_rate, size, wall_time, interval_rich, interval_oct, 
          burn_in_generations, community, richness, octaves_ls, time, 
          file = output_file_name)
@@ -223,6 +235,7 @@ cluster_run <- function(speciation_rate, size, wall_time, interval_rich, interva
 process_cluster_results <- function()  {
   sum_500 = c()
   k = 0
+  #Load results of cluster and calculate average abundances
   for (i in 1:25){
     file = paste("ClusterOutput_",i,".rda", sep = "")
     load(file)
@@ -279,7 +292,7 @@ process_cluster_results <- function()  {
   # save results to an .rda file
   
 }
-#Return the names.arg in barplots
+#Return the names.arg in barplot of octave abundances
 names = function(length){
   nam = c(1, rep(NA, length-1))
   for (i in 2:length){
@@ -342,13 +355,15 @@ question_22 <- function()  {
 # Question 23
 chaos_game <- function()  {
   graphics.off()# clear any existing graphs and plot your graph within the R window
+  #Define positions
   A = c(0,0)
   B = c(3,4)
   C = c(4,1)
   X = c(0,0)
-
+  #Initialize the plot
   plot(X[1],X[2],cex=0.1, xlim = c(0,5), ylim = c(0,6), xlab = "", ylab = "",
        main = "Chaos Game")
+  #Random walking
   for (i in 1:2000){
   b = sample(c(1,2,3),1)
   if (b==1){a = A}
@@ -392,10 +407,12 @@ spiral <- function(start_position, direction, length)  {
 # Question 27
 draw_spiral <- function(start_position=c(0,0), direction=pi/4, length=1)  {
   graphics.off()# clear any existing graphs and plot your graph within the R window
+  #Initialize the plot
   plot(start_position[1], start_position[2], cex = 0.1,
        xlim = c(start_position[1],start_position[1]+2.5*length),
        ylim = c(start_position[2]-1.5*length, start_position[2]+2*length),
        main = "Spiral", xlab = "", ylab = "")
+  #Plot the spiral
   spiral(start_position, direction, length)
   
   return("The function plots a spiral starts from the input parameter start_position 
@@ -418,10 +435,12 @@ tree <- function(start_position, direction, length, threshold=0.1)  {
 
 draw_tree <- function(start_position=c(0,0), direction=pi/4, length=1, threshold=0.1) {
   graphics.off()# clear any existing graphs and plot your graph within the R window
+  #Initialize the plot
   plot(start_position[1], start_position[2], cex = 0.1,
        xlim = c(start_position[1]-2*length,start_position[1]+2.5*length),
        ylim = c(start_position[2]-1.5*length, start_position[2]+2.5*length),
        main = "Tree", xlab = "", ylab = "")
+  #Plot the tree
   tree(start_position, direction, length,threshold=0.1)
 }
 
@@ -435,17 +454,18 @@ fern <- function(start_position, direction, length)  {
 
 draw_fern <- function(start_position=c(0,0), direction=pi/4, length=1)  {
   graphics.off()# clear any existing graphs and plot your graph within the R window
+  #Initialize the plot
   plot(start_position[1], start_position[2], cex = 0.1,
        xlim = c(start_position[1]-length,start_position[1]+6*length),
        ylim = c(start_position[2]-1.5*length, start_position[2]+6*length),
        main = "Fern", xlab = "", ylab = "")
+  #Plot the fern
   fern(start_position, direction, length)
-  
-
 }
 
 # Question 30
 fern2 <- function(start_position, direction, length, dir)  {
+  #The parameter dir must be 1 or -1
   if (dir != 1 & dir != -1){return("Error! Variable dir should be either 1 or -1")}
   else{
     a = turtle(start_position, direction, length)
@@ -456,10 +476,12 @@ fern2 <- function(start_position, direction, length, dir)  {
 
 draw_fern2 <- function(start_position=c(0,0), direction=pi/4, length=1, dir=1)  {
   graphics.off()# clear any existing graphs and plot your graph within the R window
+  #Initialize the plot
   plot(start_position[1], start_position[2], cex = 0.1,
        xlim = c(start_position[1]-length,start_position[1]+6*length),
        ylim = c(start_position[2]-1.5*length, start_position[2]+6*length),
        main = "Fern2", xlab = "", ylab = "")
+  #Plot fern
   fern2(start_position, direction, length,dir)
 }
 
@@ -501,6 +523,7 @@ Challenge_A <- function() {
   legend("topright",cex = 0.5, c("min","max"), adj = c(1,1),
          col = c("blue", "red"), lty = 1,lwd=2, bty = "n",ncol = 2,
          text.width = 0.4)
+  
   #Calculate 97.2% confident interval
   for (i in 1:100){
     interval1 = confint(richness_data1[,i], alpha = 0.028)
@@ -531,9 +554,11 @@ community = function(size,species_richness){
 
 Challenge_B <- function() {
   graphics.off()# clear any existing graphs and plot your graph within the R window
+  #Initialize the plot
   plot(x = 0, y = 0, cex = 0.1, xlim = c(0,100), ylim = c(0,100),
        main = "Fulctuation of Species Richness among Generations",
        xlab = "Generation", ylab = "SPecies Richness")
+  #Simulate the fluctuation of species richness
   for (i in c(1,10,20,30,40,50,60,70,80,90,100)){
     com = community(100,i)
     sum = c()
@@ -548,6 +573,7 @@ Challenge_B <- function() {
 # Challenge question C
 Challenge_C <- function() {
   graphics.off()# clear any existing graphs and plot your graph within the R window
+  #Extract richness from .rda files
   richness_500 = c()
   for (i in 1:25){
     file = paste("ClusterOutput_",i,".rda", sep = "")
@@ -575,6 +601,8 @@ Challenge_C <- function() {
     load(file)
     richness_5000 = sum_vect(richness_5000, richness)}
   richness_5000 = richness_5000/25
+  
+  #Plot
   par(mar=c(4,4,1,1))
   plot(richness_500, type = "l", xlab = "Generations", ylab = "Richness",
        col = "red", ylim = c(0,250))
@@ -588,6 +616,7 @@ Challenge_C <- function() {
 }
 
 # Challenge question D
+#Coalescence simulation with given community size and speciation rate
 coalescence_simulation = function(size, speciation_rate){
   lineages = rep(1, size)
   abundances = c()
@@ -630,7 +659,7 @@ Challenge_D <- function() {
   sum_1000 = c()
   sum_2500 = c()
   sum_5000 = c()
-  
+  #Coalescence simulation
   for (i in 1:25){
   coal1 = octaves(coalescence_simulation(500, sr))
   coal2 = octaves(coalescence_simulation(1000, sr))
@@ -645,9 +674,10 @@ Challenge_D <- function() {
   ave_1000 = sum_1000/25
   ave_2500 = sum_2500/25
   ave_5000 = sum_5000/25
-  
-  load("process_cluster_results.rda") # load combined_results from your rda file
 
+  load("process_cluster_results.rda") # load combined_results from your rda file
+  
+  #Plotting
   data(mtcars)
   attach(mtcars)
   opar = par(no.readonly = T)
@@ -686,6 +716,7 @@ Challenge_D <- function() {
           main = "Species Richness among Abundance",
           ylim = c(0, ceiling(max(coal4))))
   par(opar)
+  
   return("Simulating by cluster took 11.5 hours, while through coalescence, it took 
          6.219 seconds. This is because: (1) when simulating by coalescence, the system
          is always at equilibrium and does not need burn in time; (2) coalescence 
@@ -699,8 +730,10 @@ Challenge_D <- function() {
 #n: First n steps are plotted in red, while the rest in black
 Challenge_E <- function(A=c(0,0),B=c(3,4),C=c(4,1),X=c(0,0),n=100) {
   graphics.off()# clear any existing graphs and plot your graph within the R window
+  #Initialize the plot
   plot(X[1],X[2],cex=0.1, xlim = c(0,5), ylim = c(0,6), xlab = "", ylab = "",
        main = "Chaos Game")
+  #Random walking of point X
   for (i in 1:2000){
     b = sample(c(1,2,3),1)
     if (b==1){a = A}
@@ -709,6 +742,7 @@ Challenge_E <- function(A=c(0,0),B=c(3,4),C=c(4,1),X=c(0,0),n=100) {
     X = X + 0.5*(a-X)
     if (i <= n){points(X[1],X[2],col = "red", cex = 0.5)}
     else{points(X[1],X[2], cex = 0.1)}}
+  
   return("No matter what initial position is, a Sierpinski gasket within the triangle
          A, B, C is produced. This is because, in the process, the position of point 
          is approximately distributed on edges of the Sierpinski gasket within the triangle in an 
@@ -718,7 +752,8 @@ Challenge_E <- function(A=c(0,0),B=c(3,4),C=c(4,1),X=c(0,0),n=100) {
 # Challenge question F
 Challenge_F <- function() {
   graphics.off()# clear any existing graphs and plot your graph within the R window
-
+  
+  #Initialize the plot
   start_position=c(10,10)
   length=1
   threshold=0.1
@@ -726,11 +761,12 @@ Challenge_F <- function() {
        xlim = c(start_position[1]-2.5*length,start_position[1]+2.5*length),
        ylim = c(start_position[2]-2.5*length, start_position[2]+3.5*length),
        main = "Tree", xlab = "", ylab = "")
-
+  #Plot four trees
   tree(start_position, direction = pi/2, length,threshold=0.1)
   tree(start_position, direction = -pi/2, length,threshold=0.1)
   tree(start_position, direction = 0, length,threshold=0.1)
   tree(start_position, direction = pi, length,threshold=0.1)
+  
   return("The smaller the line size threshold is, the more branches of the tree will be got,
          and the program will take longer time to run.")
 }
