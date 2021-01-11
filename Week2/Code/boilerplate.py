@@ -2,9 +2,8 @@
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: boilerplate.py
    Work Path: CMEECourseWork/Week2/Code
-   Input file: 
-   Function: 
-   Output:
+   Dependencies: sys
+   Function: Exemplify the usage of main function
    Usage: python boilerplate.py
    Date: Oct, 2020"""
 

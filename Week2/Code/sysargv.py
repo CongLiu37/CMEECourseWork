@@ -2,9 +2,8 @@
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: sysargv.py
    Work Path: CMEECourseWork/Week2/Code
-   Input file:
+   Dependencies: sys
    Function: Exemplify use of sys and argv
-   Output:
    Usage: python sysargv.py
    Date: Oct, 2020"""
 

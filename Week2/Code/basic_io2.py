@@ -4,7 +4,7 @@
    Work Path: CMEECourseWork/Week2/Code
    Input file: 
    Function: Write 0-99 in output file
-             One number, one line.
+             One number in each line.
    Output: Sandbox/testout.txt
    Usage: python basic_io2.py
    Date: Oct, 2020"""

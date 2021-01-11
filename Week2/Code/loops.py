@@ -2,9 +2,7 @@
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: loops.py
    Work Path: CMEECourseWork/Week2/Code
-   Input file:
    Function: Exemplify the loops in python
-   Output:
    Usage: python loops.py
    Date: Oct, 2020"""
 

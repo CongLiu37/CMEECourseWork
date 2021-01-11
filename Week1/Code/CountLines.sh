@@ -8,11 +8,11 @@
 #Usage: bash CountLines.sh [file]
 #Date: Oct 2020
 
-if [ -e ../Data/$1 ];
+if [ -e ../Data/$1 ]; #Check whether input exists in Data/
     then
-        NumLines=$(wc -l < ../Data/$1)
+        NumLines=$(wc -l < ../Data/$1) #Count how many lines input has
         echo "The file $1 has $NumLines lines"
     else
-        echo "The file $1 is not in Data/"
+        echo "The file $1 does not exist in Data/"
 fi
 echo "Done"

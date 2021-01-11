@@ -2,9 +2,7 @@
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: tuple.py
    Work Path: CMEECourseWork/Week2/Code
-   Input file:
-   Function: Practical of Python
-   Output:
+   Function: print latin name, common name, mass on a separate line
    Usage: python tuple.py
    Date: Oct, 2020"""
 

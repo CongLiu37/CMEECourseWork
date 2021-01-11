@@ -8,14 +8,14 @@
 #Usage: bash csvtospace.sh [file]
 #Date: Oct 2020
 
-if [ -z $1 ];
+if [ -z $1 ]; #Check whether input is provided
     then
         echo "You have not input any file"
     else
-        if [ -e ../Data/$1 ];
+        if [ -e ../Data/$1 ]; #Check whether input is in Data/
             then
                 echo "Creating a space delomited version of $1 ..."
-                cat ../Data/$1 | tr -s "," " " >> ../Results/$1.ssv
+                cat ../Data/$1 | tr -s "," " " >> ../Results/$1.ssv #Convert comma to space
                 echo "Done!"
             else
                 echo "$1 is not in Data/"

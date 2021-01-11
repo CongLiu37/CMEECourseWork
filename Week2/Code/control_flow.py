@@ -2,6 +2,7 @@
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: control_flow.py
    Work Path: CMEECourseWork/Week2/Code
+   Dependencies: sys
    Input file:
    Function: Exemplify the use of control statements by some functions
    Output:

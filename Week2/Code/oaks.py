@@ -2,9 +2,9 @@
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: oaks.py
    Work Path: CMEECourseWork/Week2/Code
-   Input file:
-   Function: Practical of python programming
-   Output:
+   Function: Finds just those taxa that are oak trees from a list of species.
+             Be done by list comprehensions or loops.
+             Print results in lower or upper cases.
    Usage: python oaks.py
    Date: Oct, 2020"""
 

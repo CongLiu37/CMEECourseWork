@@ -10,14 +10,14 @@
 
 if [ -z $1 ];
     then 
-        echo "You have not input any directory"
+        echo "You have not input any directory" #Check whether input is provided
     else
-        if [ -e ../$1 ];
+        if [ -e ../$1 ]; #Check whether input directory exists in CMEECourseWork/Week1
             then
                 for f in "../$1/"*.tif; 
                     do  
                         echo "Converting $f"; 
-                        convert "$f"  "../Results/$(basename "$f" .tif).png";
+                        convert "$f"  "../Results/$(basename "$f" .tif).png"; #Convert .tif to .png
                     done
             else
                 echo "The directory does not exist"

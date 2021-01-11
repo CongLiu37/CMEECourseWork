@@ -2,9 +2,7 @@
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: dictionary.py
    Work Path: CMEECourseWork/Week2/Code
-   Input file:
-   Function: Practical of python programming
-   Output:
+   Function: Populate a dictionary called taxa_dic derived from  taxa so that it maps order names to sets of taxa.
    Usage: python dictionary.py
    Date: Oct, 2020"""
 
@@ -33,14 +31,14 @@ taxa_dic = {}
 keys = []
 for i in taxa:
         keys.append(i[1])
-keys = set(keys)
+keys = set(keys) #Set of orders
 
 for i in keys:
         values = []
         for j in taxa:
                 if j[1] == i:
-                        values.append(j[0])
-        values = set(values)
+                        values.append(j[0]) 
+        values = set(values) #Set of species in each order
         taxa_dic[i] = values
 
 print(taxa_dic)

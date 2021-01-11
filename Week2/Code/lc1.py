@@ -2,9 +2,9 @@
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: lc1.py
    Work Path: CMEECourseWork/Week2/Code
-   Input file:
-   Function: Practical of python programming
-   Output:
+   Function: create three different lists containing the latin names, common names and mean body masses 
+             for each species in birds, respectively.
+             Finish it by list comprehensions and conventional loops respectively. 
    Usage: python lc1.py
    Date: Oct, 2020"""
 

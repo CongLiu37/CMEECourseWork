@@ -1,15 +1,17 @@
 Project: Week1
-Description: Course work of week 1
+Description: CMEE Course work of week 1
 Languages: bash, LaTeX
 Dependencies: 
 Auther: Cong Liu (cong.liu20@imperial.ac.uk)
+
+Individual Work:
 
 (1) boilerplate.sh
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Work Path: CMEECourseWork/Week1/Code
 #Input: None
 #Function: Simple boilerplate for shell scripts
-#Output:
+#Output: Print "\nThis is a shell script \n" in terminal
 #Usage: bash boilerplate.sh
 #Date: Oct 2020
 
@@ -17,9 +19,9 @@ Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Auther: Cong liu (cong.liu20@imperial.ac.uk)
 #Work Path: CMEECourseWork/Week1/Code
 #Input: .tex and .bib files in Code/
-#Function: Run LaTeX, save .pdf file in Writeup/ and remove other files
+#Function: Compile LaTeX, save .pdf file in Writeup/ and remove other files
 #Output: .pdf file in Writeup/
-#Usage: bash Code/CompileLaTeX.sh [Base name of .tex]
+#Usage: bash CompileLaTeX.sh [Base name of .tex]
 #Date: Oct 2020
 
 (3) ConcatenateTwoFiles.sh
@@ -50,7 +52,7 @@ Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Date: Oct 2020
 
 (6) FirstBiblio.bib
-Description: References
+Description: .bib file of references
 
 (7) FirstExample.tex
 Description: Exemplify the usage of LaTeX
@@ -58,6 +60,7 @@ Description: Exemplify the usage of LaTeX
 (8) MyExampleScript.sh
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk
 #Work Path: CMEECourseWork/Week1/Code
+#Output: Print "Hello usrname" in terminal
 #Usage: bash MyExampleScript.sh
 #Date: Oct, 2020
 
@@ -93,4 +96,6 @@ Description: Exemplify the usage of LaTeX
 #Usage: bash variable.sh
 #Date: Oct 2020
 
+Group Work of Group 4
+No group work in week 1
 

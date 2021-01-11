@@ -10,12 +10,16 @@
 
 file1 = open("../Data/align.fasta", "r")
 
+#Convert input file to a list
+#Each line of input corresponds to an element in the list
 list1 = []
 for line in file1:
     line = line.strip()
     list1.append(line)
 file1.close()
 
+#Convert input fasta file to a list with following form: 
+#[sequence name starting with ">", sequence, ...] 
 list2 = []
 for i in range(0, len(list1)):
     if list1[i][0] == ">":
@@ -27,8 +31,7 @@ for i in range(0, len(list1)):
             else:
                 break
         list2.append(seq)
-#Convert input file to a list with following form: 
-#[sequence name starting with ">", sequence, ...]       
+      
         
 # Assign the longer sequence s1, and the shorter to s2
 # l1 is length of the longest, l2 that of the shortest

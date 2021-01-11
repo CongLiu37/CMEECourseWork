@@ -2,8 +2,10 @@
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: basic_io3.py
    Work Path: CMEECourseWork/Week2/Code
+   Dependencies: pickle
    Input file:
    Function: Save a dictionary in Sandbox/testp.p as binary file
+             Read the binary file
              Print the dictionary
    Output: Sandbox/testp.p
    Usage: python basic_io3.py

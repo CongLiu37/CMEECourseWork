@@ -1,16 +1,13 @@
 """Language: Python3
-   Auther: Cong Liu (cong.liu20@imperial.ac.uk)
-   Script: basic_csv.py
-   Work Path: CMEECourseWork/Week2/Code
-   Input: testcsv.csv saved in CMEECourseWork/Week1/Data
-   Function: Print all rows of input file
-             Print species names of input file
-             Write a csv file containin species names and corresponding body masses
-   Output: Rows of input file
-           Species names of input file
-           Results/bodymass.csv
-   Usage: python basic_csv.py
-   Date: Oct, 2020"""
+Auther: Cong Liu (cong.liu20@imperial.ac.uk)
+Script: basic_csv.py
+Work Path: CMEECourseWork/Week2/Code
+Dependencies: csv
+Input: testcsv.csv saved in CMEECourseWork/Week2/Data
+Output: Print rows and corresponded species name in terminal
+        Save species name and body mass in Results/bodymass.csv
+Usage: python basic_csv.py
+Date: Oct, 2020"""
 
 import csv
 

@@ -2,12 +2,11 @@
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: scope.py
    Work Path: CMEECourseWork/Week2/Code
-   Input file:
    Function: Exemplify variable scope
-   Output:
-   Usage: python basic_io1.py
+   Usage: python scope.py
    Date: Oct, 2020"""
 
+#Exemple 1
 _a_global = 10 # a global variable
 
 if _a_global >= 5:
@@ -36,7 +35,7 @@ print("Outside the function, the value of _b_global is ", _b_global)
    _b_global is 15 instead of 10"""
 
 
-
+#Exemple 2
 _a_global = 10
 
 def a_function():
@@ -54,7 +53,7 @@ print("Outside the function, the value of _a_global is", _a_global)
 """Outside the function, _a_global is 10"""
 
 
-
+#Exemple 3
 _a_global = 10
 
 print("Outside the function, the value of _a_global is", _a_global)
@@ -75,15 +74,17 @@ a_function()
 print("Outside the function, the value of _a_global now is", _a_global)
 """_a_global is 5"""
 
+#Exemple 4
 def a_function():
-    """Before calling a_function, _a_global is 10"""
+    """Before calling _a_function2, _a_global is 10"""
     _a_global = 10
 
     def _a_function2():
+        """Creat a global variable _a_global=20"""
         global _a_global
         _a_global = 20
     
-    print("Before calling a_function, value of _a_global is ", _a_global)
+    print("Before calling _a_function2, value of _a_global is ", _a_global)
 
 
     _a_function2()
@@ -98,16 +99,17 @@ print("The value of a_global in main workspace / namespace is ", _a_global)
 """Now _a_global is 20"""
 
 
-
+#Exemple 5
 _a_global = 10
 
 def a_function():
     """Another example"""
     def _a_function2():
+        """Creat a global variable _a_global=20"""
         global _a_global
         _a_global = 20
     
-    print("Before calling a_function, value of _a_global is ", _a_global)
+    print("Before calling _a_function2, value of _a_global is ", _a_global)
     """_a_global is 10"""
     _a_function2()
     

@@ -10,13 +10,13 @@
 
 if [ -z $1 ];
     then
-        echo "You have not input any file"
+        echo "You have not input any file" #Check whether input is provided
     else
-        if [ -e ../Data/$1 ];
+        if [ -e ../Data/$1 ]; #Check whether input is a file in Data/
             then
                 File=../Data/$1
                 echo "Creating a comma delomited version of $1 ..."
-                cat $File | tr -s "\t" "," >> ../Results/$1.csv
+                cat $File | tr -s "\t" "," >> ../Results/$1.csv #Convert tab to comma
                 echo "Done!"
             else
                 echo "$1 is not in Data/"

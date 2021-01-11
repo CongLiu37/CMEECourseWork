@@ -7,17 +7,17 @@
 #Output: txt files, saved in Results/
 #Date: Oct, 2020
 
-#Practical 1
+#Practical 1: Count how many lines there are in each file
 wc -l ../Data/*.fasta >> ../Results/#1.txt
 
-#Practical 2
+#Practical 2: Print everything starting from the second line for the E. coli genome
 sed -n 2,78104p ../Data/E.coli.fasta >> ../Results/#2.txt 
 
-#Practical 3
+#Practical 3: Count the sequence length of this genome
 wc -m ../Results/#2.txt >> ../Results/#3.txt 
 
-#Practical 4
+#Practical 4: Count the matches of a particular sequence, “ATGC” in the genome of E. coli
 sed ':t;N;s/\n//;b t' ../Results/#2.txt | grep -o 'ATGC' | wc -l >> ../Results/#4.txt
 
-#Practical 5
+#Practical 5: Compute the AT/GC ratio
 expr $(expr $(grep -o "A" ../Data/E.coli.fasta | wc -l)+$(grep -o "T" ../Data/E.coli.fasta | wc -l) | bc -l)/$(expr $(grep -o "C" ../Data/E.coli.fasta | wc -l)+$(grep -o "G" ../Data/E.coli.fasta | wc -l) | bc -l) | bc -l >> ../Results/#5.txt

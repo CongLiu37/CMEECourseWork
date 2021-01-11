@@ -2,9 +2,8 @@
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: test_control_flow.py
    Work Path: CMEECourseWork/Week2/Code
-   Input file:
+   Dependencies: sys, doctest
    Function: Exemplify the use of control statement
-   Output:
    Usage: python test_control_flow.py
    Date: Oct, 2020"""
 

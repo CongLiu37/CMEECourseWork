@@ -2,9 +2,9 @@
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: lc2.py
    Work Path: CMEECourseWork/Week2/Code
-   Input file:
-   Function: Practical of python programming
-   Output:
+   Function: Create a list of month,rainfall tuples where the amount of rain was greater than 100 mm.
+             create a list of just month names where the amount of rain was less than 50 mm.
+             Be done by list comprehensions and conventional loops respectively.
    Usage: python lc2.py
    Date: Oct, 2020"""
 

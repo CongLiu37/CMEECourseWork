@@ -2,9 +2,8 @@
    Auther: Cong Liu (cong.liu20@imperial.ac.uk)
    Script: cfexercises1.py
    Work Path: CMEECourseWork/Week2/Code
-   Input file: 
-   Function: Some functions for numberic calculation
-   Output: 
+   Dependencies: sys
+   Description: Some functions for numberic calculation
    Usage: python cfexercises1.py
    Date: Oct, 2020"""
 
