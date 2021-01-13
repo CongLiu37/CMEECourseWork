@@ -10,7 +10,7 @@
 #Date: Oct, 2020
 
 M <- matrix(runif(1000000),1000,1000)
-dim(M)
+# Calculate sum of a matrix by loop
 SumAllElements <- function(M){
   Dimensions <- dim(M)
   Tot <- 0

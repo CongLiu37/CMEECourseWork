@@ -8,6 +8,7 @@
 #Usage:
 #Date: Oct, 2020
 
+#Sampling and calculating mean
 doit <- function(x){
   temp_x <- sample(x, replace = TRUE)
   if(length(unique(temp_x)) > 30) {#only take mean if sample was sufficient

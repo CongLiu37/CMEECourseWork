@@ -5,7 +5,7 @@
 #Dependency: ggplot2, scales, broom
 #Input: Data/EcolArchives-E089-51-D1.csv
 #Function: Regress prey mass and predator mass for each 
-#          Feeding Type × Predator life Stage combination and
+#          Feeding Type+Predator life Stage combination and
 #          save results in Results/PP_Regress_Results.csv.
 #          For each combination, if it has only two sample poits or 
 #          there is no correlation (R-square = 0), it will not be saved in csv file.
@@ -20,6 +20,7 @@ rm(list = ls())
 #Import data
 data = read.csv("../Data/EcolArchives-E089-51-D1.csv")
 
+#Convert unit of mass
 for (i in 1:nrow(data)){
   if (data$Prey.mass.unit[i] == "mg"){
     data$Prey.mass.unit[i] = "g"
@@ -32,6 +33,7 @@ PredatorStage = names(table(data$Predator.lifestage))
 
 RegTitle = c("slope", "intercept", "R^2","adjusted-R^2", 
              "F-statistic", "p-value")
+
 library(broom)
 #Summary of linear model
 lmSum = function(a,b){
@@ -46,10 +48,11 @@ lmSum = function(a,b){
   c[6] = unname(glance(mol)$p.value)
   return(c)
 }
-data$Prey.mass.unit
+
 Reg = data.frame(RegTitle)
 n = names(Reg)
 k = 2
+#Regression
 for (i in FeedType){
   for (j in PredatorStage){
     d = subset(data,

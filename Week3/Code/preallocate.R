@@ -16,7 +16,7 @@ NoPreallocFun <- function(x){
     print(object.size(a))
   }
 }
-
+#Run-time without preallocation
 system.time(NoPreallocFun(10))
 
 
@@ -28,5 +28,5 @@ PreallocFun <- function(x){
     print(object.size(a))
   }
 }
-
+#Run-time with preallocation
 system.time(PreallocFun(10))

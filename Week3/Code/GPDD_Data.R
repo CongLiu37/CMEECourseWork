@@ -28,6 +28,7 @@ mp1<-mp + geom_point(aes(x=visit.x,
                    size = 0.1) +
   scale_size(range=c(1,1))
 mp1
+
 #The locations from which there is data are distributed unevenly among the world.
 #Most locations are in Europe and North America, especially in United Kingdom
 #and western coastal line of America and Canada. There is only one

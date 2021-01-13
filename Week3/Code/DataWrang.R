@@ -2,10 +2,10 @@
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: DataWrang.R
 #Work Path: CMEECourseWork/Week3/Code
-#Dependency: reshape2
+#Dependency: reshape2, tidyverse
 #Input: Data/PoundHillData.csv
 #       Data/PoundHillMetaData.csv
-#Function: Data wrangling usin reshape2 packae
+#Function: Data wrangling using reshape2 packae
 #Output:
 #Usage: Rscript DataWrang.R
 #Date: Oct, 2020

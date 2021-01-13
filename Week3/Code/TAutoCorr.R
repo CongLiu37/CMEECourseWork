@@ -4,11 +4,10 @@
 #Work Directory: CMEECourseWork/Week3/Code
 #Dependency: ggplot2
 #Input: Data/KeyWestAnnualMeanTemperature.RData
-#Function: Test autocorrelation of each year's temperature 
-#Output: TAutoCorr_Figure1.pdf
-#Usage:
+#Function: Test autocorrelation of each year's temperature and estimate p-value
+#Usage: Rscript TAutoCorr.R
 #Date: Oct, 2020
-
+rm(list = ls())
 load("../Data/KeyWestAnnualMeanTemperature.RData") #Import data
 
 library(ggplot2)
@@ -45,5 +44,5 @@ for (corr in corrs) {
     j = j + 1
   }
 }
-ap-p = j/10000
-ap-p
+ap_p = j/10000
+ap_p

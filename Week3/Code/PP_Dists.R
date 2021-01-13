@@ -157,6 +157,7 @@ hist(subset(TempData,
      main = "predacious/piscivorous")
 dev.off()
 
+#Calculate means and variances
 ty = names(table(TempData$data.Type.of.feeding.interaction))
 insec = subset(TempData,
                TempData$data.Type.of.feeding.interaction == 

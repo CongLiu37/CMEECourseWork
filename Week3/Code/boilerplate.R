@@ -1,9 +1,9 @@
 #Language: R
 #Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Script: boilerplate.R
-#Work Path: CMEECourseWork/Week3/COde
+#Work Path: CMEECourseWork/Week3/Code
 #Input:
-#Function: Illustrate skipping to next iteration of a loop
+#Function: An exemple of R function
 #Output:
 #Usage: Rscript boilerplate.R
 #Date: Oct, 2020
