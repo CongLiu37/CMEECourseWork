@@ -30,3 +30,21 @@ import LV2 #Run LV2.py
 p2.disable()
 pr2 = pstats.Stats(p2)
 pr2.sort_stats("cumulative").print_stats(20)
+
+#Profile LV3.py
+p3 = cProfile.Profile()
+p3.enable()
+import LV3 
+LV3.main()#Run LV3.py
+p3.disable()
+pr3 = pstats.Stats(p3)
+pr3.sort_stats("cumulative").print_stats(20)
+
+#Profile LV4.py
+p4 = cProfile.Profile()
+p4.enable()
+import LV4
+LV4.main()#Run LV4.py
+p4.disable()
+pr4 = pstats.Stats(p4)
+pr4.sort_stats("cumulative").print_stats(20)

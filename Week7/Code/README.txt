@@ -6,7 +6,8 @@ Dependencies: numpy, scipy.integrate, matplotlib.pylab, sys, cProfile, re, timei
               time, subprocess
 Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 
-SCRIPTS
+Individual work
+
 (1) LV1.py
 Language: Python3
 Author: Cong Liu (cong.liu20@imperial.ac.uk)
@@ -14,7 +15,7 @@ Work Path: CMEECourseWork/Week7/Code
 Dependencies: numpy, scipy.integrate, matplotlib.pylab, sys
 Input: 
 Function: Simulate Lotka-Volterra model for a predator-prey system 
-          and visualize results in two ways. 
+          and visualize results. 
 Output: ../Results/LV1_1.pdf
         ../Results/LV1_2.pdf
 Usage: python LV1.py
@@ -27,7 +28,7 @@ Work Path: CMEECourseWork/Week7/Code
 Dependencies: sys, numpy, scipy.integrate, matplotlib.pylab
 Input: 
 Function: Simulate Lotka-Volterra model with prey density dependence 
-          and visualize results in two ways. Parameters should be provided by user.
+          and visualize results. Parameters should be provided by user.
           If no parameter is provided, following default values will be used:
           r = 1
           a = 0.1
@@ -91,6 +92,8 @@ Work Path: CMEECourseWork/Week7/Code
 Dependencies: cProfile, pstats
 Input: ../Code/LV1.py 
        ../Code/LV2.py
+       ../Code/LV3.py
+       ../Code/LV4.py
 Function: Profile input scripts. 
 Output:
 Usage: 
@@ -162,7 +165,7 @@ Author: Cong Liu (cong.liu20@imperial.ac.uk)
 Work Path: CMEECourseWork/Week7/Code
 Dependencies:
 Input: TestR.R
-Function: Examplify how to run R script by python
+Function: Exemplify how to run R script by python
 Output:
 Usage: python TestR.py
 Date: Nov, 2020
@@ -170,3 +173,13 @@ Date: Nov, 2020
 (14) TestR.R
 The input script of TestR.py.
 It prints "Hello, this is R!"
+
+Group work
+
+(1) LV3.py
+This script runs the discrete-time version of the Lotka-Volterra model and plots
+the results in two graphs saved to ../Results.
+
+(2) LV4.py
+This script runs the discrete-time version of the Lotka-Volterra model and plots
+the results in two graphs saved to ../Results.

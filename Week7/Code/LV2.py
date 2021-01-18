@@ -61,7 +61,7 @@ pops, infodict = integrate.odeint(dCR_dt, RC0, t, full_output=True)
 
 print(pops[-1,:])
 
-#Plottin
+#Plotting
 f1 = p.figure()
 p.plot(t, pops[:,0], 'g-', label='Resource density') # Plot
 p.plot(t, pops[:,1]  , 'b-', label='Consumer density')
