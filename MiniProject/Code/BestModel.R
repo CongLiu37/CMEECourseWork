@@ -1,6 +1,5 @@
 #Language: R 4.0.3
-#Auther: Cong Liu (cong.liu20@imperial.ac.uk)
-#Script: BestModel.R
+#Author: Cong Liu (cong.liu20@imperial.ac.uk)
 #Work Path: CMEECourseWork/MiniProject/Code
 #Dependency: 
 #Input: ../Results/quadratic_valid.csv
@@ -12,19 +11,19 @@
 #Function: For each curve, select best-fitting models from 
 #          quadratic, cubic, Briere and Ratkowsky models, 
 #          using either AIC or BIC as criteria.
-#Output: ../Results/bestAIC_quadratic.csv
-#        ../Results/bestBIC_quadratic.csv
-#        ../Results/bestAIC_cubic.csv
-#        ../Results/bestBIC_cubic.csv
-#        ../Results/bestAIC_Briere.csv
-#        ../Results/bestBIC_Briere.csv
-#        ../Results/bestAIC_Ratkowsky.csv
-#        ../Results/bestBIC_Ratkowsky.csv
+#Output: ../Results/bestAIC_quadratic.csv (AIC, quadratic winner)
+#        ../Results/bestBIC_quadratic.csv (BIC, quadratic winner)
+#        ../Results/bestAIC_cubic.csv (AIC, cubic winner)
+#        ../Results/bestBIC_cubic.csv (BIC, cubic winner)
+#        ../Results/bestAIC_Briere.csv (AIC, Briere winner)
+#        ../Results/bestBIC_Briere.csv (BIC, Briere winner)
+#        ../Results/bestAIC_Ratkowsky.csv (AIC, Ratkowsky winner)
+#        ../Results/bestBIC_Ratkowsky.csv (BIC, Ratkowsky winner)
 #Usage: Rscript BestModel.R
 #Date: Nov, 2020
 
 rm(list = ls())
-
+#Import data
 Qua = read.csv("../Results/quadratic_valid.csv", header = T)
 Cub = read.csv("../Results/cubic_valid.csv", header = T)
 
@@ -43,7 +42,7 @@ BICbestQ = data.frame()
 BICbestC = data.frame()
 BICbestB = data.frame()
 BICbestR = data.frame()
-
+#Model selection
 for (i in 1:903){
   q = subset(Qua, ID == i)
   c = subset(Cub, ID == i)
@@ -105,6 +104,7 @@ for (i in 1:903){
     }
 }
 
+#Output
 write.csv(AICbestQ,"../Results/bestAIC_quadratic.csv",row.names = F)
 write.csv(AICbestC,"../Results/bestAIC_cubic.csv",row.names = F)
 write.csv(AICbestB,"../Results/bestAIC_Briere.csv",row.names = F)

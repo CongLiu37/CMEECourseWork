@@ -1,13 +1,13 @@
 #Language: R 4.0.3
-#Auther: Cong Liu (cong.liu20@imperial.ac.uk)
-#Script: data_filter.R
+#Author: Cong Liu (cong.liu20@imperial.ac.uk)
 #Work Path: CMEECourseWork/MiniProject/Code
 #Dependency:
 #Input: ../Data/ThermRespData.csv
 #Function: Rescale curves with negative trait values to make performance positive.
 #          These rescaled curves will be used in model fitting and selection, to make 
 #          IDs of curves are consecutive integers. They will be removed in further 
-#          analysis.
+#          analysis. Rescaled data saves in ../Results/filtered_data.csv. Whether a curve is 
+#          rescaled saves in ../Results/move_curves.csv (minus=0 means no rescaling)
 #Output: ../Results/filtered_data.csv
 #        ../Results/move_curves.csv
 #Usage: Rscript data_filter.R
@@ -20,6 +20,7 @@ data = read.csv("../Data/ThermRespData.csv")
 tempData = data.frame()
 move = rep(NA,903)
 
+#Rescaling
 for (i in 1:903){
   d = subset(data, ID == i)
   a = min(d$OriginalTraitValue)

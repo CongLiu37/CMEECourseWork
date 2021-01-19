@@ -18,12 +18,12 @@
 \usepackage{subfigure}
 \usepackage[justification=centering]{caption}
 
-\title{Model Selection to Find a Most Sufficient Model Fitting to Thermal Performance of Metabolic Traits\footnotemark[1]}
+\title{Model Selection to Find a Sufficient Model Fitting to Thermal Performance of Metabolic Traits\footnotemark[1]}
 
 \author{Cong Liu\footnotemark[2]}
 
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
-\footnotetext[1]{Word Count: 2611}
+\footnotetext[1]{Word Count: 2597}
 \footnotetext[2]{Department of Life Sciences (Silwood Park), Imperial College of Science, Technology and Medicine}
 
 \date{Nov, 2020}
@@ -35,15 +35,15 @@
     
   \linenumbers
   \begin{abstract}
-    Determining thermal dependence of biological traits provides better understanding in distribution patterns of species 
-    and is helpful in assessing the impact of climate change on biological systems. Here, I fitted quadratic polynomial 
-    model, cubic polynomial model, Briere model and Ratkowsky model to observed data of metabolic traits under different 
-    temperatures to calculate thermal performance curves. Model averaging and selection by either AIC or BIC were 
+    Determining thermal dependence of biological traits provides understanding in distribution patterns of species 
+    and is helpful in assessing the impact of climate change on biological systems. Here, I fitted 
+    four plausibe models to observed data of metabolic traits under different 
+    temperatures to calculate thermal performance curves. Model selection by either AIC or BIC were 
     conducted to find one most sufficient model fitting to empirical data of each curve. 
     In most curves, AIC and BIC give support to 
-    the same model and Ratkowsky model has the highest frequency of being the most suitable model 
-    under two selection criteria. However, for some thermal performance curves in the dataset, even the best model 
-    selected here fail in describing thermal dependence of metabolic traits, indicating that the four plausible models 
+    the same model and Ratkowsky model has the highest frequency of being selected. 
+    However, for some thermal performance curves in the dataset, the selected model 
+    fails in describing thermal dependence of metabolic traits, indicating that the four plausible models 
     are not suitable and more models need to be involved. Overall, the results show that Ratkowsky model is sufficient 
     for most thermal performance curves involved in this study.
 
@@ -60,12 +60,12 @@
   \newline
   Thermal performance curve describes the dependence of performance (usually, the rate of a physiological 
   activities or fitness) on temperature quantitatively \cite{sinclair2016can}. Generally, organisms response 
-  to temperature fluctuation in a similar manner. The value of performance peaks at some temperature point, 
+  to temperature fluctuation in a similar manner. The value of performance peaks at some temperature point 
   and decreases when temperature deviates from the maximum point, while extremely high or low temperatures are lethal 
   \cite{sinclair2016can,krenek2011thermal}. 
   The mathematical modelling of thermal performance curve provides a framework for the estimation of 
   physiological characters like the optimum temperature at which performance peaks, upper and lower 
-  thermal limit thermal performance, and thermal tolerance range \cite{krenek2011thermal}. 
+  thermal limits of performance, and thermal tolerance range \cite{krenek2011thermal}. 
   Besides, it is also helpful in predicting 
   performance of organisms when temperature fluctuates. Thus, thermal performance curve is helpful in better 
   understanding distribution patterns of species. There is evidence that 
@@ -81,11 +81,11 @@
   that are used to illustrate thermal performance curves of different clades 
   \cite{krenek2011thermal,angilletta2006estimating}. Which model, or models are sufficient in describing thermal dependence 
   of performance is the main concern of this study. 
-  Using a dataset of observed data from 841 thermal performance curves, 
+  Using a dataset of observed data from 841 thermal performance curves of different metabolic traits, 
   I calculated these curves by fitting 
   four plausible models to them. 
-  Then I conducted model averaging and selection to find one model that is most sufficient to describe the observed data.
-   Akaike information criterion (AIC) or 
+  Then I conducted model selection to find one model that is most sufficient to describe the observed data. 
+  Akaike information criterion (AIC) or 
   Bayesian information criterion (BIC) was used as model selection criterion \cite{johnson2004model}. 
   Besides, whether metabolic trait or habitat type is corresponded to models that get most support from 
   empirical data was assessed.
@@ -97,7 +97,7 @@
     \newline 
     \href{https://github.com/mhasoba/TheMulQuaBio/tree/master/content/data}{https://github.com/mhasoba/TheMulQuaBio/tree/master/content/data}. 
     \newline 
-    The main fields of interest are OriginalTraitValue (trait values) and ConTemp (the temperatures 
+    The main fields of interest are OriginalTraitValue (trait values) and ConTemp (temperatures 
     in Celsius scale). Each thermal performance curve is corresponded to a unique ID from 1 to 903. 
     Among them 62 curves contain negative trait values and were removed. 
     So a total of 841 thermal performance curves was used in following analysis. 
@@ -124,7 +124,7 @@
     \begin{equation}\label{equ:Briere} 
     B(T) = B_0 T (T - T_0) \sqrt{T_m - T} 
     \end{equation} 
-    $T_0$ and $T_m$ are lower and upper thermal limit thermal performance. 
+    $T_0$ and $T_m$ are lower and upper thermal limits of performance. 
     \newline 
     (4) Ratkowsky model with constants  
     $T_0$, $T_m$, $a$ and $b$  
@@ -132,7 +132,7 @@
     \begin{equation} 
     B(T) = \{a (T-T_0) (1-e^{b(T-T_m)})\}^2 
     \end{equation} 
-    $T_0$ and $T_m$ are lower and higher thermal limit thermal performance. 
+    $T_0$ and $T_m$ are lower and higher thermal limits of performance. 
   \subsection{Model Fitting} 
     To conduct model fitting, least square method was used, and non-linear models were fitted using Levenberg-Marquardt  
     algorithm \cite{ranganathan2004levenberg, lourakis2005brief}. Maximum iteration number was 200.  
@@ -153,7 +153,7 @@
     \newline 
     As for fitting of Ratkowsky model, start values of $T_0$ and $T_m$ were the lowest and highest sampled temperatures 
     of each curve. Start values of $a$ and $b$ were taken from set  
-    $\{10^i: i = -5,-4,-3,-2,-1,0,1,2,3,4\}$. So for each curve, there are ten start values of $a$ and $b$,  
+    $\{10^i: i = -5,-4,-3,-2,-1,0,1,2,3,4\}$ iteratively. So for each curve, there are ten start values of $a$ and $b$,  
     and 100 combinations of them. Hence, each curve was fitted 100 times with different start values.
 
   \subsection{Model Selection}
@@ -268,7 +268,7 @@
         \end{tabular}
         \end{table}
 
-        \subsection{Assess Best Models for Curves of Different Metabolic or Habitat Types}
+        \subsection{Selected Models for Curves of Different Metabolic or Habitat Types}
         To assess preferred models for thermal performance curves of differnet metabolic traits or species living in different 
         habitat types, 18 curves were removed because AIC and BIC supported different models. So a total of 823 
         curves were involved.
@@ -290,7 +290,7 @@
         A total of 819 thermal performance curves of three metabolic traits are involved. 
         For models of each metabolic trait, non-linear  
         model occupies a larger proportion 
-        (75.0\% of gross photosynthesis rate, 78.8\% of net photosynthesis rate, and 66.2\% of respiration rate) than linear 
+        (75.0\% in gross photosynthesis rate, 78.8\% in net photosynthesis rate, and 66.2\% in respiration rate) than linear 
         models. Besides, Ratkowsky model takes a bigger amount than Briere model in all metabolic traits except gross 
         photosynthesis rate.
         \newline
@@ -298,7 +298,7 @@
         habitats (Table 3). Non-linear model 
         takes the biggest amount of sufficient models for both two kinds of habitat type 
         (82.1\% for terrestrial habitat and 55.2\% of non-terrestrial habitat), and Ratkowsky model occupies biggest proportion 
-        among four models. 
+        among four plausible models. 
         \begin{table}[H]
           \centering
           \caption{Selected Models for Thermal Performance Curves of Different Metabolic Traits}
@@ -329,7 +329,7 @@
             \end{table}
 
 
-    \subsection{Preferred Models May not Describe the Observed Data Well}
+    \subsection{Preferred Models May not Describe the Observed Data Sufficiently}
     Through model selection, I selected one model for each curve and it is the most sufficient one in terms of describing 
     the thermal performance curve among four plausible models. However, the preferred models of some curves still 
     fail in describing thermal performance throughout the temperature 
@@ -362,7 +362,7 @@
   Investigations in how organisms response to temperature fulctuation are helpful in better understanding 
   the impact of recent and future climate change on biological systems \cite{kingsolver2013heat, vasseur2014increased}. 
   In assessment of thermal performance, it is important to choose an appropriate mathematical model that 
-  is best supported by empirical data and is able to provide relatively precise estimations of controlled variable, 
+  is best supported by empirical data and is able to provide relatively precise estimations of dependent variable using 
   given values of independent variable. Currently, there are plenty of mathematical models used in fitting thermal 
   performance curves, and model selection criteria can be used to explicate how sufficient a model is in describing 
   thermal performance curves \cite{krenek2011thermal, angilletta2006estimating, johnson2004model}. 
@@ -379,11 +379,11 @@
   both fit and model complexity into consideration to balance under- and over-fitting to observed data 
   \cite{johnson2004model, zucchini2000introduction}. Although AIC and BIC are quite similar 
   in forms, they are divergent in theoretical motivations. BIC is based on Bayesian statistical analysis and is an 
-  approximation reflecting the probability that each plausible model is the true model that generated the empirical 
+  approximation reflecting the probability that the plausible model is the true model that generated the empirical 
   data \cite{kuha2004aic}. Minimized BIC is corresponded to maximized posterior 
   probability among all plausibilities and can be thought as a criterion for model selection \cite{wit2012all}. However, 
-  the existence of "true model" is problematic \cite{box1979all}, and the theoretical basis of BIC is 
-  controversial \cite{kuha2004aic}. As for AIC, it measures the predictive performance of 
+  whether there is such a "true model" is controversial \cite{box1979all}, and the theoretical basis of BIC is 
+  disputed \cite{kuha2004aic}. As for AIC, it measures the predictive performance of 
   each candidate model by estimating Kullback-Leible information loss \cite{kuha2004aic,deleeuw1992akaike, 
    burnham2004multimodel}, 
   and is thus well-founded in information theory.  
@@ -408,7 +408,7 @@
   lower and upper thermal limits of performance \cite{sinclair2016can,krenek2011thermal}. 
   However, some models supported by AIC or BIC are not bell-shaped curves, 
   as exemplified in Figure 3. Others may give estimations of thermal limits of performance that are too low or too high to 
-  be realistic, as exemplified in Figure 4. Such models may fit to the observed data well (Figure 3d and Figure 4a), but 
+  be realistic, as exemplified in Figure 4. Such models may fit to the observed data well (\textit{e.g.} Figure 3d and Figure 4a), but 
   fail in describing the whole thermal performance curve. A possible reason is that there are not enough sampes from a wide 
   enough temperature range to allow the models to capture the change of performance over temperature in different ranges. 
   For example, curve 215 

@@ -1,13 +1,12 @@
 #Language: R 4.0.3
-#Auther: Cong Liu (cong.liu20@imperial.ac.uk)
-#Script: Ratkowsky_model.R
+#Author: Cong Liu (cong.liu20@imperial.ac.uk)
 #Work Path: CMEECourseWork/MiniProject/Code
 #Depemdency: minpack.lm
 #Input: ../Results/filtered_data.csv
 #Function: Fit each thermal performace curve with Ratkowsky model:
 #          B(T)^0.5 = a * (t - T0) * (1 - exp(b * (t - Tm)))
 #          where B(T) is trait value under temperature T. 
-#          T0, Tm, a, b are constants.
+#          T0, Tm, a, b are constants. AIC and BIC are calculated.
 #Output: ../Results/Ratkowsky_model.csv
 #Usage: Rscript Ratkowsky_model.R
 #Date: Oct, 2020
@@ -27,20 +26,24 @@ name = c("SampleSize","AIC","BIC",
 
 Rat = data.frame(Value_name = name)
 
+#Ratkowsky model
 Rat_fun = function(t, T0, Tm, a, b){
   return(a * (t - T0) * (1 - exp(b * (t - Tm))))
 }
 
+#Start values of a and b
 a_starts = 10^seq(-5,4)
 b_starts = 10^seq(-5,4)
+
 for (i in 1:903){
   d = subset(data, ID == i)
-  
+  #Start values of T0 and Tm
   T0_start = min(d$ConTemp)
   Tm_start = max(d$ConTemp)
   
   for (a0 in a_starts){
     for (b0 in b_starts){
+      #Model fitting
       mol = try(
         nlsLM(data = d,
               sqrt(d$OriginalTraitValue) ~ Rat_fun(ConTemp,T0, Tm, a, b),
@@ -51,7 +54,6 @@ for (i in 1:903){
         report = rep(NA,24)
         #Sample size
         report[1] = nrow(d)
-        
         #T0
         report[4] = coef(summary(mol))["T0",1]
         report[5] = coef(summary(mol))["T0",2]
@@ -78,11 +80,10 @@ for (i in 1:903){
         report[23] = b0
         #ID
         report[24] = i
-        
+        #AIC, BIC
         pre = (Rat_fun(d$ConTemp, report[4], report[9], report[14],report[19]))^2
         RSS = sum((d$OriginalTraitValue - pre)^2)
         likelihood = -0.5*report[1]*log(RSS/report[1])
-        
         report[2] = -2*likelihood + 8
         report[3] = -2*likelihood + 4*log(report[1])
         
@@ -91,7 +92,7 @@ for (i in 1:903){
     }
   }
 }
-warnings()
+
 labels = c("ID",Rat[24,][-1])
 colnames(Rat) = labels
 Rat = Rat[-24,]

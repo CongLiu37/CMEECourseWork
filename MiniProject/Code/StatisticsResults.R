@@ -23,21 +23,23 @@ rm(list = ls())
 
 rescale = read.csv("../Results/move_curves.csv", header = T)
 
+#How many curves are not rescaled
 p1 = paste(nrow(subset(rescale, minus == 0)), "curves have no negative trait value")
 print(p1)
 
 IDs = subset(rescale, minus == 0)$ID
 
+#How many times Briere model is fitted
 briere = read.csv("../Results/Briere_model.csv", header = T)
 briere_positive = subset(briere, briere$X %in% IDs)
 p2 = paste(length(table(briere_positive$X)), "of 841 curves can be fitted by Briere function")
 print(p2)
-
+#How many times Ratkowsky model is fitted
 ratkowsky = read.csv("../Results/Ratkowsky_model.csv", header = T)
 ratkowsky_positive = subset(ratkowsky, X %in% IDs)
 p3 = paste(length(table(ratkowsky_positive$X)), "of 841 curves can be fitted by Ratkowsky function")
 print(p3)
-
+#Under AIC selection, how many times each model wins
 print("When AIC is used for model selection:")
 q_AIC = subset(read.csv("../Results/bestAIC_quadratic.csv", header = T),
                ID %in% IDs)
@@ -55,7 +57,7 @@ p6 = paste(length(table(b_AIC$ID)), "curves are best fitted by Briere function")
 print(p6)
 p7 = paste(length(table(r_AIC$ID)), "curves are best fitted by Ratkowsky function")
 print(p7)
-
+#Under BIC selection, how many times each model wins
 print("When BIC is used for model selection:")
 q_BIC = subset(read.csv("../Results/bestBIC_quadratic.csv", header = T),
                ID %in% IDs)
@@ -73,7 +75,7 @@ p10 = paste(length(table(b_BIC$ID)), "curves are best fitted by Briere function"
 print(p10)
 p11 = paste(length(table(r_BIC$ID)), "curves are best fitted by Ratkowsky function")
 print(p11)
-
+#Is there curve has best models from multiple categories of functions when AIC is used as criterion
 if(length(intersect(q_AIC$ID,b_AIC$ID)) == 0 &
    length(intersect(q_AIC$ID,c_AIC$ID)) == 0 &
    length(intersect(q_AIC$ID,r_AIC$ID)) == 0 &
@@ -82,7 +84,7 @@ if(length(intersect(q_AIC$ID,b_AIC$ID)) == 0 &
    length(intersect(b_AIC$ID,r_AIC$ID)) == 0){
   print("No curve has best models from multiple categories of functions when AIC is used as criterion")
 }
-
+#Is there curve has best models from multiple categories of functions when BIC is used as criterion
 if(length(intersect(q_BIC$ID,b_BIC$ID)) == 0 &
    length(intersect(q_BIC$ID,c_BIC$ID)) == 0 &
    length(intersect(q_BIC$ID,r_BIC$ID)) == 0 &
@@ -92,6 +94,7 @@ if(length(intersect(q_BIC$ID,b_BIC$ID)) == 0 &
   print("No curve has best models from multiple categories of functions when BIC is used as criterion")
 }
 
+#Whether AIC/BIC support the same model
 mod = data.frame(ID = 1:903,
                  bestAIC = rep(NA,903),
                  bestBIC = rep(NA,903))
@@ -117,8 +120,7 @@ print(a)
 write.csv(a, "../Results/a.csv", row.names = F)
 
 
-
-
+#Distribution of supported models among metabolic/habitat type
 Metabolic = rep(NA, 903)
 Hab =  rep(NA, 903)
 for (i in 1:903){

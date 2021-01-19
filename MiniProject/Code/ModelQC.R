@@ -1,6 +1,5 @@
 #Language: R 4.0.3
-#Auther: Cong Liu (cong.liu20@imperial.ac.uk)
-#Script: ModelQC.R
+#Author: Cong Liu (cong.liu20@imperial.ac.uk)
 #Work Path: CMEECourseWork/MiniProject/Code
 #Dependency: 
 #Input: ../Results/quadratic_polynomial_model.csv
@@ -8,10 +7,13 @@
 #       ../Results/Briere_model.csv
 #       ../Results/Ratkowsky_model.csv
 #Function: (1) For each curve, select combinations of parameters of Briere model
-#              that lead to lowest AIC or BIC and average them.
+#              that lead to lowest AIC or BIC and conduct model averaging, 
+#              saving as ../Results/Briere_AIC.csv and ../Results/Briere_BIC.csv.
 #          (2) For each curve, select combinations of parameters of Ratkowsky model
-#              that lead to lowest AIC or BIC and average them.
-#          (3) Extract parameter values of all models.
+#              that lead to lowest AIC or BIC and conduct model averaging,
+#              saving as ../Results/Ratkowsky_AIC.csv and ../Results/Ratkowsky_BIC.csv
+#          (3) Extract parameter values of all linear models, saving as 
+#              ../Results/quadratic_valid.csv and ../Results/cubic_valid.csv.
 #Output: ../Results/quadratic_valid.csv
 #        ../Results/cubic_valid.csv
 #        ../Results/Briere_AIC.csv
@@ -24,22 +26,22 @@
 rm(list = ls())
 data = read.csv("../Results/filtered_data.csv")
 
+#Extract parameters of quadratic model
 Q = read.csv("../Results/quadratic_polynomial_model.csv", header = T)
 colnames(Q) = Q[1,]
 Q = Q[-1,]
 Q = data.frame(lapply(Q, as.numeric))
-
 Q_parameter = data.frame(ID=Q$ID,AIC=Q$AIC,BIC=Q$BIC,B0=Q$B0,B1=Q$B1,B2=Q$B2)
 write.csv(Q_parameter,"../Results/quadratic_valid.csv", row.names = F)
-
+#Extract parameters of cubic model
 C = read.csv("../Results/cubic_polynomial_model.csv", header = T)
 colnames(C) = C[1,]
 C = C[-1,]
 C = data.frame(lapply(C, as.numeric))
-
 C_parameter = data.frame(ID=C$ID,AIC=C$AIC,BIC=C$BIC,B0=C$B0,B1=C$B1,B2=C$B2,B3=C$B3)
 write.csv(C_parameter,"../Results/cubic_valid.csv", row.names = F)
 
+#Import Briere models
 B = read.csv("../Results/Briere_model.csv")
 colnames(B) = B[1,]
 B = B[-1,]
@@ -49,6 +51,7 @@ ID_B = names(table(B1$ID))
 B_AIC = data.frame()
 B_BIC = data.frame()
 
+#Select Briere models with lowest AIC/BIC
 for (i in ID_B){
   d = subset(B1, ID == i)
   d_AIC = subset(d, as.numeric(d$AIC) == min(as.numeric(d$AIC)))
@@ -62,6 +65,7 @@ B_AIC_parameters = data.frame(ID = B_AIC$ID,
                               B0 = B_AIC$B0,T0 = B_AIC$T0,Tm = B_AIC$Tm)
 B_AIC_parameters = B_AIC_parameters[!duplicated(B_AIC_parameters),]
 
+#Model average based on AIC selection
 Briere_AIC = data.frame()
 for (i in as.numeric(names(table(B_AIC_parameters$ID)))){
   d = subset(B_AIC_parameters, ID == i)
@@ -70,6 +74,7 @@ for (i in as.numeric(names(table(B_AIC_parameters$ID)))){
   T0 = mean(as.numeric(d$T0))
   Tm = mean(as.numeric(d$Tm))
   
+  #AIC/BIC of averaged model
   pre = B0*f$ConTemp*(f$ConTemp-T0)*(abs(Tm-f$ConTemp))^0.5
   RSS = sum((f$OriginalTraitValue - pre)^2)
   likelihood = -0.5*nrow(f)*log(RSS/nrow(f))
@@ -80,11 +85,13 @@ for (i in as.numeric(names(table(B_AIC_parameters$ID)))){
   Briere_AIC = rbind(Briere_AIC, a)}
 colnames(Briere_AIC) = c("ID", "AIC", "BIC", "B0", "T0", "Tm")
 
+
 B_BIC_parameters = data.frame(ID = B_BIC$ID,
                               AIC = B_BIC$AIC, BIC = B_BIC$BIC,
                               B0 = B_BIC$B0,T0 = B_BIC$T0,Tm = B_BIC$Tm)
 B_BIC_parameters = B_BIC_parameters[!duplicated(B_BIC_parameters),]
 
+#Model average based on BIC selection
 Briere_BIC = data.frame()
 for (i in as.numeric(names(table(B_BIC_parameters$ID)))){
   d = subset(B_BIC_parameters, ID == i)
@@ -93,6 +100,7 @@ for (i in as.numeric(names(table(B_BIC_parameters$ID)))){
   T0 = mean(as.numeric(d$T0))
   Tm = mean(as.numeric(d$Tm))
   
+  #AIC/BIC of averaged model
   pre = B0*f$ConTemp*(f$ConTemp-T0)*(abs(Tm-f$ConTemp))^0.5
   RSS = sum((f$OriginalTraitValue - pre)^2)
   likelihood = -0.5*nrow(f)*log(RSS/nrow(f))
@@ -106,6 +114,8 @@ colnames(Briere_BIC) = c("ID", "AIC", "BIC", "B0", "T0", "Tm")
 write.csv(Briere_AIC,"../Results/Briere_AIC.csv",row.names = F)
 write.csv(Briere_BIC,"../Results/Briere_BIC.csv",row.names = F)
 
+###############################################################
+#The same work flow for Ratkowsky model
 R = read.csv("../Results/Ratkowsky_model.csv")
 colnames(R) = R[1,]
 R = R[-1,]

@@ -7,7 +7,7 @@
 #Function: Fit each thermal performance curve with cubic model:
 #          B(T) = B0 + B1*T + B2*T^2 + B3*T^3
 #          where B(T) is trait value under temperature T. 
-#          B0, B1, B2, B3 are constants.
+#          B0, B1, B2, B3 are constants. AIC and BIC are calculated.
 #Output: ../Results/cubic_polynomial_model.csv
 #Usage: Rscript cubic_polynomial_model.R
 #Date: Oct, 2020
@@ -25,6 +25,7 @@ name = c("SampleSize","AIC","BIC",
 
 cub = data.frame(Value_name = name)
 
+#Model fitting
 for (i in 1:903){
   d = subset(data, ID == i)
   
@@ -41,17 +42,17 @@ for (i in 1:903){
   report[5] = coef(summary(mol))["(Intercept)",2]
   report[6] = coef(summary(mol))["(Intercept)",3]
   report[7] = coef(summary(mol))["(Intercept)",4] #H0: B0 = 0
-  #Tm
+  #B1
   report[8] = coef(summary(mol))["poly(ConTemp, 3, raw = T)1",1]
   report[9] = coef(summary(mol))["poly(ConTemp, 3, raw = T)1",2]
   report[10] = coef(summary(mol))["poly(ConTemp, 3, raw = T)1",3]
   report[11] = coef(summary(mol))["poly(ConTemp, 3, raw = T)1",4] #H0: B1 = 0
-  #a
+  #B2
   report[12] = coef(summary(mol))["poly(ConTemp, 3, raw = T)2",1]
   report[13] = coef(summary(mol))["poly(ConTemp, 3, raw = T)2",2]
   report[14] = coef(summary(mol))["poly(ConTemp, 3, raw = T)2",3]
   report[15] = coef(summary(mol))["poly(ConTemp, 3, raw = T)2",4] #H0: B2 = 0
-  
+  #B3
   report[16] = coef(summary(mol))["poly(ConTemp, 3, raw = T)3",1]
   report[17] = coef(summary(mol))["poly(ConTemp, 3, raw = T)3",2]
   report[18] = coef(summary(mol))["poly(ConTemp, 3, raw = T)3",3]

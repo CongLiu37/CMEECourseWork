@@ -16,7 +16,8 @@ Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Function: Rescale curves with negative trait values to make performance positive.
 #          These rescaled curves will be used in model fitting and selection, to make 
 #          IDs of curves are consecutive integers. They will be removed in further 
-#          analysis.
+#          analysis. Rescaled data saves in ../Results/filtered_data.csv. Whether a curve is 
+#          rescaled saves in ../Results/move_curves.csv (minus=0 means no rescaling)
 #Output: ../Results/filtered_data.csv
 #        ../Results/move_curves.csv
 #Usage: Rscript data_filter.R
@@ -31,7 +32,7 @@ Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Function: Fit each thermal performance curve with quadratic model:
 #          B(T) = B0 + B1*T + B2*T^2 
 #          where B(T) is trait value under temperature T, 
-#          B0, B1, B2 are constants.
+#          B0, B1, B2 are constants. AIC and BIC are calculated.
 #Output: ../Results/quadratic_polynomial_model.csv
 #Usage: Rscript quadratic_polynomial_model.R
 #Date: Oct, 2020
@@ -45,7 +46,7 @@ Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Function: Fit each thermal performance curve with cubic model:
 #          B(T) = B0 + B1*T + B2*T^2 + B3*T^3
 #          where B(T) is trait value under temperature T. 
-#          B0, B1, B2, B3 are constants.
+#          B0, B1, B2, B3 are constants. AIC and BIC are calculated.
 #Output: ../Results/cubic_polynomial_model.csv
 #Usage: Rscript cubic_polynomial_model.R
 #Date: Oct, 2020
@@ -56,10 +57,10 @@ Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Work Path: CMEECourseWork/MiniProject/Code
 #Dependency: minpack.lm
 #Input: ../Results/filtered_data.csv
-#Function: Fit each thermal performace curve with Ratkowsky model:
+#Function: Fit each thermal performace curve with Briere model:
 #          B(T) = B0*T*(T-T0)*(Tm-T)^0.5 
 #          where B(T) is trait value under temperature T. 
-#          T0, Tm, B0 are constants
+#          T0, Tm, B0 are constants. AIC and BIC are calculated.
 #Output: ../Results/Briere_model.csv
 #Usage: Rscript Briere_model.R
 #Date: Oct, 2020
@@ -73,7 +74,7 @@ Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Function: Fit each thermal performace curve with Ratkowsky model:
 #          B(T)^0.5 = a * (t - T0) * (1 - exp(b * (t - Tm)))
 #          where B(T) is trait value under temperature T. 
-#          T0, Tm, a, b are constants.
+#          T0, Tm, a, b are constants. AIC and BIC are calculated.
 #Output: ../Results/Ratkowsky_model.csv
 #Usage: Rscript Ratkowsky_model.R
 #Date: Oct, 2020
@@ -88,10 +89,13 @@ Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #       ../Results/Briere_model.csv
 #       ../Results/Ratkowsky_model.csv
 #Function: (1) For each curve, select combinations of parameters of Briere model
-#              that lead to lowest AIC or BIC and average them.
+#              that lead to lowest AIC or BIC and conduct model averaging, 
+#              saving as ../Results/Briere_AIC.csv and ../Results/Briere_BIC.csv.
 #          (2) For each curve, select combinations of parameters of Ratkowsky model
-#              that lead to lowest AIC or BIC and average them.
-#          (3) Extract parameter values of all models.
+#              that lead to lowest AIC or BIC and conduct model averaging,
+#              saving as ../Results/Ratkowsky_AIC.csv and ../Results/Ratkowsky_BIC.csv
+#          (3) Extract parameter values of all linear models, saving as 
+#              ../Results/quadratic_valid.csv and ../Results/cubic_valid.csv.
 #Output: ../Results/quadratic_valid.csv
 #        ../Results/cubic_valid.csv
 #        ../Results/Briere_AIC.csv
@@ -113,7 +117,9 @@ Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #       ../Results/Ratkowsky_AIC.csv
 #       ../Results/Ratkowsky_BIC.csv
 #       ../Results/filtered_data.csv
-#Function: Visualize four plausible models of each curve
+#Function: Visualize four plausible models of each curve.
+#          If selection and averaging of non-linear model is based on AIC, plots save in ../Results/AIC_models.pdf.
+#          If selection and averaging of non-linear model is based on BIC, plots save in ../Results/BIC_models.pdf.
 #Output: ../Results/AIC_models.pdf
 #        ../Results/BIC_models.pdf
 #Usage: Rscript PlotValidModels.R
@@ -133,14 +139,14 @@ Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #Function: For each curve, select best-fitting models from 
 #          quadratic, cubic, Briere and Ratkowsky models, 
 #          using either AIC or BIC as criteria.
-#Output: ../Results/bestAIC_quadratic.csv
-#        ../Results/bestBIC_quadratic.csv
-#        ../Results/bestAIC_cubic.csv
-#        ../Results/bestBIC_cubic.csv
-#        ../Results/bestAIC_Briere.csv
-#        ../Results/bestBIC_Briere.csv
-#        ../Results/bestAIC_Ratkowsky.csv
-#        ../Results/bestBIC_Ratkowsky.csv
+#Output: ../Results/bestAIC_quadratic.csv (AIC, quadratic winner)
+#        ../Results/bestBIC_quadratic.csv (BIC, quadratic winner)
+#        ../Results/bestAIC_cubic.csv (AIC, cubic winner)
+#        ../Results/bestBIC_cubic.csv (BIC, cubic winner)
+#        ../Results/bestAIC_Briere.csv (AIC, Briere winner)
+#        ../Results/bestBIC_Briere.csv (BIC, Briere winner)
+#        ../Results/bestAIC_Ratkowsky.csv (AIC, Ratkowsky winner)
+#        ../Results/bestBIC_Ratkowsky.csv (BIC, Ratkowsky winner)
 #Usage: Rscript BestModel.R
 #Date: Nov, 2020
 
@@ -158,10 +164,9 @@ Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #        ../Results/bestAIC_Ratkowsky.csv
 #        ../Results/bestBIC_Ratkowsky.csv
 #        ../Results/filtered_data.csv
-#Function: Plot best model of each curve when AIC or BIC is used for
-#          model selection.
-#Output: ../Results/AIC_bestmodels.pdf
-#        ../Results/BIC_bestmodels.pdf
+#Function: Plot best model of each curve under either AIC or BIC.
+#Output: ../Results/AIC_bestmodels.pdf (AIC-selected)
+#        ../Results/BIC_bestmodels.pdf (BIC-selected)
 #Usage: Rscript PlotBestModels.R
 #Date: Nov, 2020
 
@@ -181,7 +186,7 @@ Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 #       ../Results/bestBIC_cubic.csv
 #       ../Results/bestBIC_Briere.csv
 #       ../Results/bestBIC_Ratkowsky.csv
-#Function: Basic summary of the results of model fitting and selection.
+#Function: Print summary of the results of model fitting and selection.
 #Output: 
 #Usage: Rscript StatisticsResults.R
 #Date: Nov, 2020
@@ -229,8 +234,8 @@ Function: References for the report.
 #Work Path: CMEECourseWork/MiniProject/Code
 #Input: .tex and .bib files in Code/
 #Function: Compile LaTeX, save .pdf file in Results/ and remove other files
-#Output: .pdf file in Results/
-#Usage: bash Code/CompileLaTeX.sh [Base name of .tex]
+#Output: .pdf file in ../Writeup
+#Usage: bash CompileLaTeX.sh [Base name of .tex]
 #Date: Nov 2020
 
 (15) run_MiniProject.py
@@ -238,8 +243,6 @@ Language: Python3
 Auther: Cong Liu (cong.liu20@imperial.ac.uk)
 Work Path: CMEECourseWork/MiniProject/Code
 Dependency: os
-Input: 
 Function: Run all scripts of miniproject.
-Output:
 Usage: python run_MiniProject.py
 Date: Nov, 2020

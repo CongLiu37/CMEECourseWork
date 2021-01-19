@@ -1,6 +1,5 @@
 #Language: R 4.0.3
-#Auther: Cong Liu (cong.liu20@imperial.ac.uk)
-#Script: PlotBestModels.R
+#Author: Cong Liu (cong.liu20@imperial.ac.uk)
 #Work Path: CMEECourseWork/MiniProject/Code
 #Dependency: ggplot2 
 #Input:  ../Results/bestAIC_quadratic.csv
@@ -12,15 +11,15 @@
 #        ../Results/bestAIC_Ratkowsky.csv
 #        ../Results/bestBIC_Ratkowsky.csv
 #        ../Results/filtered_data.csv
-#Function: Plot best model of each curve when AIC or BIC is used for
-#          model selection.
-#Output: ../Results/AIC_bestmodels.pdf
-#        ../Results/BIC_bestmodels.pdf
+#Function: Plot best model of each curve under either AIC or BIC.
+#Output: ../Results/AIC_bestmodels.pdf (AIC-selected)
+#        ../Results/BIC_bestmodels.pdf (BIC-selected)
 #Usage: Rscript PlotBestModels.R
 #Date: Nov, 2020
-
 rm(list = ls())
 library(ggplot2)
+
+#Import models
 q_AIC = read.csv("../Results/bestAIC_quadratic.csv", header = T)
 c_AIC = read.csv("../Results/bestAIC_cubic.csv", header = T)
 b_AIC = read.csv("../Results/bestAIC_Briere.csv", header = T)
@@ -33,6 +32,7 @@ r_BIC = read.csv("../Results/bestBIC_Ratkowsky.csv", header = T)
 
 data = read.csv("../Results/filtered_data.csv", header = T)
 
+#Plotting
 pdf("../Results/AIC_bestmodels.pdf")
 for (i in 1:903){
   modq = subset(q_AIC, ID == i)

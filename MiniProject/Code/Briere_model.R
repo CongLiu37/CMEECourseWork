@@ -1,13 +1,12 @@
 #Language: R 4.0.3
-#Auther: Cong Liu (cong.liu20@imperial.ac.uk)
-#Script: Briere_model.R
+#Author: Cong Liu (cong.liu20@imperial.ac.uk)
 #Work Path: CMEECourseWork/MiniProject/Code
 #Dependency: minpack.lm
 #Input: ../Results/filtered_data.csv
-#Function: Fit each thermal performace curve with Ratkowsky model:
+#Function: Fit each thermal performace curve with Briere model:
 #          B(T) = B0*T*(T-T0)*(Tm-T)^0.5 
 #          where B(T) is trait value under temperature T. 
-#          T0, Tm, B0 are constants
+#          T0, Tm, B0 are constants. AIC and BIC are calculated.
 #Output: ../Results/Briere_model.csv
 #Usage: Rscript Briere_model.R
 #Date: Oct, 2020
@@ -26,21 +25,24 @@ name = c("SampleSize","AIC","BIC",
 
 Bri = data.frame(Value_name = name)
 
+#Briere model
 Bri_fun = function(t, B0, T0, Tm){
   return(B0*t*(t-T0)*(abs(Tm-t))^0.5)
 }
 
+
 for (i in 1:903){
   d = subset(data, ID == i)
-  
+  #Start values of T0 and Tm
   T0_start = min(d$ConTemp)
   Tm_start = max(d$ConTemp)
-  
+  #Start values of B0
   B0est = d$OriginalTraitValue/(d$ConTemp*(d$ConTemp-T0_start)*(Tm_start-d$ConTemp)^0.5)
   B0est = B0est[!is.infinite(B0est)]
   B0est = mean(B0est)
   B0_starts = runif(100, 0, 2*B0est)
   
+  #Model fitting with different start values of B0
   for (B0_start in B0_starts){
       mol = try(
         nlsLM(data = d,
@@ -48,7 +50,7 @@ for (i in 1:903){
               start = list(B0 = B0_start, T0 = T0_start, Tm = Tm_start),
               control = list(maxiter = 200)),
         silent = T)
-      if (as.vector(summary(mol))[2] != "try-error"){
+      if (as.vector(summary(mol))[2] != "try-error"){ #If convergence
         report = rep(NA,19)
         #Sample size
         report[1] = nrow(d)
