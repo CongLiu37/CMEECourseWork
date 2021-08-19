@@ -1,0 +1,447 @@
+PathwayID	Naive	MinPath	TotalGene	GeneFound	Coverage	Description
+map00363	1	1	2	2	1.0	Bisphenol degradation
+map02060	1	1	71	69	0.971830985915493	Phosphotransferase system (PTS)
+map04112	1	1	31	29	0.9354838709677419	Cell cycle - Caulobacter
+map00290	1	1	19	17	0.8947368421052632	Valine, leucine and isoleucine biosynthesis
+map03010	1	1	143	127	0.8881118881118881	Ribosome
+map00072	1	1	8	7	0.875	Synthesis and degradation of ketone bodies
+map02040	1	1	55	48	0.8727272727272727	Flagellar assembly
+map03430	1	1	44	38	0.8636363636363636	Mismatch repair
+map02030	1	1	26	22	0.8461538461538461	Bacterial chemotaxis
+map00473	1	1	6	5	0.8333333333333334	D-Alanine metabolism
+map03022	1	1	36	30	0.8333333333333334	Basal transcription factors
+map04122	1	1	29	24	0.8275862068965517	Sulfur relay system
+map00250	1	1	70	57	0.8142857142857143	Alanine, aspartate and glutamate metabolism
+map00260	1	1	99	80	0.8080808080808081	Glycine, serine and threonine metabolism
+map00052	1	1	77	62	0.8051948051948052	Galactose metabolism
+map00531	1	1	15	12	0.8	Glycosaminoglycan degradation
+map00240	1	1	102	81	0.7941176470588235	Pyrimidine metabolism
+map03420	1	1	47	37	0.7872340425531915	Nucleotide excision repair
+map04964	1	1	14	11	0.7857142857142857	Proximal tubule bicarbonate reclamation
+map00550	1	1	51	40	0.7843137254901961	Peptidoglycan biosynthesis
+map00710	1	1	36	28	0.7777777777777778	Carbon fixation in photosynthetic organisms
+map00540	1	1	62	48	0.7741935483870968	Lipopolysaccharide biosynthesis
+map00500	1	1	105	81	0.7714285714285715	Starch and sucrose metabolism
+map00061	1	1	39	30	0.7692307692307693	Fatty acid biosynthesis
+map00630	1	1	100	76	0.76	Glyoxylate and dicarboxylate metabolism
+map00450	1	1	33	25	0.7575757575757576	Selenocompound metabolism
+map00051	1	1	111	84	0.7567567567567568	Fructose and mannose metabolism
+map03050	1	1	49	37	0.7551020408163265	Proteasome
+map00983	1	1	32	24	0.75	Drug metabolism - other enzymes
+map03410	1	1	43	32	0.7441860465116279	Base excision repair
+map03060	1	1	39	29	0.7435897435897436	Protein export
+map04075	1	1	45	33	0.7333333333333333	Plant hormone signal transduction
+map00010	1	1	105	77	0.7333333333333333	Glycolysis / Gluconeogenesis
+map00230	1	1	213	156	0.7323943661971831	Purine metabolism
+map03015	1	1	63	46	0.7301587301587301	mRNA surveillance pathway
+map00040	1	1	85	62	0.7294117647058823	Pentose and glucuronate interconversions
+map00220	1	1	59	43	0.7288135593220338	Arginine biosynthesis
+map00520	1	1	147	107	0.7278911564625851	Amino sugar and nucleotide sugar metabolism
+map00511	1	1	22	16	0.7272727272727273	Other glycan degradation
+map00020	1	1	62	45	0.7258064516129032	Citrate cycle (TCA cycle)
+map00620	1	1	126	91	0.7222222222222222	Pyruvate metabolism
+map03030	1	1	60	43	0.7166666666666667	DNA replication
+map00073	1	1	14	10	0.7142857142857143	Cutin, suberine and wax biosynthesis
+map03018	1	1	79	56	0.7088607594936709	RNA degradation
+map02010	1	1	512	361	0.705078125	ABC transporters
+map00770	1	1	44	31	0.7045454545454546	Pantothenate and CoA biosynthesis
+map03070	1	1	74	52	0.7027027027027027	Bacterial secretion system
+map00908	1	1	10	7	0.7	Zeatin biosynthesis
+map00780	1	1	23	16	0.6956521739130435	Biotin metabolism
+map04136	1	1	23	16	0.6956521739130435	Autophagy - other
+map03440	1	1	72	50	0.6944444444444444	Homologous recombination
+map00030	1	1	84	57	0.6785714285714286	Pentose phosphate pathway
+map00270	1	1	117	79	0.6752136752136753	Cysteine and methionine metabolism
+map00280	1	1	70	47	0.6714285714285714	Valine, leucine and isoleucine degradation
+map04114	1	1	79	53	0.6708860759493671	Oocyte meiosis
+map00650	1	1	99	66	0.6666666666666666	Butanoate metabolism
+map00730	1	1	36	24	0.6666666666666666	Thiamine metabolism
+map00430	1	1	24	16	0.6666666666666666	Taurine and hypotaurine metabolism
+map01503	1	1	54	36	0.6666666666666666	Cationic antimicrobial peptide (CAMP) resistance
+map00640	1	1	110	73	0.6636363636363637	Propanoate metabolism
+map04914	1	1	64	42	0.65625	Progesterone-mediated oocyte maturation
+map00660	1	1	29	19	0.6551724137931034	C5-Branched dibasic acid metabolism
+map04922	1	1	57	37	0.6491228070175439	Glucagon signaling pathway
+map01053	1	1	37	24	0.6486486486486487	Biosynthesis of siderophore group nonribosomal peptides
+map04966	1	1	17	11	0.6470588235294118	Collecting duct acid secretion
+map00900	1	1	59	38	0.6440677966101694	Terpenoid backbone biosynthesis
+map04392	1	1	25	16	0.64	Hippo signaling pathway - multiple species
+map00053	1	1	61	39	0.639344262295082	Ascorbate and aldarate metabolism
+map05017	1	1	116	74	0.6379310344827587	Spinocerebellar ataxia
+map00410	1	1	44	28	0.6363636363636364	beta-Alanine metabolism
+map03008	1	1	82	52	0.6341463414634146	Ribosome biogenesis in eukaryotes
+map04925	1	1	65	41	0.6307692307692307	Aldosterone synthesis and secretion
+map00281	1	1	16	10	0.625	Geraniol degradation
+map00330	1	1	112	70	0.625	Arginine and proline metabolism
+map04971	1	1	50	31	0.62	Gastric acid secretion
+map00860	1	1	131	81	0.6183206106870229	Porphyrin and chlorophyll metabolism
+map04070	1	1	55	34	0.6181818181818182	Phosphatidylinositol signaling system
+map00340	1	1	47	29	0.6170212765957447	Histidine metabolism
+map00130	1	1	59	36	0.6101694915254238	Ubiquinone and other terpenoid-quinone biosynthesis
+map00790	1	1	82	50	0.6097560975609756	Folate biosynthesis
+map05031	1	1	46	28	0.6086956521739131	Amphetamine addiction
+map03020	1	1	51	31	0.6078431372549019	RNA polymerase
+map02026	1	1	61	37	0.6065573770491803	Biofilm formation - Escherichia coli
+map00400	1	1	71	43	0.6056338028169014	Phenylalanine, tyrosine and tryptophan biosynthesis
+map00071	1	1	58	35	0.603448275862069	Fatty acid degradation
+map00471	1	1	10	6	0.6	D-Glutamine and D-glutamate metabolism
+map00521	1	1	20	12	0.6	Streptomycin biosynthesis
+map04713	1	1	79	47	0.5949367088607594	Circadian entrainment
+map00670	1	1	37	22	0.5945945945945946	One carbon pool by folate
+map02020	1	1	495	291	0.5878787878787879	Two-component system
+map03040	1	1	123	72	0.5853658536585366	Spliceosome
+map04391	1	1	53	31	0.5849056603773585	Hippo signaling pathway - fly
+map00360	1	1	77	45	0.5844155844155844	Phenylalanine metabolism
+map00572	1	1	12	7	0.5833333333333334	Arabinogalactan biosynthesis - Mycobacterium
+map04720	1	1	43	25	0.5813953488372093	Long-term potentiation
+map04972	1	1	69	40	0.5797101449275363	Pancreatic secretion
+map00562	1	1	76	44	0.5789473684210527	Inositol phosphate metabolism
+map00920	1	1	109	63	0.5779816513761468	Sulfur metabolism
+map00561	1	1	90	52	0.5777777777777777	Glycerolipid metabolism
+map04730	1	1	45	26	0.5777777777777777	Long-term depression
+map00564	1	1	113	65	0.5752212389380531	Glycerophospholipid metabolism
+map04913	1	1	40	23	0.575	Ovarian steroidogenesis
+map00300	1	1	47	27	0.574468085106383	Lysine biosynthesis
+map04138	1	1	82	47	0.573170731707317	Autophagy - yeast
+map00571	1	1	14	8	0.5714285714285714	Lipoarabinomannan (LAM) biosynthesis
+map05110	1	1	49	28	0.5714285714285714	Vibrio cholerae infection
+map05230	1	1	49	28	0.5714285714285714	Central carbon metabolism in cancer
+map04120	1	1	131	74	0.5648854961832062	Ubiquitin mediated proteolysis
+map04976	1	1	62	35	0.5645161290322581	Bile secretion
+map04912	1	1	64	36	0.5625	GnRH signaling pathway
+map00791	1	1	16	9	0.5625	Atrazine degradation
+map05012	1	1	194	109	0.5618556701030928	Parkinson disease
+map00310	1	1	89	50	0.5617977528089888	Lysine degradation
+map00592	1	1	25	14	0.56	alpha-Linolenic acid metabolism
+map04152	1	1	84	47	0.5595238095238095	AMPK signaling pathway
+map04361	1	1	59	33	0.559322033898305	Axon regeneration
+map00350	1	1	81	45	0.5555555555555556	Tyrosine metabolism
+map04110	1	1	110	61	0.5545454545454546	Cell cycle
+map00910	1	1	65	36	0.5538461538461539	Nitrogen metabolism
+map00940	1	1	38	21	0.5526315789473685	Phenylpropanoid biosynthesis
+map04142	1	1	105	58	0.5523809523809524	Lysosome
+map04146	1	1	73	40	0.547945205479452	Peroxisome
+map04970	1	1	64	35	0.546875	Salivary secretion
+map04961	1	1	33	18	0.5454545454545454	Endocrine and other factor-regulated calcium reabsorption
+map01502	1	1	22	12	0.5454545454545454	Vancomycin resistance
+map04721	1	1	55	30	0.5454545454545454	Synaptic vesicle cycle
+map03013	1	1	142	77	0.5422535211267606	RNA transport
+map04928	1	1	85	46	0.5411764705882353	Parathyroid hormone synthesis, secretion and action
+map04931	1	1	74	40	0.5405405405405406	Insulin resistance
+map01523	1	1	26	14	0.5384615384615384	Antifolate resistance
+map00960	1	1	26	14	0.5384615384615384	Tropane, piperidine and pyridine alkaloid biosynthesis
+map04927	1	1	54	29	0.5370370370370371	Cortisol synthesis and secretion
+map04016	1	1	54	29	0.5370370370370371	MAPK signaling pathway - plant
+map04320	1	1	28	15	0.5357142857142857	Dorso-ventral axis formation
+map00480	1	1	56	30	0.5357142857142857	Glutathione metabolism
+map04213	1	1	58	31	0.5344827586206896	Longevity regulating pathway - multiple species
+map00943	1	1	17	9	0.5294117647058824	Isoflavonoid biosynthesis
+map04141	1	1	144	76	0.5277777777777778	Protein processing in endoplasmic reticulum
+map05016	1	1	229	120	0.5240174672489083	Huntington disease
+map04520	1	1	63	33	0.5238095238095238	Adherens junction
+map00966	1	1	21	11	0.5238095238095238	Glucosinolate biosynthesis
+map04724	1	1	88	46	0.5227272727272727	Glutamatergic synapse
+map04916	1	1	67	35	0.5223880597014925	Melanogenesis
+map04727	1	1	69	36	0.5217391304347826	GABAergic synapse
+map04740	1	1	25	13	0.52	Olfactory transduction
+map04712	1	1	27	14	0.5185185185185185	Circadian rhythm - plant
+map00190	1	1	218	113	0.518348623853211	Oxidative phosphorylation
+map04540	1	1	60	31	0.5166666666666667	Gap junction
+map00740	1	1	49	25	0.5102040816326531	Riboflavin metabolism
+map04921	1	1	112	57	0.5089285714285714	Oxytocin signaling pathway
+map04111	1	1	126	64	0.5079365079365079	Cell cycle - yeast
+map04270	1	1	95	48	0.5052631578947369	Vascular smooth muscle contraction
+map00760	1	1	97	49	0.5051546391752577	Nicotinate and nicotinamide metabolism
+map04113	1	1	103	52	0.5048543689320388	Meiosis - yeast
+map05014	1	1	280	141	0.5035714285714286	Amyotrophic lateral sclerosis
+map05020	1	1	209	105	0.5023923444976076	Prion disease
+map04978	1	1	36	18	0.5	Mineral absorption
+map04066	1	1	76	38	0.5	HIF-1 signaling pathway
+map00362	1	1	106	53	0.5	Benzoate degradation
+map00903	1	1	12	6	0.5	Limonene and pinene degradation
+map00720	1	1	106	53	0.5	Carbon fixation pathways in prokaryotes
+map04973	1	1	22	11	0.5	Carbohydrate digestion and absorption
+map04139	1	1	34	17	0.5	Mitophagy - yeast
+map00945	1	1	12	6	0.5	Stilbenoid, diarylheptanoid and gingerol biosynthesis
+map01058	1	1	2	1	0.5	Acridone alkaloid biosynthesis
+map04745	1	1	18	9	0.5	Phototransduction - fly
+map04341	1	1	26	13	0.5	Hedgehog signaling pathway - fly
+map00930	1	1	22	11	0.5	Caprolactam degradation
+map00534	1	1	22	11	0.5	Glycosaminoglycan biosynthesis - heparan sulfate / heparin
+map04710	1	1	24	12	0.5	Circadian rhythm
+map04919	1	1	91	45	0.4945054945054945	Thyroid hormone signaling pathway
+map04918	1	1	53	26	0.49056603773584906	Thyroid hormone synthesis
+map00600	1	1	47	23	0.48936170212765956	Sphingolipid metabolism
+map04910	1	1	88	43	0.48863636363636365	Insulin signaling pathway
+map04728	1	0	84	41	0.4880952380952381	Dopaminergic synapse
+map04310	1	1	119	58	0.48739495798319327	Wnt signaling pathway
+map05030	1	0	39	19	0.48717948717948717	Cocaine addiction
+map04962	1	0	33	16	0.48484848484848486	Vasopressin-regulated water reabsorption
+map00970	1	1	66	32	0.48484848484848486	Aminoacyl-tRNA biosynthesis
+map04330	1	1	33	16	0.48484848484848486	Notch signaling pathway
+map05022	1	1	368	178	0.483695652173913	Pathways of neurodegeneration - multiple diseases
+map05033	1	0	27	13	0.48148148148148145	Nicotine addiction
+map00563	1	1	27	13	0.48148148148148145	Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
+map05010	1	1	287	138	0.4808362369337979	Alzheimer disease
+map00643	1	1	25	12	0.48	Styrene degradation
+map04923	1	1	46	22	0.4782608695652174	Regulation of lipolysis in adipocytes
+map02025	1	1	90	43	0.4777777777777778	Biofilm formation - Pseudomonas aeruginosa
+map00515	1	1	21	10	0.47619047619047616	Mannose type O-glycan biosynthesis
+map04144	1	1	169	80	0.47337278106508873	Endocytosis
+map00460	1	1	36	17	0.4722222222222222	Cyanoamino acid metabolism
+map04530	1	1	106	50	0.4716981132075472	Tight junction
+map04911	1	1	68	32	0.47058823529411764	Insulin secretion
+map00622	1	1	34	16	0.47058823529411764	Xylene degradation
+map04723	1	1	119	56	0.47058823529411764	Retrograde endocannabinoid signaling
+map04211	1	0	68	32	0.47058823529411764	Longevity regulating pathway
+map00510	1	1	45	21	0.4666666666666667	N-Glycan biosynthesis
+map00261	1	1	28	13	0.4642857142857143	Monobactam biosynthesis
+map04261	1	0	95	44	0.4631578947368421	Adrenergic signaling in cardiomyocytes
+map05415	1	1	160	74	0.4625	Diabetic cardiomyopathy
+map00380	1	1	80	37	0.4625	Tryptophan metabolism
+map04960	1	1	26	12	0.46153846153846156	Aldosterone-regulated sodium reabsorption
+map04930	1	0	37	17	0.4594594594594595	Type II diabetes mellitus
+map04934	1	1	122	56	0.45901639344262296	Cushing syndrome
+map05171	1	0	205	94	0.4585365853658537	Coronavirus disease - COVID-19
+map00750	1	1	24	11	0.4583333333333333	Vitamin B6 metabolism
+map04714	1	1	188	86	0.4574468085106383	Thermogenesis
+map04212	1	1	57	26	0.45614035087719296	Longevity regulating pathway - worm
+map04974	1	1	66	30	0.45454545454545453	Protein digestion and absorption
+map05032	1	0	64	29	0.453125	Morphine addiction
+map00514	1	1	31	14	0.45161290322580644	Other types of O-glycan biosynthesis
+map01501	1	1	112	50	0.44642857142857145	beta-Lactam resistance
+map04340	1	1	45	20	0.4444444444444444	Hedgehog signaling pathway
+map03460	1	1	54	24	0.4444444444444444	Fanconi anemia pathway
+map04390	1	0	115	51	0.4434782608695652	Hippo signaling pathway
+map04371	1	0	104	46	0.4423076923076923	Apelin signaling pathway
+map05034	1	1	86	38	0.4418604651162791	Alcoholism
+map04750	1	1	68	30	0.4411764705882353	Inflammatory mediator regulation of TRP channels
+map00100	1	1	34	15	0.4411764705882353	Steroid biosynthesis
+map04013	1	1	84	37	0.44047619047619047	MAPK signaling pathway - fly
+map04924	1	0	50	22	0.44	Renin secretion
+map04022	1	0	121	53	0.4380165289256198	cGMP-PKG signaling pathway
+map04360	1	1	128	56	0.4375	Axon guidance
+map04666	1	0	64	28	0.4375	Fc gamma R-mediated phagocytosis
+map04218	1	1	117	51	0.4358974358974359	Cellular senescence
+map04510	1	1	149	64	0.42953020134228187	Focal adhesion
+map04024	1	0	163	70	0.4294478527607362	cAMP signaling pathway
+map04975	1	0	28	12	0.42857142857142855	Fat digestion and absorption
+map00965	1	1	7	3	0.42857142857142855	Betalain biosynthesis
+map04935	1	1	91	39	0.42857142857142855	Growth hormone synthesis, secretion and action
+map05231	1	1	61	26	0.4262295081967213	Choline metabolism in cancer
+map05414	1	1	87	37	0.42528735632183906	Dilated cardiomyopathy
+map00513	1	1	52	22	0.4230769230769231	Various types of N-glycan biosynthesis
+map04611	1	0	90	38	0.4222222222222222	Platelet activation
+map04725	1	1	90	38	0.4222222222222222	Cholinergic synapse
+map03450	1	1	19	8	0.42105263157894735	Non-homologous end-joining
+map00565	1	1	31	13	0.41935483870967744	Ether lipid metabolism
+map04150	1	1	117	49	0.4188034188034188	mTOR signaling pathway
+map04742	1	1	41	17	0.4146341463414634	Taste transduction
+map01524	1	1	46	19	0.41304347826086957	Platinum drug resistance
+map05205	1	0	165	68	0.4121212121212121	Proteoglycans in cancer
+map05211	1	0	56	23	0.4107142857142857	Renal cell carcinoma
+map04370	1	0	39	16	0.41025641025641024	VEGF signaling pathway
+map04614	1	1	22	9	0.4090909090909091	Renin-angiotensin system
+map00633	1	1	22	9	0.4090909090909091	Nitrotoluene degradation
+map05214	1	0	54	22	0.4074074074074074	Glioma
+map00541	1	1	96	39	0.40625	O-Antigen nucleotide sugar biosynthesis
+map04810	1	1	163	66	0.4049079754601227	Regulation of actin cytoskeleton
+map04260	1	0	67	27	0.40298507462686567	Cardiac muscle contraction
+map01521	1	1	67	27	0.40298507462686567	EGFR tyrosine kinase inhibitor resistance
+map01522	1	0	77	31	0.4025974025974026	Endocrine resistance
+map04071	1	0	82	33	0.4024390243902439	Sphingolipid signaling pathway
+map00984	1	1	15	6	0.4	Steroid degradation
+map04726	1	1	85	34	0.4	Serotonergic synapse
+map04145	1	0	95	38	0.4	Phagosome
+map05213	1	0	45	18	0.4	Endometrial cancer
+map04350	1	1	83	33	0.39759036144578314	TGF-beta signaling pathway
+map05166	1	1	184	73	0.3967391304347826	Human T-cell leukemia virus 1 infection
+map05225	1	1	116	46	0.39655172413793105	Hepatocellular carcinoma
+map05219	1	0	38	15	0.39473684210526316	Bladder cancer
+map00364	1	0	18	7	0.3888888888888889	Fluorobenzoate degradation
+map00981	1	1	18	7	0.3888888888888889	Insect hormone biosynthesis
+map04670	1	0	75	29	0.38666666666666666	Leukocyte transendothelial migration
+map04926	1	0	96	37	0.3854166666666667	Relaxin signaling pathway
+map00785	1	1	13	5	0.38461538461538464	Lipoic acid metabolism
+map05223	1	0	60	23	0.38333333333333336	Non-small cell lung cancer
+map04015	1	1	162	62	0.38271604938271603	Rap1 signaling pathway
+map00627	1	1	81	31	0.38271604938271603	Aminobenzoate degradation
+map05215	1	0	81	31	0.38271604938271603	Prostate cancer
+map00980	1	1	34	13	0.38235294117647056	Metabolism of xenobiotics by cytochrome P450
+map05412	1	1	68	26	0.38235294117647056	Arrhythmogenic right ventricular cardiomyopathy
+map05165	1	1	231	88	0.38095238095238093	Human papillomavirus infection
+map05131	1	1	205	78	0.3804878048780488	Shigellosis
+map05410	1	0	79	30	0.379746835443038	Hypertrophic cardiomyopathy
+map04140	1	0	109	41	0.3761467889908257	Autophagy - animal
+map01040	1	1	32	12	0.375	Biosynthesis of unsaturated fatty acids
+map00405	1	1	16	6	0.375	Phenazine biosynthesis
+map05203	1	1	174	65	0.3735632183908046	Viral carcinogenesis
+map04020	1	1	185	69	0.372972972972973	Calcium signaling pathway
+map04929	1	1	51	19	0.37254901960784315	GnRH secretion
+map04130	1	1	35	13	0.37142857142857144	SNARE interactions in vesicular transport
+map04072	1	0	108	40	0.37037037037037035	Phospholipase D signaling pathway
+map02024	1	1	282	104	0.36879432624113473	Quorum sensing
+map05111	1	1	106	39	0.36792452830188677	Biofilm formation - Vibrio cholerae
+map04613	1	1	90	33	0.36666666666666664	Neutrophil extracellular trap formation
+map03320	1	1	63	23	0.36507936507936506	PPAR signaling pathway
+map05212	1	0	63	23	0.36507936507936506	Pancreatic cancer
+map04915	1	0	77	28	0.36363636363636365	Estrogen signaling pathway
+map00905	1	1	11	4	0.36363636363636365	Brassinosteroid biosynthesis
+map04011	1	1	91	33	0.3626373626373626	MAPK signaling pathway - yeast
+map05210	1	0	72	26	0.3611111111111111	Colorectal cancer
+map04626	1	1	86	31	0.36046511627906974	Plant-pathogen interaction
+map04932	1	0	125	45	0.36	Non-alcoholic fatty liver disease
+map00982	1	1	25	9	0.36	Drug metabolism - cytochrome P450
+map00680	1	1	190	68	0.35789473684210527	Methane metabolism
+map00533	1	1	14	5	0.35714285714285715	Glycosaminoglycan biosynthesis - keratan sulfate
+map00621	1	1	31	11	0.3548387096774194	Dioxin degradation
+map04512	1	1	65	23	0.35384615384615387	ECM-receptor interaction
+map05226	1	1	108	38	0.35185185185185186	Gastric cancer
+map00195	1	1	63	22	0.3492063492063492	Photosynthesis
+map04010	1	1	235	82	0.34893617021276596	MAPK signaling pathway
+map00625	1	1	43	15	0.3488372093023256	Chloroalkane and chloroalkene degradation
+map04612	1	1	46	16	0.34782608695652173	Antigen processing and presentation
+map04012	1	0	69	24	0.34782608695652173	ErbB signaling pathway
+map04068	1	1	102	35	0.3431372549019608	FoxO signaling pathway
+map04550	1	1	114	39	0.34210526315789475	Signaling pathways regulating pluripotency of stem cells
+map04933	1	0	76	26	0.34210526315789475	AGE-RAGE signaling pathway in diabetic complications
+map05100	1	1	76	26	0.34210526315789475	Bacterial invasion of epithelial cells
+map05133	1	1	79	27	0.34177215189873417	Pertussis
+map04214	1	1	56	19	0.3392857142857143	Apoptosis - fly
+map00601	1	1	27	9	0.3333333333333333	Glycosphingolipid biosynthesis - lacto and neolacto series
+map00472	1	0	9	3	0.3333333333333333	D-Arginine and D-ornithine metabolism
+map04744	1	1	18	6	0.3333333333333333	Phototransduction
+map05224	1	0	105	35	0.3333333333333333	Breast cancer
+map05217	1	0	48	16	0.3333333333333333	Basal cell carcinoma
+map00941	1	1	27	9	0.3333333333333333	Flavonoid biosynthesis
+map04137	1	1	60	20	0.3333333333333333	Mitophagy - animal
+map05322	1	1	45	15	0.3333333333333333	Systemic lupus erythematosus
+map04722	1	1	90	29	0.32222222222222224	Neurotrophin signaling pathway
+map04920	1	0	53	17	0.32075471698113206	Adipocytokine signaling pathway
+map05170	1	1	163	52	0.31901840490797545	Human immunodeficiency virus 1 infection
+map05200	1	1	417	133	0.31894484412470026	Pathways in cancer
+map05222	1	0	74	23	0.3108108108108108	Small cell lung cancer
+map05146	1	1	87	27	0.3103448275862069	Amoebiasis
+map00906	1	1	52	16	0.3076923076923077	Carotenoid biosynthesis
+map05152	1	1	131	40	0.3053435114503817	Tuberculosis
+map04625	1	0	82	25	0.3048780487804878	C-type lectin receptor signaling pathway
+map04151	1	1	263	80	0.3041825095057034	PI3K-Akt signaling pathway
+map05418	1	0	99	30	0.30303030303030304	Fluid shear stress and atherosclerosis
+map04216	1	1	33	10	0.30303030303030304	Ferroptosis
+map05202	1	1	162	49	0.30246913580246915	Transcriptional misregulation in cancer
+map05220	1	0	63	19	0.30158730158730157	Chronic myeloid leukemia
+map04014	1	1	180	54	0.3	Ras signaling pathway
+map05218	1	0	50	15	0.3	Melanoma
+map05417	1	1	159	47	0.29559748427672955	Lipid and atherosclerosis
+map05135	1	0	122	36	0.29508196721311475	Yersinia infection
+map04623	1	0	51	15	0.29411764705882354	Cytosolic DNA-sensing pathway
+map00361	1	1	41	12	0.2926829268292683	Chlorocyclohexane and chlorobenzene degradation
+map00062	1	0	24	7	0.2916666666666667	Fatty acid elongation
+map05130	1	1	152	44	0.2894736842105263	Pathogenic Escherichia coli infection
+map05235	1	0	73	21	0.2876712328767123	PD-L1 expression and PD-1 checkpoint pathway in cancer
+map05132	1	1	217	62	0.2857142857142857	Salmonella infection
+map05120	1	1	91	26	0.2857142857142857	Epithelial cell signaling in Helicobacter pylori infection
+map04210	1	1	110	31	0.2818181818181818	Apoptosis
+map04917	1	0	57	16	0.2807017543859649	Prolactin signaling pathway
+map00591	1	1	25	7	0.28	Linoleic acid metabolism
+map05160	1	0	112	31	0.2767857142857143	Hepatitis C
+map04664	1	0	47	13	0.2765957446808511	Fc epsilon RI signaling pathway
+map00626	1	1	29	8	0.27586206896551724	Naphthalene degradation
+map05134	1	1	69	19	0.2753623188405797	Legionellosis
+map05169	1	0	172	47	0.27325581395348836	Epstein-Barr virus infection
+map04711	1	0	11	3	0.2727272727272727	Circadian rhythm - fly
+map00512	1	1	11	3	0.2727272727272727	Mucin type O-glycan biosynthesis
+map05163	1	0	192	52	0.2708333333333333	Human cytomegalovirus infection
+map04950	1	1	26	7	0.2692307692307692	Maturity onset diabetes of the young
+map04650	1	1	93	25	0.26881720430107525	Natural killer cell mediated cytotoxicity
+map04115	1	1	67	18	0.26865671641791045	p53 signaling pathway
+map00401	1	0	30	8	0.26666666666666666	Novobiocin biosynthesis
+map00121	1	1	15	4	0.26666666666666666	Secondary bile acid biosynthesis
+map00603	1	0	15	4	0.26666666666666666	Glycosphingolipid biosynthesis - globo and isoglobo series
+map04979	1	1	49	13	0.2653061224489796	Cholesterol metabolism
+map05161	1	0	132	35	0.26515151515151514	Hepatitis B
+map05216	1	0	34	9	0.2647058823529412	Thyroid cancer
+map05145	1	0	95	25	0.2631578947368421	Toxoplasmosis
+map05204	1	1	38	10	0.2631578947368421	Chemical carcinogenesis
+map05221	1	0	57	15	0.2631578947368421	Acute myeloid leukemia
+map04977	1	1	23	6	0.2608695652173913	Vitamin digestion and absorption
+map00830	1	1	50	13	0.26	Retinol metabolism
+map04217	1	0	97	25	0.25773195876288657	Necroptosis
+map00365	1	1	8	2	0.25	Furfural degradation
+map05142	1	0	85	21	0.24705882352941178	Chagas disease
+map00590	1	1	45	11	0.24444444444444444	Arachidonic acid metabolism
+map04660	1	0	86	21	0.2441860465116279	T cell receptor signaling pathway
+map00902	1	1	41	10	0.24390243902439024	Monoterpenoid biosynthesis
+map05164	1	1	128	31	0.2421875	Influenza A
+map04662	1	0	58	14	0.2413793103448276	B cell receptor signaling pathway
+map05206	1	1	245	59	0.24081632653061225	MicroRNAs in cancer
+map04062	1	1	162	39	0.24074074074074073	Chemokine signaling pathway
+map05323	1	0	67	16	0.23880597014925373	Rheumatoid arthritis
+map00440	1	1	43	10	0.23255813953488372	Phosphonate and phosphinate metabolism
+map04659	1	0	86	20	0.23255813953488372	Th17 cell differentiation
+map05416	1	0	39	9	0.23076923076923078	Viral myocarditis
+map05167	1	0	169	39	0.23076923076923078	Kaposi sarcoma-associated herpesvirus infection
+map04658	1	0	67	15	0.22388059701492538	Th1 and Th2 cell differentiation
+map00120	1	0	18	4	0.2222222222222222	Primary bile acid biosynthesis
+map05143	1	1	41	9	0.21951219512195122	African trypanosomiasis
+map00604	1	1	14	3	0.21428571428571427	Glycosphingolipid biosynthesis - ganglio series
+map04621	1	1	142	30	0.2112676056338028	NOD-like receptor signaling pathway
+map05168	1	1	148	30	0.20270270270270271	Herpes simplex virus 1 infection
+map00333	1	1	20	4	0.2	Prodigiosin biosynthesis
+map00944	1	0	15	3	0.2	Flavone and flavonol biosynthesis
+map00623	1	0	46	9	0.1956521739130435	Toluene degradation
+map00140	1	1	46	9	0.1956521739130435	Steroid hormone biosynthesis
+map00950	1	0	62	12	0.1935483870967742	Isoquinoline alkaloid biosynthesis
+map04624	1	1	57	11	0.19298245614035087	Toll and Imd signaling pathway
+map05150	1	1	74	14	0.1891891891891892	Staphylococcus aureus infection
+map05162	1	1	117	22	0.18803418803418803	Measles
+map00311	1	1	16	3	0.1875	Penicillin and cephalosporin biosynthesis
+map00624	1	1	43	8	0.18604651162790697	Polycyclic aromatic hydrocarbon degradation
+map04064	1	0	97	18	0.18556701030927836	NF-kappa B signaling pathway
+map04380	1	0	99	18	0.18181818181818182	Osteoclast differentiation
+map00997	1	1	33	6	0.18181818181818182	Biosynthesis of various secondary metabolites - part 3
+map04080	1	1	310	56	0.18064516129032257	Neuroactive ligand-receptor interaction
+map00523	1	1	59	10	0.1694915254237288	Polyketide sugar unit biosynthesis
+map00196	1	1	42	7	0.16666666666666666	Photosynthesis - antenna proteins
+map04940	1	0	25	4	0.16	Type I diabetes mellitus
+map05140	1	0	59	9	0.15254237288135594	Leishmaniasis
+map04215	1	0	40	6	0.15	Apoptosis - multiple species
+map04514	1	1	101	15	0.1485148514851485	Cell adhesion molecules
+map04668	1	0	92	13	0.14130434782608695	TNF signaling pathway
+map05332	1	0	22	3	0.13636363636363635	Graft-versus-host disease
+map04610	1	1	81	11	0.13580246913580246	Complement and coagulation cascades
+map00901	1	1	30	4	0.13333333333333333	Indole alkaloid biosynthesis
+map04620	1	0	76	10	0.13157894736842105	Toll-like receptor signaling pathway
+map05321	1	0	54	7	0.12962962962962962	Inflammatory bowel disease
+map00402	1	1	8	1	0.125	Benzoxazinoid biosynthesis
+map00642	1	0	16	2	0.125	Ethylbenzene degradation
+map00232	1	0	16	2	0.125	Caffeine metabolism
+map04657	1	0	81	10	0.12345679012345678	IL-17 signaling pathway
+map04630	1	1	139	16	0.11510791366906475	JAK-STAT signaling pathway
+map04622	1	1	53	6	0.11320754716981132	RIG-I-like receptor signaling pathway
+map00532	1	1	18	2	0.1111111111111111	Glycosaminoglycan biosynthesis - chondroitin sulfate / dermatan sulfate
+map01054	1	1	54	6	0.1111111111111111	Nonribosomal peptide structures
+map00909	1	1	73	8	0.1095890410958904	Sesquiterpenoid and triterpenoid biosynthesis
+map00998	1	1	55	6	0.10909090909090909	Biosynthesis of various secondary metabolites - part 2
+map05340	1	0	37	4	0.10810810810810811	Primary immunodeficiency
+map00332	1	0	19	2	0.10526315789473684	Carbapenem biosynthesis
+map00904	1	1	68	7	0.10294117647058823	Diterpenoid biosynthesis
+map04640	1	0	80	8	0.1	Hematopoietic cell lineage
+map00254	1	0	20	2	0.1	Aflatoxin biosynthesis
+map05310	1	0	20	2	0.1	Asthma
+map01051	1	1	32	3	0.09375	Biosynthesis of ansamycins
+map00542	1	1	35	3	0.08571428571428572	O-Antigen repeat unit biosynthesis
+map05320	1	0	25	2	0.08	Autoimmune thyroid disease
+map00404	1	1	40	3	0.075	Staurosporine biosynthesis
+map00525	1	0	27	2	0.07407407407407407	Acarbose and validamycin biosynthesis
+map01055	1	0	29	2	0.06896551724137931	Biosynthesis of vancomycin group antibiotics
+map01059	1	1	73	5	0.0684931506849315	Biosynthesis of enediyne antibiotics
+map00942	1	1	16	1	0.0625	Anthocyanin biosynthesis
+map05144	1	0	67	4	0.05970149253731343	Malaria
+map00253	1	0	17	1	0.058823529411764705	Tetracycline biosynthesis
+map04060	1	1	273	16	0.05860805860805861	Cytokine-cytokine receptor interaction
+map00524	1	0	57	3	0.05263157894736842	Neomycin, kanamycin and gentamicin biosynthesis
+map05330	1	0	22	1	0.045454545454545456	Allograft rejection
+map04672	1	0	37	1	0.02702702702702703	Intestinal immune network for IgA production
+map01052	1	1	126	3	0.023809523809523808	Type I polyketide structures
+map01057	1	0	72	1	0.013888888888888888	Biosynthesis of type II polyketide products
