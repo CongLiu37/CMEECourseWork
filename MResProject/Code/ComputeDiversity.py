@@ -1,3 +1,19 @@
+"""
+DESCRIPTION:
+This script computes Hill numbers of order 0, 1, 2 for inventories of species/KOs
+
+DEPENDENCIES:
+Python modules: os, re, sys, pandas, numpy, math
+
+ARGUMENTS:
+
+OUTPUT:
+Seen in annotations
+
+Note:
+Take output of IntegratedPipeline.py as input
+"""
+
 import os
 import re
 import sys

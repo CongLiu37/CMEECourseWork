@@ -1,7 +1,20 @@
+# DESCRIPTION:
+# This script compares performance of integrated pipeline and assembly-dependent methods in terms of species identification.
+
+# DEPENDENCIES:
+# ggplot2
+
+# ARGUMENTS:
+
+# OUTPUT:
+# Seen in annotations
+
+# Note:
+# Take output of ComputeDiversity.py as input
+
 library(ggplot2)
 
 HillDiversity = read.table("Taxon_HillDiversity.txt",sep="\t",header=TRUE,row.names = NULL)
-HillDiversity = subset(HillDiversity,Group=="All")
 
 LF_F18 = subset(HillDiversity,HillDiversity$Sample=="LF_F18")
 PGcomcol3_Bimp = subset(HillDiversity,HillDiversity$Sample=="PGcomcol3_Bimp")
@@ -14,21 +27,26 @@ PGpollen_fresh = subset(HillDiversity,HillDiversity$Sample=="PGpollen_fresh")
 
 pdf("ExtraSpecies_Bumble.pdf")
 p1 = ggplot()+
-  geom_point(size=2,(aes(x=PGcomcol3_Bimp$CleanRead*PGcomcol3_Bimp$SubsamplePercent/1e+6,
+  geom_point(size=4,(aes(x=PGcomcol3_Bimp$CleanRead*PGcomcol3_Bimp$SubsamplePercent/1e+6,
                          y=(PGcomcol3_Bimp$SpeciesRichness-PGcomcol3_Bimp$AssemblySpeciesRichness)/PGcomcol3_Bimp$AssemblySpeciesRichness,
                          colour="PGcomcol3_Bimp")))+
-  geom_point(size=2,(aes(x=PGcomcol4a_Bimp$CleanRead*PGcomcol4a_Bimp$SubsamplePercent/1e+6,
+  geom_point(size=4,(aes(x=PGcomcol4a_Bimp$CleanRead*PGcomcol4a_Bimp$SubsamplePercent/1e+6,
                          y=(PGcomcol4a_Bimp$SpeciesRichness-PGcomcol4a_Bimp$AssemblySpeciesRichness)/PGcomcol4a_Bimp$AssemblySpeciesRichness,
                          colour="PGcomcol4a_Bimp")))+
-  geom_point(size=2,(aes(x=PGcomcol4b_Bimp$CleanRead*PGcomcol4b_Bimp$SubsamplePercent/1e+6,
+  geom_point(size=4,(aes(x=PGcomcol4b_Bimp$CleanRead*PGcomcol4b_Bimp$SubsamplePercent/1e+6,
                          y=(PGcomcol4b_Bimp$SpeciesRichness-PGcomcol4b_Bimp$AssemblySpeciesRichness)/PGcomcol4b_Bimp$AssemblySpeciesRichness,
                          colour="PGcomcol4b_Bimp")))+
   labs(colour="Sample",title="Bumble bee")+
   xlab("Read Depth (million)")+
   ylab("Growth rate of detected species richness")+
   theme_classic()+
+  theme(axis.title=element_text(size=20,face="bold"),
+        axis.text=element_text(size=20,face="bold"),
+        legend.text=element_text(size=15,face="bold"),
+        legend.title=element_text(size=15,face="bold"),
+        title=element_text(size=20,face="bold"))+
   scale_x_continuous(expand = c(0,0),limits = c(0,65))+
-  scale_y_continuous(expand = c(0,0),limits = c(0,1))+
+  scale_y_continuous(expand = c(0,0),limits = c(-1,1))+
   scale_color_manual(values=c("#FF3399","#FF3300","#990000"),
                      labels=c("Bee_Bimpatiens_hv3_1","Bee_Bimpatiens_hv4_1","Bee_Bimpatiens_hv4_2"))
 print(p1)
@@ -52,8 +70,13 @@ p2 = ggplot()+
   xlab("Read Depth (million)")+
   ylab("Growth rate of detected species richness")+
   theme_classic()+
+  theme(axis.title=element_text(size=20,face="bold"),
+        axis.text=element_text(size=20,face="bold"),
+        legend.text=element_text(size=15,face="bold"),
+        legend.title=element_text(size=15,face="bold"),
+        title=element_text(size=20,face="bold"))+
   scale_x_continuous(expand = c(0,0),limits = c(0,65))+
-  scale_y_continuous(expand = c(0,0),limits = c(0,1))+
+  scale_y_continuous(expand = c(0,0),limits = c(-1,1))+
   scale_color_manual(values=c("#000099","#33FFFF","#0066CC","#6600FF"),
                      labels=c("Bee_Amellifera_hv13_1","Bee_Amellifera_hv13_2","Bee_Amellifera_hv15_1","Bee_Amellifera_wild_1"))
 print(p2)
@@ -68,8 +91,13 @@ p3 = ggplot()+
   xlab("Read Depth (million)")+
   ylab("Growth rate of detected species richness")+
   theme_classic()+
+  theme(axis.title=element_text(size=20,face="bold"),
+        axis.text=element_text(size=20,face="bold"),
+        legend.text=element_text(size=15,face="bold"),
+        legend.title=element_text(size=15,face="bold"),
+        title=element_text(size=20,face="bold"))+
   scale_x_continuous(expand = c(0,0),limits = c(0,1.5))+
-  scale_y_continuous(expand = c(0,0),limits = c(0,4))+
+  scale_y_continuous(expand = c(0,0),limits = c(-1,4))+
   scale_color_manual(values=c("#00CC00"),labels=c("Flower_eDNA"))
 print(p3)
 dev.off()

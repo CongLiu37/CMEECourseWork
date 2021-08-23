@@ -1,355 +1,354 @@
-"Name"	"Group"	"Bee_Amellifera_hv13_1"	"Bee_Amellifera_hv13_2"	"Bee_Amellifera_hv15_1"	"Bee_Amellifera_wild_1"	"Bee_Bimpatiens_hv3_1"	"Bee_Bimpatiens_hv4_1"	"Bee_Bimpatiens_hv4_2"	"Flower_eDNA"
-"Abrus precatorius"	"Plants"	0	9847	0	0	0	0	0	0
-"Abscondita terminalis"	"Arthropods"	0	332	0	49	0	0	0	0
-"Absicoccus porci"	"Bacteria"	0	0	0	0	12	0	0	0
-"Acetilactobacillus jinshanensis"	"Bacteria"	0	0	1	0	0	0	0	0
-"Acidothermus cellulolyticus"	"Bacteria"	0	0	0	9	0	0	0	0
-"Acinetobacter baumannii"	"Bacteria"	219	1199	7582	279	14958	14597	13556	54
-"Acinetobacter bereziniae"	"Bacteria"	0	0	107	0	0	0	0	0
-"Actinoplanes friuliensis"	"Bacteria"	0	0	0	189	0	0	0	0
-"Actinotalea ferrariae"	"Bacteria"	0	0	72	0	0	0	0	0
-"Aeromonas hydrophila"	"Bacteria"	0	0	0	7423	0	0	0	0
-"Agrilactobacillus composti"	"Bacteria"	0	0	0	0	7	0	0	0
-"Agrilactobacillus yilanensis"	"Bacteria"	0	0	0	0	0	0	5	0
-"Agrobacterium fabrum"	"Bacteria"	0	0	0	66	0	0	0	0
-"Agrobacterium tumefaciens"	"Bacteria"	0	0	0	80	0	0	0	0
-"Ambidensovirus sp."	"Viruses"	884	0	116698	0	0	0	0	2624
-"Anaerosacchriphilus polymeriproducens"	"Bacteria"	0	0	0	2	0	0	0	0
-"Ancylobacter rudongensis"	"Bacteria"	0	0	0	17	0	0	0	0
-"Angiostrongylus costaricensis"	"Others"	0	29	0	0	0	0	0	0
-"Aphanomyces astaci"	"Others"	0	0	2	0	0	0	0	0
-"Apilactobacillus kunkeei"	"Bacteria"	0	0	10479	0	0	0	0	0
-"Apilactobacillus micheneri"	"Bacteria"	0	0	2276	0	0	0	0	0
-"Apilactobacillus ozensis"	"Bacteria"	0	0	738	0	0	0	0	0
-"Apilactobacillus quenuiae"	"Bacteria"	0	0	1202	0	0	0	0	0
-"Apilactobacillus timberlakei"	"Bacteria"	0	0	1124	0	0	0	0	0
-"Apis cerana"	"Arthropods"	0	48283	0	37819	35133	6729	0	23089
-"Apis dorsata"	"Arthropods"	0	0	0	33695	0	0	0	0
-"Apis florea"	"Arthropods"	0	18363	0	11189	12661	2881	2373	0
-"Apis mellifera"	"Arthropods"	0	0	0	0	728817	135498	93600	321517
-"Apis mellifera filamentous virus"	"Viruses"	178	73032	0	24222	0	0	0	756
-"Arachis hypogaea"	"Plants"	0	2031	0	0	0	0	0	0
-"Araneus ventricosus"	"Arthropods"	418	0	163587	1	0	676	266	1384
-"Asaia platycodi"	"Bacteria"	0	12	0	0	0	0	0	0
-"Atta cephalotes"	"Arthropods"	0	0	0	7	0	0	0	0
-"Atta colombica"	"Arthropods"	0	0	0	0	100	0	64	0
-"Bacteriophage sp."	"Viruses"	0	23188	0	56506	0	0	0	402
-"Bactrocera latifrons"	"Arthropods"	0	0	99	0	0	0	0	0
-"Bactrocera tryoni"	"Arthropods"	0	28	1092	0	0	0	0	0
-"Bartonella apis"	"Bacteria"	7644	1681908	4708	2998121	64150	10352	6914	9050
-"Bartonella birtlesii"	"Bacteria"	0	0	0	329	0	0	0	0
-"Bartonella clarridgeiae"	"Bacteria"	0	40	0	0	0	0	0	0
-"Bartonella schoenbuchensis"	"Bacteria"	0	18	0	0	0	0	0	0
-"Bartonella tamiae"	"Bacteria"	0	189	0	1199	0	0	0	0
-"Beauveria bassiana"	"Fungi"	0	1	0	2	0	0	7	0
-"Bifidobacterium actinocoloniiforme"	"Bacteria"	0	5070	185	11829	686	529	735	0
-"Bifidobacterium adolescentis"	"Bacteria"	0	0	0	1422	345	0	0	0
-"Bifidobacterium aemilianum"	"Bacteria"	0	4348	154	10236	531	501	999	0
-"Bifidobacterium aerophilum"	"Bacteria"	0	0	0	0	0	457	0	0
-"Bifidobacterium angulatum"	"Bacteria"	0	0	0	0	0	0	982	0
-"Bifidobacterium animalis"	"Bacteria"	0	0	0	0	0	0	700	0
-"Bifidobacterium anseris"	"Bacteria"	0	0	0	891	0	0	0	0
-"Bifidobacterium aquikefiri"	"Bacteria"	0	0	0	1079	57	74	128	0
-"Bifidobacterium asteroides"	"Bacteria"	1536	1855032	0	4304266	99694	3884	15349	4288
-"Bifidobacterium biavatii"	"Bacteria"	0	0	0	0	374	0	2101	0
-"Bifidobacterium bifidum"	"Bacteria"	0	1131	0	2302	0	0	0	0
-"Bifidobacterium bohemicum"	"Bacteria"	362	0	0	0	255637	5006	38709	0
-"Bifidobacterium bombi"	"Bacteria"	0	420	0	3160	203	166	651	0
-"Bifidobacterium boum"	"Bacteria"	0	0	0	0	0	293	1355	0
-"Bifidobacterium breve"	"Bacteria"	0	947	75	1571	410	385	0	0
-"Bifidobacterium callitrichos"	"Bacteria"	0	1335	0	2206	0	0	2442	0
-"Bifidobacterium catenulatum"	"Bacteria"	0	0	0	400	234	197	715	0
-"Bifidobacterium catulorum"	"Bacteria"	0	0	0	2823	0	0	1283	0
-"Bifidobacterium commune"	"Bacteria"	5632	0	26737	0	331670	185450	453835	0
-"Bifidobacterium coryneforme"	"Bacteria"	0	342645	0	501654	0	0	0	0
-"Bifidobacterium crudilactis"	"Bacteria"	0	0	0	701	0	0	0	0
-"Bifidobacterium dentium"	"Bacteria"	0	627	0	1056	262	0	0	0
-"Bifidobacterium felsineum"	"Bacteria"	0	0	0	0	0	0	1060	0
-"Bifidobacterium gallicum"	"Bacteria"	0	0	0	0	106	0	306	0
-"Bifidobacterium hapali"	"Bacteria"	0	0	0	0	0	0	295	0
-"Bifidobacterium imperatoris"	"Bacteria"	0	0	0	0	297	0	0	0
-"Bifidobacterium indicum"	"Bacteria"	0	338943	0	504521	25042	0	0	0
-"Bifidobacterium jacchi"	"Bacteria"	0	0	0	1900	0	0	0	0
-"Bifidobacterium lemurum"	"Bacteria"	0	0	0	0	417	466	2193	0
-"Bifidobacterium longum"	"Bacteria"	0	1140	52	2497	351	396	1783	0
-"Bifidobacterium margollesii"	"Bacteria"	0	0	71	0	0	0	0	0
-"Bifidobacterium merycicum"	"Bacteria"	0	0	0	0	354	0	1443	0
-"Bifidobacterium mongoliense"	"Bacteria"	0	1226	0	2366	324	0	1967	0
-"Bifidobacterium phage BitterVaud1"	"Viruses"	0	7906	0	0	0	0	0	0
-"Bifidobacterium platyrrhinorum"	"Bacteria"	0	0	0	0	0	467	0	0
-"Bifidobacterium primatium"	"Bacteria"	0	0	0	0	0	0	2344	0
-"Bifidobacterium pseudocatenulatum"	"Bacteria"	0	0	0	497	0	0	0	0
-"Bifidobacterium pseudolongum"	"Bacteria"	0	559	42	1069	219	244	1015	0
-"Bifidobacterium psychraerophilum"	"Bacteria"	0	0	0	1210	0	0	0	0
-"Bifidobacterium pullorum"	"Bacteria"	0	0	97	0	0	410	1767	0
-"Bifidobacterium reuteri"	"Bacteria"	0	0	0	0	0	0	1328	0
-"Bifidobacterium scardovii"	"Bacteria"	0	0	0	4140	0	0	0	0
-"Bifidobacterium sp. 7101"	"Bacteria"	0	11330	0	24570	0	0	0	0
-"Bifidobacterium sp. A11"	"Bacteria"	0	12950	0	21760	0	0	0	0
-"Bifidobacterium sp. wkB338"	"Bacteria"	0	6444	0	12432	0	0	0	0
-"Bifidobacterium sp. wkB344"	"Bacteria"	0	5754	0	13058	0	0	0	0
-"Bifidobacterium subtile"	"Bacteria"	0	0	0	2093	0	0	0	0
-"Bifidobacterium thermacidophilum"	"Bacteria"	0	0	0	0	341	0	0	0
-"Bifidobacterium tibiigranuli"	"Bacteria"	0	973	0	0	367	0	0	0
-"Bifidobacterium tissieri"	"Bacteria"	0	0	0	0	0	0	1003	0
-"Bifidobacterium tsurumiense"	"Bacteria"	0	0	0	0	156	0	0	0
-"Bifidobacterium xylocopae"	"Bacteria"	0	5771	171	0	496	467	568	0
-"Blattodean pefuambidensovirus 1"	"Viruses"	0	0	5284	0	0	0	0	0
-"Bombilactobacillus bombi"	"Bacteria"	1776	500	0	2025	5661	7966	180369	0
-"Bombilactobacillus mellifer"	"Bacteria"	838	245075	0	348092	11847	1798	0	3008
-"Bombilactobacillus mellis"	"Bacteria"	4298	1257592	0	1985267	80994	11570	7634	33038
-"Bombiscardovia coagulans"	"Bacteria"	332	209	11855	222	27348	19306	28614	0
-"Bombus bifarius"	"Arthropods"	40393	49727	156783	58267	124712	87787	99060	2384
-"Bombus cryptarum densovirus"	"Viruses"	0	0	0	0	0	0	2962	0
-"Bombus impatiens"	"Arthropods"	108048	140675	383698	155569	10215	6914	6673	4432
-"Bombus terrestris"	"Arthropods"	7119	9550	15298	11798	19238	15134	16891	632
-"Bombus vancouverensis"	"Arthropods"	40531	49539	120868	58590	118579	83502	92704	2212
-"Bombus vosnesenskii"	"Arthropods"	38742	49079	169479	57930	163751	111790	126586	2225
-"Brassica cretica"	"Plants"	0	0	0	1176	0	0	0	0
-"Brassica napus"	"Plants"	0	0	0	13284	0	0	0	0
-"Brassica oleracea"	"Plants"	0	0	0	2174	0	0	0	0
-"Brochothrix thermosphacta"	"Bacteria"	0	0	6826	0	0	0	0	0
-"Brucella intermedia"	"Bacteria"	0	59	0	100	0	0	0	0
-"Brucella neotomae"	"Bacteria"	0	0	0	195	0	0	0	0
-"Brugia timori"	"Others"	0	0	141	0	0	0	80	0
-"Burkholderia vietnamiensis"	"Bacteria"	0	0	0	8	0	0	0	0
-"Cajanus cajan"	"Plants"	0	5135	0	0	0	0	0	0
-"Callosobruchus maculatus"	"Arthropods"	0	0	0	0	0	377	515	0
-"Candidatus Schmidhempelia bombi"	"Bacteria"	1296	0	4430	0	183168	111178	112732	0
-"Capsicum baccatum"	"Plants"	0	0	0	0	0	0	308	0
-"Ceratina calcarata"	"Arthropods"	0	0	20	0	0	0	114	0
-"Cercospora zeina"	"Fungi"	0	0	0	0	0	0	1	0
-"Cicer arietinum"	"Plants"	0	4495	0	0	0	0	0	0
-"Clavispora lusitaniae"	"Fungi"	0	0	0	0	3416	0	3180	0
-"Cloeon dipterum"	"Arthropods"	0	0	6	0	0	0	0	0
-"Commensalibacter intestini"	"Bacteria"	0	1505	0	1354	0	0	0	0
-"Commensalibacter sp. AMU001"	"Bacteria"	0	6992	0	0	0	0	0	0
-"Companilactobacillus nodensis"	"Bacteria"	0	0	0	38	0	0	0	0
-"Companilactobacillus zhongbaensis"	"Bacteria"	0	0	0	0	16	0	0	0
-"Corchorus olitorius"	"Plants"	26	0	0	0	0	0	0	0
-"Corynebacterium diphtheriae"	"Bacteria"	0	0	0	2	0	0	0	0
-"Corynebacterium efficiens"	"Bacteria"	0	0	0	0	9	13	0	0
-"Corynebacterium glutamicum"	"Bacteria"	0	0	0	32	0	0	0	0
-"Cronobacter sakazakii"	"Bacteria"	0	20	0	31	0	93	0	0
-"Cupriavidus taiwanensis"	"Bacteria"	0	58	0	0	0	0	0	0
-"Cutibacterium acnes"	"Bacteria"	0	0	4222	553	0	0	0	0
-"Cyphomyrmex costatus"	"Arthropods"	0	19	5	0	0	0	0	14
-"Daphnia magna"	"Arthropods"	0	2	0	0	0	0	0	1
-"Digitaria exilis"	"Plants"	0	50	0	26	76	35	0	0
-"Drosophila elegans"	"Arthropods"	0	0	5	0	0	0	0	0
-"Drosophila grimshawi"	"Arthropods"	0	0	160	0	0	0	0	0
-"Drosophila melanogaster"	"Arthropods"	0	0	338	0	0	0	0	0
-"Drosophila miranda"	"Arthropods"	0	0	15	0	0	0	0	0
-"Drosophila pseudoobscura"	"Arthropods"	0	0	49	0	0	0	0	0
-"Drosophila rhopaloa"	"Arthropods"	0	0	36	0	0	0	0	0
-"Drosophila yakuba"	"Arthropods"	0	0	93	0	0	0	0	0
-"Dufourea novaeangliae"	"Arthropods"	4	26	0	0	74	101	0	0
-"Eggerthella lenta"	"Bacteria"	0	0	0	29	0	0	0	0
-"Ensete ventricosum"	"Plants"	0	19	0	9	0	0	0	0
-"Enterobacter hormaechei"	"Bacteria"	0	0	0	0	0	143	169	0
-"Enterococcus avium"	"Bacteria"	0	0	0	3	0	0	0	0
-"Enterococcus casseliflavus"	"Bacteria"	0	0	5	0	0	0	0	0
-"Enterococcus diestrammenae"	"Bacteria"	0	49	0	0	0	0	0	0
-"Enterococcus faecalis"	"Bacteria"	0	0	162	6	2	0	0	0
-"Enterococcus faecium"	"Bacteria"	0	0	3	36	0	0	0	0
-"Entomomonas moraniae"	"Bacteria"	0	0	0	124217	0	0	0	0
-"Ephemera danica"	"Arthropods"	0	76	0	53	202	0	0	0
-"Escherichia coli"	"Bacteria"	14	72	100	32	71	89	106	48
-"Eufriesea mexicana"	"Arthropods"	90	0	245	258	715	585	509	507
-"Eumeta japonica"	"Arthropods"	43	131	9488	0	464	0	426	272
-"Eutrema salsugineum"	"Plants"	0	0	0	72	0	0	0	0
-"Frankliniella occidentalis"	"Arthropods"	0	9	0	1	0	0	0	0
-"Frieseomelitta varia"	"Arthropods"	0	133	0	91	216	181	188	109
-"Frischella perrara"	"Bacteria"	368	157561	0	543419	15073	1990	3425	1760
-"Fructilactobacillus sanfranciscensis"	"Bacteria"	0	0	110	0	0	0	0	0
-"Fructobacillus durionis"	"Bacteria"	0	0	12883	0	0	0	0	0
-"Fructobacillus ficulneus"	"Bacteria"	0	0	3538	0	0	0	0	0
-"Fructobacillus fructosus"	"Bacteria"	786	0	655382	0	0	0	0	2410
-"Fructobacillus pseudoficulneus"	"Bacteria"	0	0	4217	0	0	0	0	0
-"Fructobacillus tropaeoli"	"Bacteria"	0	0	137409	0	0	0	0	0
-"Gilliamella apicola"	"Bacteria"	2164	746755	0	1161557	53639	24181	30205	6566
-"Gilliamella apis"	"Bacteria"	0	523214	0	1354903	39822	0	0	772
-"Gilliamella bombi"	"Bacteria"	0	0	0	13263	0	0	0	0
-"Gilliamella bombicola"	"Bacteria"	0	0	0	11347	0	0	0	0
-"Gilliamella sp. A7"	"Bacteria"	0	16384	0	0	0	0	0	0
-"Gluconacetobacter diazotrophicus"	"Bacteria"	0	21	0	36	0	0	0	0
-"Glycine max"	"Plants"	0	5290	0	0	0	0	0	0
-"Glycine soja"	"Plants"	0	4979	0	0	0	0	0	0
-"Grifola frondosa"	"Fungi"	0	0	0	0	102	0	0	0
-"Habropoda laboriosa"	"Arthropods"	0	142	177	42	0	0	0	0
-"Haemophilus influenzae"	"Bacteria"	0	0	0	97	0	0	0	0
-"Halomonas urmiana"	"Bacteria"	0	0	0	13	0	0	0	0
-"Harpegnathos saltator"	"Arthropods"	3	36	0	0	0	0	0	0
-"Helianthus annuus"	"Plants"	0	0	0	0	2384	0	5151	0
-"Hemipteran scindoambidensovirus 1"	"Viruses"	898	0	180950	0	0	0	0	2772
-"Hepatospora eriocheir"	"Fungi"	0	4	0	0	0	0	0	0
-"Homo sapiens"	"Others"	0	0	5192	0	0	0	0	0
-"Hortaea thailandica"	"Fungi"	0	0	0	0	0	0	2	0
-"Hymenopteran scindoambidensovirus 1"	"Viruses"	0	0	7922	0	0	0	0	0
-"Ignatzschineria cameli"	"Bacteria"	0	0	0	252	0	0	0	0
-"Ignelater luminosus"	"Arthropods"	0	0	9	0	0	0	0	0
-"Ipomoea triloba"	"Plants"	0	69	0	0	0	0	0	0
-"Kaistia granuli"	"Bacteria"	0	0	0	12	0	0	0	0
-"Klebsiella aerogenes"	"Bacteria"	0	46	0	0	40	0	0	0
-"Klebsiella pneumoniae"	"Bacteria"	0	868	0	1511	128	0	0	0
-"Kosakonia radicincitans"	"Bacteria"	0	59	0	24	0	0	121	0
-"Kuraishia capsulata"	"Fungi"	0	0	0	0	0	0	2	0
-"Lacticaseibacillus paracasei"	"Bacteria"	0	3	22	0	0	0	7	0
-"Lacticaseibacillus rhamnosus"	"Bacteria"	0	5	0	0	0	0	0	0
-"Lactiplantibacillus plantarum"	"Bacteria"	0	3	0	6	0	0	0	0
-"Lactobacillus amylovorus"	"Bacteria"	0	253	0	223	0	0	0	0
-"Lactobacillus apis"	"Bacteria"	376	739761	0	1340046	34345	0	0	750
-"Lactobacillus bombicola"	"Bacteria"	0	1505	0	2217	44953	0	26814	0
-"Lactobacillus crispatus"	"Bacteria"	0	99	0	144	0	0	0	0
-"Lactobacillus delbrueckii"	"Bacteria"	0	0	0	20	0	0	0	0
-"Lactobacillus gasseri"	"Bacteria"	0	250	0	0	0	0	0	0
-"Lactobacillus helsingborgensis"	"Bacteria"	0	270512	0	605543	0	0	0	0
-"Lactobacillus helveticus"	"Bacteria"	0	0	0	259	75	0	0	0
-"Lactobacillus iners"	"Bacteria"	0	12980	0	6790	0	0	0	0
-"Lactobacillus kimbladii"	"Bacteria"	0	276570	0	626160	25400	0	0	0
-"Lactobacillus kullabergensis"	"Bacteria"	0	298874	0	485899	22473	0	0	0
-"Lactobacillus melliventris"	"Bacteria"	0	394853	0	1371044	2386	0	0	1092
-"Lactobacillus panisapium"	"Bacteria"	0	1820	0	3511	0	0	0	0
-"Lactobacillus sp. ESL0228"	"Bacteria"	168	0	0	0	0	1508	8060	0
-"Lactobacillus sp. ESL0263"	"Bacteria"	0	12362	0	51614	0	0	0	0
-"Lactobacillus sp. wkB10"	"Bacteria"	0	6276	0	14170	0	0	0	288
-"Lactobacillus sp. wkB8"	"Bacteria"	0	0	0	0	0	0	0	476
-"Lasius niger"	"Arthropods"	2	61	652	0	251	490	296	0
-"Lentilactobacillus buchneri"	"Bacteria"	0	0	0	0	16	0	0	0
-"Lentilactobacillus curieae"	"Bacteria"	0	0	83	5	6	0	14	0
-"Lentilactobacillus parafarraginis"	"Bacteria"	0	0	0	0	8	0	0	0
-"Leuconostoc carnosum"	"Bacteria"	0	0	582	0	0	0	0	0
-"Leuconostoc citreum"	"Bacteria"	0	0	544	0	0	0	0	0
-"Leuconostoc gelidum"	"Bacteria"	0	0	6949	0	0	0	0	0
-"Leuconostoc lactis"	"Bacteria"	0	0	1332	0	0	0	0	0
-"Leuconostoc mesenteroides"	"Bacteria"	0	0	883	0	0	0	0	0
-"Leuconostoc pseudomesenteroides"	"Bacteria"	0	0	978	0	0	0	0	0
-"Levilactobacillus brevis"	"Bacteria"	0	0	0	0	13	0	0	0
-"Limosilactobacillus coleohominis"	"Bacteria"	0	0	0	479	0	0	0	0
-"Limosilactobacillus fermentum"	"Bacteria"	0	0	0	127	0	0	0	0
-"Limosilactobacillus reuteri"	"Bacteria"	0	0	0	262	0	0	0	0
-"Limosilactobacillus vaginalis"	"Bacteria"	0	0	25	0	0	0	0	0
-"Lipotes vexillifer"	"Others"	0	0	0	74	0	0	0	0
-"Liquorilactobacillus ghanensis"	"Bacteria"	0	0	23	29	0	0	0	0
-"Liquorilactobacillus nagelii"	"Bacteria"	0	0	0	13	0	0	0	0
-"Liquorilactobacillus satsumensis"	"Bacteria"	0	0	21	0	0	0	0	0
-"Listeria monocytogenes"	"Bacteria"	0	4	0	0	0	0	0	0
-"Loigolactobacillus backii"	"Bacteria"	0	0	0	0	26	0	0	0
-"Lotus japonicus"	"Plants"	0	13542	0	0	0	0	0	0
-"Lucilia cuprina"	"Arthropods"	0	46	182	0	0	0	0	0
-"Lupinus albus"	"Plants"	0	5125	734	1979	1384	0	794	757
-"Lupinus angustifolius"	"Plants"	0	3597	0	0	0	0	0	0
-"Macrococcus caseolyticus"	"Bacteria"	0	0	0	0	0	0	7	0
-"Magnetospirillum gryphiswaldense"	"Bacteria"	0	28	0	0	0	0	0	0
-"Malassezia restricta"	"Fungi"	0	0	4490	0	0	0	0	0
-"Medicago truncatula"	"Plants"	0	3986	0	0	0	0	0	0
-"Megachile rotundata"	"Arthropods"	28	317	2	267	171	94	0	0
-"Megalopta genalis"	"Arthropods"	0	0	0	0	184	0	0	161
-"Melipona quadrifasciata"	"Arthropods"	20	93	192	64	2780	2812	2401	2195
-"Mesorhizobium delmotii"	"Bacteria"	0	0	0	93	0	0	0	0
-"Mesorhizobium sediminum"	"Bacteria"	0	0	0	32	0	0	0	0
-"Methylobacterium currus"	"Bacteria"	0	0	0	35	0	0	0	0
-"Methylomicrobium alcaliphilum"	"Bacteria"	0	0	0	8	0	0	0	0
-"Mikania micrantha"	"Plants"	184	406	0	0	0	0	3982	0
-"Moesziomyces antarcticus"	"Fungi"	0	0	0	0	0	0	4	0
-"Monomorium pharaonis"	"Arthropods"	0	4	0	0	0	0	0	0
-"Morganella morganii"	"Bacteria"	0	0	0	6593	0	0	0	0
-"Mucuna pruriens"	"Plants"	0	4639	0	0	0	0	0	0
-"Musca domestica"	"Arthropods"	0	0	58	0	0	0	0	0
-"Mycobacterium kansasii"	"Bacteria"	0	144	0	0	0	0	0	0
-"Myoviridae sp."	"Viruses"	198	21060	0	0	0	0	0	0
-"Nasonia vitripennis"	"Arthropods"	0	10	0	21	0	0	0	0
-"Naumannella halotolerans"	"Bacteria"	0	0	0	0	4	0	0	0
-"Neisseria gonorrhoeae"	"Bacteria"	0	0	0	36	0	0	0	0
-"Neisseria meningitidis"	"Bacteria"	0	0	0	8	0	0	0	0
-"Neisseria polysaccharea"	"Bacteria"	0	0	0	25	0	0	0	0
-"Nicotiana sylvestris"	"Plants"	0	0	174	0	0	0	0	0
-"Nitrospirillum amazonense"	"Bacteria"	0	0	0	29	0	0	0	0
-"Nomia melanderi"	"Arthropods"	38	57	0	0	197	0	167	0
-"Nosema apis"	"Fungi"	0	606	0	869	0	0	0	0
-"Nosema bombycis"	"Fungi"	0	2	0	2	0	0	0	0
-"Nosema ceranae"	"Fungi"	1934	217265	0	305166	7589	1390	0	1596
-"Nylanderia fulva"	"Arthropods"	0	23	0	15	0	0	0	0
-"Oblitimonas alkaliphila"	"Bacteria"	0	0	0	64	0	0	0	0
-"Olsenella umbonata"	"Bacteria"	0	282	0	0	0	0	0	0
-"Ooceraea biroi"	"Arthropods"	0	0	0	0	163	225	0	0
-"Orbus hercynius"	"Bacteria"	0	0	0	751	0	958	0	0
-"Orthopteran scindoambidensovirus 1"	"Viruses"	0	0	84644	0	0	0	0	272
-"Osmia lignaria"	"Arthropods"	0	219	2900	0	0	0	0	0
-"Pantoea ananatis"	"Bacteria"	0	47	0	0	0	0	0	0
-"Parascardovia denticolens"	"Bacteria"	0	907	0	0	92	85	154	0
-"Patellaria atrata"	"Fungi"	0	0	0	0	0	0	40	0
-"Paucimonas lemoignei"	"Bacteria"	0	0	0	12	0	0	0	0
-"Pectobacterium carotovorum"	"Bacteria"	0	0	0	30	0	0	0	0
-"Pectobacterium versatile"	"Bacteria"	0	0	0	22	0	0	0	0
-"Pediococcus acidilactici"	"Bacteria"	0	0	0	36	0	0	0	0
-"Pediococcus damnosus"	"Bacteria"	0	0	0	0	29	0	0	0
-"Phenylobacterium zucineum"	"Bacteria"	0	0	0	47	0	0	0	0
-"Photobacterium alginatilyticum"	"Bacteria"	0	0	0	15	0	0	0	0
-"Plasmodium ovale"	"Others"	0	0	3162	0	0	0	0	0
-"Polistes canadensis"	"Arthropods"	0	0	2	0	23	0	0	117
-"Populus euphratica"	"Plants"	0	105	0	0	0	0	0	0
-"Proteus mirabilis"	"Bacteria"	0	55	0	163	0	0	0	0
-"Proteus vulgaris"	"Bacteria"	0	295	0	0	105	0	0	0
-"Providencia rettgeri"	"Bacteria"	0	2055	0	4103	0	0	0	0
-"Pseudochrobactrum asaccharolyticum"	"Bacteria"	0	0	0	389	0	0	0	0
-"Pseudomonas aeruginosa"	"Bacteria"	0	75	0	39	0	0	0	0
-"Pseudomonas amygdali"	"Bacteria"	0	0	0	33	0	0	0	0
-"Pseudomonas caeni"	"Bacteria"	0	0	0	146	0	0	0	0
-"Pseudomonas chloritidismutans"	"Bacteria"	0	0	0	53	0	0	0	0
-"Pseudomonas chlororaphis"	"Bacteria"	0	0	0	65	0	0	0	0
-"Pseudomonas fluorescens"	"Bacteria"	0	0	0	36	0	0	0	0
-"Pseudomonas mendocina"	"Bacteria"	0	0	0	43	0	0	0	0
-"Pseudomonas nitroreducens"	"Bacteria"	0	0	0	23	0	0	0	0
-"Pseudomonas putida"	"Bacteria"	0	0	0	76	0	0	0	0
-"Pseudomonas syringae"	"Bacteria"	0	0	0	34	0	0	0	0
-"Pseudomonas veronii"	"Bacteria"	0	0	0	29	0	0	0	0
-"Pseudoscardovia suis"	"Bacteria"	0	332	0	0	0	0	0	0
-"Pyrus x bretschneideri"	"Plants"	0	380	0	0	0	0	0	0
-"Raphanus sativus"	"Plants"	0	208	0	1292	0	0	0	0
-"Rathayibacter toxicus"	"Bacteria"	0	10	0	0	0	0	0	0
-"Rhagoletis zephyria"	"Arthropods"	0	147	15579	0	0	0	0	12
-"Rhizophagus clarus"	"Fungi"	0	4	4	2	0	0	0	0
-"Rhizophagus irregularis"	"Fungi"	0	0	4	0	0	0	0	0
-"Rouxiella chamberiensis"	"Bacteria"	0	0	0	0	0	105	0	0
-"Ruminococcus bromii"	"Bacteria"	0	15	0	0	0	0	0	0
-"Saccharibacter floricola"	"Bacteria"	0	0	0	62	0	0	0	0
-"Saezia sanguinis"	"Bacteria"	0	0	0	26	0	0	0	0
-"Salmonella enterica"	"Bacteria"	0	30	0	12	52	0	0	0
-"Saprochaete ingens"	"Fungi"	0	0	0	0	0	0	234	0
-"Schleiferilactobacillus perolens"	"Bacteria"	0	0	0	68	0	0	0	0
-"Secundilactobacillus silagei"	"Bacteria"	0	91	0	0	0	0	0	0
-"Serratia liquefaciens"	"Bacteria"	0	0	0	27	0	0	0	0
-"Serratia plymuthica"	"Bacteria"	0	61	0	29	0	0	0	0
-"Sinorhizobium fredii"	"Bacteria"	0	75	0	36	0	0	0	0
-"Siphoviridae sp."	"Viruses"	146	19578	0	16162	0	0	0	626
-"Snodgrassella alvi"	"Bacteria"	874	727391	2279	710679	40128	12058	18961	2358
-"Snodgrassella sp. ESL0324"	"Bacteria"	0	0	0	12744	0	0	0	0
-"Solanum lycopersicum"	"Plants"	0	471	0	0	0	0	0	0
-"Solenopsis invicta"	"Arthropods"	0	0	0	0	63	76	72	0
-"Sporolactobacillus inulinus"	"Bacteria"	0	0	0	24	0	0	0	0
-"Staphylococcus aureus"	"Bacteria"	0	0	0	0	0	4	0	0
-"Streptococcus agalactiae"	"Bacteria"	0	10	23	0	3	0	0	0
-"Streptococcus pneumoniae"	"Bacteria"	0	0	436	143	90	69	0	0
-"Streptococcus suis"	"Bacteria"	0	0	0	7260	0	0	0	0
-"Streptococcus thermophilus"	"Bacteria"	0	0	0	0	0	0	6	0
-"Streptococcus urinalis"	"Bacteria"	0	0	0	1	0	0	0	0
-"Streptomyces globisporus"	"Bacteria"	0	70	0	0	0	0	0	0
-"Stylonychia lemnae"	"Others"	0	33	380	12	8	0	0	17
-"Subdoligranulum variabile"	"Bacteria"	0	0	0	607	0	0	0	0
-"Sugiyamaella lignohabitans"	"Fungi"	0	0	0	0	0	0	2	0
-"Temnothorax longispinosus"	"Arthropods"	0	13	0	0	88	169	74	0
-"Trachymyrmex septentrionalis"	"Arthropods"	0	33	0	25	0	129	89	0
-"Trachymyrmex zeteki"	"Arthropods"	0	0	0	0	175	223	141	0
-"Tribolium castaneum"	"Arthropods"	0	0	0	0	70	212	0	0
-"Trichococcus palustris"	"Bacteria"	0	0	0	0	0	0	0	4
-"Trichoderma atroviride"	"Fungi"	0	0	0	1	0	0	0	0
-"Trichuris trichiura"	"Others"	0	1037	116	1555	151	227	52	0
-"Trifolium subterraneum"	"Plants"	0	4138	0	0	0	0	0	0
-"Varroa destructor"	"Arthropods"	0	0	27	1	1832	2447	1295	287
-"Weissella cryptocerci"	"Bacteria"	0	0	321	0	0	0	0	0
-"Weissella viridescens"	"Bacteria"	0	0	255	0	0	0	0	0
-"Wickerhamiella sorbophila"	"Fungi"	0	0	0	0	2058	0	12055	0
-"Wohlfahrtiimonas populi"	"Bacteria"	0	0	0	53	0	0	0	0
-"Xenorhabdus bovienii"	"Bacteria"	0	0	3	0	0	0	0	0
-"Xylaria longipes"	"Fungi"	0	0	0	0	0	0	1	0
+Name	Group	Bee_Amellifera_hv13_2	Bee_Amellifera_hv15_1	Bee_Amellifera_wild_1	Bee_Bimpatiens_hv3_1	Bee_Bimpatiens_hv4_1	Bee_Bimpatiens_hv4_2	Flower_eDNA
+Abrus precatorius	Plants	9847	0	0	0	0	0	0
+Abscondita terminalis	Arthropods	332	0	49	0	0	0	0
+Absicoccus porci	Bacteria	0	0	0	12	0	0	0
+Acetilactobacillus jinshanensis	Bacteria	0	1	0	0	0	0	0
+Acidothermus cellulolyticus	Bacteria	0	0	9	0	0	0	0
+Acinetobacter baumannii	Bacteria	1199	7582	279	14958	14597	13556	54
+Acinetobacter bereziniae	Bacteria	0	107	0	0	0	0	0
+Actinoplanes friuliensis	Bacteria	0	0	189	0	0	0	0
+Actinotalea ferrariae	Bacteria	0	72	0	0	0	0	0
+Aeromonas hydrophila	Bacteria	0	0	7423	0	0	0	0
+Agrilactobacillus composti	Bacteria	0	0	0	7	0	0	0
+Agrilactobacillus yilanensis	Bacteria	0	0	0	0	0	5	0
+Agrobacterium fabrum	Bacteria	0	0	66	0	0	0	0
+Agrobacterium tumefaciens	Bacteria	0	0	80	0	0	0	0
+Ambidensovirus sp.	Viruses	0	116698	0	0	0	0	2624
+Anaerosacchriphilus polymeriproducens	Bacteria	0	0	2	0	0	0	0
+Ancylobacter rudongensis	Bacteria	0	0	17	0	0	0	0
+Angiostrongylus costaricensis	Others	29	0	0	0	0	0	0
+Aphanomyces astaci	Others	0	2	0	0	0	0	0
+Apilactobacillus kunkeei	Bacteria	0	10479	0	0	0	0	0
+Apilactobacillus micheneri	Bacteria	0	2276	0	0	0	0	0
+Apilactobacillus ozensis	Bacteria	0	738	0	0	0	0	0
+Apilactobacillus quenuiae	Bacteria	0	1202	0	0	0	0	0
+Apilactobacillus timberlakei	Bacteria	0	1124	0	0	0	0	0
+Apis cerana	Arthropods	48283	0	37819	35133	6729	0	23089
+Apis dorsata	Arthropods	0	0	33695	0	0	0	0
+Apis florea	Arthropods	18363	0	11189	12661	2881	2373	0
+Apis mellifera	Arthropods	0	0	0	728817	135498	93600	321517
+Apis mellifera filamentous virus	Viruses	73032	0	24222	0	0	0	756
+Arachis hypogaea	Plants	2031	0	0	0	0	0	0
+Araneus ventricosus	Arthropods	0	163587	1	0	676	266	1384
+Asaia platycodi	Bacteria	12	0	0	0	0	0	0
+Atta cephalotes	Arthropods	0	0	7	0	0	0	0
+Atta colombica	Arthropods	0	0	0	100	0	64	0
+Bacteriophage sp.	Viruses	23188	0	56506	0	0	0	402
+Bactrocera latifrons	Arthropods	0	99	0	0	0	0	0
+Bactrocera tryoni	Arthropods	28	1092	0	0	0	0	0
+Bartonella apis	Bacteria	1681908	4708	2998121	64150	10352	6914	9050
+Bartonella birtlesii	Bacteria	0	0	329	0	0	0	0
+Bartonella clarridgeiae	Bacteria	40	0	0	0	0	0	0
+Bartonella schoenbuchensis	Bacteria	18	0	0	0	0	0	0
+Bartonella tamiae	Bacteria	189	0	1199	0	0	0	0
+Beauveria bassiana	Fungi	1	0	2	0	0	7	0
+Bifidobacterium actinocoloniiforme	Bacteria	5070	185	11829	686	529	735	0
+Bifidobacterium adolescentis	Bacteria	0	0	1422	345	0	0	0
+Bifidobacterium aemilianum	Bacteria	4348	154	10236	531	501	999	0
+Bifidobacterium aerophilum	Bacteria	0	0	0	0	457	0	0
+Bifidobacterium angulatum	Bacteria	0	0	0	0	0	982	0
+Bifidobacterium animalis	Bacteria	0	0	0	0	0	700	0
+Bifidobacterium anseris	Bacteria	0	0	891	0	0	0	0
+Bifidobacterium aquikefiri	Bacteria	0	0	1079	57	74	128	0
+Bifidobacterium asteroides	Bacteria	1855032	0	4304266	99694	3884	15349	4288
+Bifidobacterium biavatii	Bacteria	0	0	0	374	0	2101	0
+Bifidobacterium bifidum	Bacteria	1131	0	2302	0	0	0	0
+Bifidobacterium bohemicum	Bacteria	0	0	0	255637	5006	38709	0
+Bifidobacterium bombi	Bacteria	420	0	3160	203	166	651	0
+Bifidobacterium boum	Bacteria	0	0	0	0	293	1355	0
+Bifidobacterium breve	Bacteria	947	75	1571	410	385	0	0
+Bifidobacterium callitrichos	Bacteria	1335	0	2206	0	0	2442	0
+Bifidobacterium catenulatum	Bacteria	0	0	400	234	197	715	0
+Bifidobacterium catulorum	Bacteria	0	0	2823	0	0	1283	0
+Bifidobacterium commune	Bacteria	0	26737	0	331670	185450	453835	0
+Bifidobacterium coryneforme	Bacteria	342645	0	501654	0	0	0	0
+Bifidobacterium crudilactis	Bacteria	0	0	701	0	0	0	0
+Bifidobacterium dentium	Bacteria	627	0	1056	262	0	0	0
+Bifidobacterium felsineum	Bacteria	0	0	0	0	0	1060	0
+Bifidobacterium gallicum	Bacteria	0	0	0	106	0	306	0
+Bifidobacterium hapali	Bacteria	0	0	0	0	0	295	0
+Bifidobacterium imperatoris	Bacteria	0	0	0	297	0	0	0
+Bifidobacterium indicum	Bacteria	338943	0	504521	25042	0	0	0
+Bifidobacterium jacchi	Bacteria	0	0	1900	0	0	0	0
+Bifidobacterium lemurum	Bacteria	0	0	0	417	466	2193	0
+Bifidobacterium longum	Bacteria	1140	52	2497	351	396	1783	0
+Bifidobacterium margollesii	Bacteria	0	71	0	0	0	0	0
+Bifidobacterium merycicum	Bacteria	0	0	0	354	0	1443	0
+Bifidobacterium mongoliense	Bacteria	1226	0	2366	324	0	1967	0
+Bifidobacterium phage BitterVaud1	Viruses	7906	0	0	0	0	0	0
+Bifidobacterium platyrrhinorum	Bacteria	0	0	0	0	467	0	0
+Bifidobacterium primatium	Bacteria	0	0	0	0	0	2344	0
+Bifidobacterium pseudocatenulatum	Bacteria	0	0	497	0	0	0	0
+Bifidobacterium pseudolongum	Bacteria	559	42	1069	219	244	1015	0
+Bifidobacterium psychraerophilum	Bacteria	0	0	1210	0	0	0	0
+Bifidobacterium pullorum	Bacteria	0	97	0	0	410	1767	0
+Bifidobacterium reuteri	Bacteria	0	0	0	0	0	1328	0
+Bifidobacterium scardovii	Bacteria	0	0	4140	0	0	0	0
+Bifidobacterium sp. 7101	Bacteria	11330	0	24570	0	0	0	0
+Bifidobacterium sp. A11	Bacteria	12950	0	21760	0	0	0	0
+Bifidobacterium sp. wkB338	Bacteria	6444	0	12432	0	0	0	0
+Bifidobacterium sp. wkB344	Bacteria	5754	0	13058	0	0	0	0
+Bifidobacterium subtile	Bacteria	0	0	2093	0	0	0	0
+Bifidobacterium thermacidophilum	Bacteria	0	0	0	341	0	0	0
+Bifidobacterium tibiigranuli	Bacteria	973	0	0	367	0	0	0
+Bifidobacterium tissieri	Bacteria	0	0	0	0	0	1003	0
+Bifidobacterium tsurumiense	Bacteria	0	0	0	156	0	0	0
+Bifidobacterium xylocopae	Bacteria	5771	171	0	496	467	568	0
+Blattodean pefuambidensovirus 1	Viruses	0	5284	0	0	0	0	0
+Bombilactobacillus bombi	Bacteria	500	0	2025	5661	7966	180369	0
+Bombilactobacillus mellifer	Bacteria	245075	0	348092	11847	1798	0	3008
+Bombilactobacillus mellis	Bacteria	1257592	0	1985267	80994	11570	7634	33038
+Bombiscardovia coagulans	Bacteria	209	11855	222	27348	19306	28614	0
+Bombus bifarius	Arthropods	49727	156783	58267	124712	87787	99060	2384
+Bombus cryptarum densovirus	Viruses	0	0	0	0	0	2962	0
+Bombus impatiens	Arthropods	140675	383698	155569	10215	6914	6673	4432
+Bombus terrestris	Arthropods	9550	15298	11798	19238	15134	16891	632
+Bombus vancouverensis	Arthropods	49539	120868	58590	118579	83502	92704	2212
+Bombus vosnesenskii	Arthropods	49079	169479	57930	163751	111790	126586	2225
+Brassica cretica	Plants	0	0	1176	0	0	0	0
+Brassica napus	Plants	0	0	13284	0	0	0	0
+Brassica oleracea	Plants	0	0	2174	0	0	0	0
+Brochothrix thermosphacta	Bacteria	0	6826	0	0	0	0	0
+Brucella intermedia	Bacteria	59	0	100	0	0	0	0
+Brucella neotomae	Bacteria	0	0	195	0	0	0	0
+Brugia timori	Others	0	141	0	0	0	80	0
+Burkholderia vietnamiensis	Bacteria	0	0	8	0	0	0	0
+Cajanus cajan	Plants	5135	0	0	0	0	0	0
+Callosobruchus maculatus	Arthropods	0	0	0	0	377	515	0
+Candidatus Schmidhempelia bombi	Bacteria	0	4430	0	183168	111178	112732	0
+Capsicum baccatum	Plants	0	0	0	0	0	308	0
+Ceratina calcarata	Arthropods	0	20	0	0	0	114	0
+Cercospora zeina	Fungi	0	0	0	0	0	1	0
+Cicer arietinum	Plants	4495	0	0	0	0	0	0
+Clavispora lusitaniae	Fungi	0	0	0	3416	0	3180	0
+Cloeon dipterum	Arthropods	0	6	0	0	0	0	0
+Commensalibacter intestini	Bacteria	1505	0	1354	0	0	0	0
+Commensalibacter sp. AMU001	Bacteria	6992	0	0	0	0	0	0
+Companilactobacillus nodensis	Bacteria	0	0	38	0	0	0	0
+Companilactobacillus zhongbaensis	Bacteria	0	0	0	16	0	0	0
+Corynebacterium diphtheriae	Bacteria	0	0	2	0	0	0	0
+Corynebacterium efficiens	Bacteria	0	0	0	9	13	0	0
+Corynebacterium glutamicum	Bacteria	0	0	32	0	0	0	0
+Cronobacter sakazakii	Bacteria	20	0	31	0	93	0	0
+Cupriavidus taiwanensis	Bacteria	58	0	0	0	0	0	0
+Cutibacterium acnes	Bacteria	0	4222	553	0	0	0	0
+Cyphomyrmex costatus	Arthropods	19	5	0	0	0	0	14
+Daphnia magna	Arthropods	2	0	0	0	0	0	1
+Digitaria exilis	Plants	50	0	26	76	35	0	0
+Drosophila elegans	Arthropods	0	5	0	0	0	0	0
+Drosophila grimshawi	Arthropods	0	160	0	0	0	0	0
+Drosophila melanogaster	Arthropods	0	338	0	0	0	0	0
+Drosophila miranda	Arthropods	0	15	0	0	0	0	0
+Drosophila pseudoobscura	Arthropods	0	49	0	0	0	0	0
+Drosophila rhopaloa	Arthropods	0	36	0	0	0	0	0
+Drosophila yakuba	Arthropods	0	93	0	0	0	0	0
+Dufourea novaeangliae	Arthropods	26	0	0	74	101	0	0
+Eggerthella lenta	Bacteria	0	0	29	0	0	0	0
+Ensete ventricosum	Plants	19	0	9	0	0	0	0
+Enterobacter hormaechei	Bacteria	0	0	0	0	143	169	0
+Enterococcus avium	Bacteria	0	0	3	0	0	0	0
+Enterococcus casseliflavus	Bacteria	0	5	0	0	0	0	0
+Enterococcus diestrammenae	Bacteria	49	0	0	0	0	0	0
+Enterococcus faecalis	Bacteria	0	162	6	2	0	0	0
+Enterococcus faecium	Bacteria	0	3	36	0	0	0	0
+Entomomonas moraniae	Bacteria	0	0	124217	0	0	0	0
+Ephemera danica	Arthropods	76	0	53	202	0	0	0
+Escherichia coli	Bacteria	72	100	32	71	89	106	48
+Eufriesea mexicana	Arthropods	0	245	258	715	585	509	507
+Eumeta japonica	Arthropods	131	9488	0	464	0	426	272
+Eutrema salsugineum	Plants	0	0	72	0	0	0	0
+Frankliniella occidentalis	Arthropods	9	0	1	0	0	0	0
+Frieseomelitta varia	Arthropods	133	0	91	216	181	188	109
+Frischella perrara	Bacteria	157561	0	543419	15073	1990	3425	1760
+Fructilactobacillus sanfranciscensis	Bacteria	0	110	0	0	0	0	0
+Fructobacillus durionis	Bacteria	0	12883	0	0	0	0	0
+Fructobacillus ficulneus	Bacteria	0	3538	0	0	0	0	0
+Fructobacillus fructosus	Bacteria	0	655382	0	0	0	0	2410
+Fructobacillus pseudoficulneus	Bacteria	0	4217	0	0	0	0	0
+Fructobacillus tropaeoli	Bacteria	0	137409	0	0	0	0	0
+Gilliamella apicola	Bacteria	746755	0	1161557	53639	24181	30205	6566
+Gilliamella apis	Bacteria	523214	0	1354903	39822	0	0	772
+Gilliamella bombi	Bacteria	0	0	13263	0	0	0	0
+Gilliamella bombicola	Bacteria	0	0	11347	0	0	0	0
+Gilliamella sp. A7	Bacteria	16384	0	0	0	0	0	0
+Gluconacetobacter diazotrophicus	Bacteria	21	0	36	0	0	0	0
+Glycine max	Plants	5290	0	0	0	0	0	0
+Glycine soja	Plants	4979	0	0	0	0	0	0
+Grifola frondosa	Fungi	0	0	0	102	0	0	0
+Habropoda laboriosa	Arthropods	142	177	42	0	0	0	0
+Haemophilus influenzae	Bacteria	0	0	97	0	0	0	0
+Halomonas urmiana	Bacteria	0	0	13	0	0	0	0
+Harpegnathos saltator	Arthropods	36	0	0	0	0	0	0
+Helianthus annuus	Plants	0	0	0	2384	0	5151	0
+Hemipteran scindoambidensovirus 1	Viruses	0	180950	0	0	0	0	2772
+Hepatospora eriocheir	Fungi	4	0	0	0	0	0	0
+Homo sapiens	Others	0	5192	0	0	0	0	0
+Hortaea thailandica	Fungi	0	0	0	0	0	2	0
+Hymenopteran scindoambidensovirus 1	Viruses	0	7922	0	0	0	0	0
+Ignatzschineria cameli	Bacteria	0	0	252	0	0	0	0
+Ignelater luminosus	Arthropods	0	9	0	0	0	0	0
+Ipomoea triloba	Plants	69	0	0	0	0	0	0
+Kaistia granuli	Bacteria	0	0	12	0	0	0	0
+Klebsiella aerogenes	Bacteria	46	0	0	40	0	0	0
+Klebsiella pneumoniae	Bacteria	868	0	1511	128	0	0	0
+Kosakonia radicincitans	Bacteria	59	0	24	0	0	121	0
+Kuraishia capsulata	Fungi	0	0	0	0	0	2	0
+Lacticaseibacillus paracasei	Bacteria	3	22	0	0	0	7	0
+Lacticaseibacillus rhamnosus	Bacteria	5	0	0	0	0	0	0
+Lactiplantibacillus plantarum	Bacteria	3	0	6	0	0	0	0
+Lactobacillus amylovorus	Bacteria	253	0	223	0	0	0	0
+Lactobacillus apis	Bacteria	739761	0	1340046	34345	0	0	750
+Lactobacillus bombicola	Bacteria	1505	0	2217	44953	0	26814	0
+Lactobacillus crispatus	Bacteria	99	0	144	0	0	0	0
+Lactobacillus delbrueckii	Bacteria	0	0	20	0	0	0	0
+Lactobacillus gasseri	Bacteria	250	0	0	0	0	0	0
+Lactobacillus helsingborgensis	Bacteria	270512	0	605543	0	0	0	0
+Lactobacillus helveticus	Bacteria	0	0	259	75	0	0	0
+Lactobacillus iners	Bacteria	12980	0	6790	0	0	0	0
+Lactobacillus kimbladii	Bacteria	276570	0	626160	25400	0	0	0
+Lactobacillus kullabergensis	Bacteria	298874	0	485899	22473	0	0	0
+Lactobacillus melliventris	Bacteria	394853	0	1371044	2386	0	0	1092
+Lactobacillus panisapium	Bacteria	1820	0	3511	0	0	0	0
+Lactobacillus sp. ESL0228	Bacteria	0	0	0	0	1508	8060	0
+Lactobacillus sp. ESL0263	Bacteria	12362	0	51614	0	0	0	0
+Lactobacillus sp. wkB10	Bacteria	6276	0	14170	0	0	0	288
+Lactobacillus sp. wkB8	Bacteria	0	0	0	0	0	0	476
+Lasius niger	Arthropods	61	652	0	251	490	296	0
+Lentilactobacillus buchneri	Bacteria	0	0	0	16	0	0	0
+Lentilactobacillus curieae	Bacteria	0	83	5	6	0	14	0
+Lentilactobacillus parafarraginis	Bacteria	0	0	0	8	0	0	0
+Leuconostoc carnosum	Bacteria	0	582	0	0	0	0	0
+Leuconostoc citreum	Bacteria	0	544	0	0	0	0	0
+Leuconostoc gelidum	Bacteria	0	6949	0	0	0	0	0
+Leuconostoc lactis	Bacteria	0	1332	0	0	0	0	0
+Leuconostoc mesenteroides	Bacteria	0	883	0	0	0	0	0
+Leuconostoc pseudomesenteroides	Bacteria	0	978	0	0	0	0	0
+Levilactobacillus brevis	Bacteria	0	0	0	13	0	0	0
+Limosilactobacillus coleohominis	Bacteria	0	0	479	0	0	0	0
+Limosilactobacillus fermentum	Bacteria	0	0	127	0	0	0	0
+Limosilactobacillus reuteri	Bacteria	0	0	262	0	0	0	0
+Limosilactobacillus vaginalis	Bacteria	0	25	0	0	0	0	0
+Lipotes vexillifer	Others	0	0	74	0	0	0	0
+Liquorilactobacillus ghanensis	Bacteria	0	23	29	0	0	0	0
+Liquorilactobacillus nagelii	Bacteria	0	0	13	0	0	0	0
+Liquorilactobacillus satsumensis	Bacteria	0	21	0	0	0	0	0
+Listeria monocytogenes	Bacteria	4	0	0	0	0	0	0
+Loigolactobacillus backii	Bacteria	0	0	0	26	0	0	0
+Lotus japonicus	Plants	13542	0	0	0	0	0	0
+Lucilia cuprina	Arthropods	46	182	0	0	0	0	0
+Lupinus albus	Plants	5125	734	1979	1384	0	794	757
+Lupinus angustifolius	Plants	3597	0	0	0	0	0	0
+Macrococcus caseolyticus	Bacteria	0	0	0	0	0	7	0
+Magnetospirillum gryphiswaldense	Bacteria	28	0	0	0	0	0	0
+Malassezia restricta	Fungi	0	4490	0	0	0	0	0
+Medicago truncatula	Plants	3986	0	0	0	0	0	0
+Megachile rotundata	Arthropods	317	2	267	171	94	0	0
+Megalopta genalis	Arthropods	0	0	0	184	0	0	161
+Melipona quadrifasciata	Arthropods	93	192	64	2780	2812	2401	2195
+Mesorhizobium delmotii	Bacteria	0	0	93	0	0	0	0
+Mesorhizobium sediminum	Bacteria	0	0	32	0	0	0	0
+Methylobacterium currus	Bacteria	0	0	35	0	0	0	0
+Methylomicrobium alcaliphilum	Bacteria	0	0	8	0	0	0	0
+Mikania micrantha	Plants	406	0	0	0	0	3982	0
+Moesziomyces antarcticus	Fungi	0	0	0	0	0	4	0
+Monomorium pharaonis	Arthropods	4	0	0	0	0	0	0
+Morganella morganii	Bacteria	0	0	6593	0	0	0	0
+Mucuna pruriens	Plants	4639	0	0	0	0	0	0
+Musca domestica	Arthropods	0	58	0	0	0	0	0
+Mycobacterium kansasii	Bacteria	144	0	0	0	0	0	0
+Myoviridae sp.	Viruses	21060	0	0	0	0	0	0
+Nasonia vitripennis	Arthropods	10	0	21	0	0	0	0
+Naumannella halotolerans	Bacteria	0	0	0	4	0	0	0
+Neisseria gonorrhoeae	Bacteria	0	0	36	0	0	0	0
+Neisseria meningitidis	Bacteria	0	0	8	0	0	0	0
+Neisseria polysaccharea	Bacteria	0	0	25	0	0	0	0
+Nicotiana sylvestris	Plants	0	174	0	0	0	0	0
+Nitrospirillum amazonense	Bacteria	0	0	29	0	0	0	0
+Nomia melanderi	Arthropods	57	0	0	197	0	167	0
+Nosema apis	Fungi	606	0	869	0	0	0	0
+Nosema bombycis	Fungi	2	0	2	0	0	0	0
+Nosema ceranae	Fungi	217265	0	305166	7589	1390	0	1596
+Nylanderia fulva	Arthropods	23	0	15	0	0	0	0
+Oblitimonas alkaliphila	Bacteria	0	0	64	0	0	0	0
+Olsenella umbonata	Bacteria	282	0	0	0	0	0	0
+Ooceraea biroi	Arthropods	0	0	0	163	225	0	0
+Orbus hercynius	Bacteria	0	0	751	0	958	0	0
+Orthopteran scindoambidensovirus 1	Viruses	0	84644	0	0	0	0	272
+Osmia lignaria	Arthropods	219	2900	0	0	0	0	0
+Pantoea ananatis	Bacteria	47	0	0	0	0	0	0
+Parascardovia denticolens	Bacteria	907	0	0	92	85	154	0
+Patellaria atrata	Fungi	0	0	0	0	0	40	0
+Paucimonas lemoignei	Bacteria	0	0	12	0	0	0	0
+Pectobacterium carotovorum	Bacteria	0	0	30	0	0	0	0
+Pectobacterium versatile	Bacteria	0	0	22	0	0	0	0
+Pediococcus acidilactici	Bacteria	0	0	36	0	0	0	0
+Pediococcus damnosus	Bacteria	0	0	0	29	0	0	0
+Phenylobacterium zucineum	Bacteria	0	0	47	0	0	0	0
+Photobacterium alginatilyticum	Bacteria	0	0	15	0	0	0	0
+Plasmodium ovale	Others	0	3162	0	0	0	0	0
+Polistes canadensis	Arthropods	0	2	0	23	0	0	117
+Populus euphratica	Plants	105	0	0	0	0	0	0
+Proteus mirabilis	Bacteria	55	0	163	0	0	0	0
+Proteus vulgaris	Bacteria	295	0	0	105	0	0	0
+Providencia rettgeri	Bacteria	2055	0	4103	0	0	0	0
+Pseudochrobactrum asaccharolyticum	Bacteria	0	0	389	0	0	0	0
+Pseudomonas aeruginosa	Bacteria	75	0	39	0	0	0	0
+Pseudomonas amygdali	Bacteria	0	0	33	0	0	0	0
+Pseudomonas caeni	Bacteria	0	0	146	0	0	0	0
+Pseudomonas chloritidismutans	Bacteria	0	0	53	0	0	0	0
+Pseudomonas chlororaphis	Bacteria	0	0	65	0	0	0	0
+Pseudomonas fluorescens	Bacteria	0	0	36	0	0	0	0
+Pseudomonas mendocina	Bacteria	0	0	43	0	0	0	0
+Pseudomonas nitroreducens	Bacteria	0	0	23	0	0	0	0
+Pseudomonas putida	Bacteria	0	0	76	0	0	0	0
+Pseudomonas syringae	Bacteria	0	0	34	0	0	0	0
+Pseudomonas veronii	Bacteria	0	0	29	0	0	0	0
+Pseudoscardovia suis	Bacteria	332	0	0	0	0	0	0
+Pyrus x bretschneideri	Plants	380	0	0	0	0	0	0
+Raphanus sativus	Plants	208	0	1292	0	0	0	0
+Rathayibacter toxicus	Bacteria	10	0	0	0	0	0	0
+Rhagoletis zephyria	Arthropods	147	15579	0	0	0	0	12
+Rhizophagus clarus	Fungi	4	4	2	0	0	0	0
+Rhizophagus irregularis	Fungi	0	4	0	0	0	0	0
+Rouxiella chamberiensis	Bacteria	0	0	0	0	105	0	0
+Ruminococcus bromii	Bacteria	15	0	0	0	0	0	0
+Saccharibacter floricola	Bacteria	0	0	62	0	0	0	0
+Saezia sanguinis	Bacteria	0	0	26	0	0	0	0
+Salmonella enterica	Bacteria	30	0	12	52	0	0	0
+Saprochaete ingens	Fungi	0	0	0	0	0	234	0
+Schleiferilactobacillus perolens	Bacteria	0	0	68	0	0	0	0
+Secundilactobacillus silagei	Bacteria	91	0	0	0	0	0	0
+Serratia liquefaciens	Bacteria	0	0	27	0	0	0	0
+Serratia plymuthica	Bacteria	61	0	29	0	0	0	0
+Sinorhizobium fredii	Bacteria	75	0	36	0	0	0	0
+Siphoviridae sp.	Viruses	19578	0	16162	0	0	0	626
+Snodgrassella alvi	Bacteria	727391	2279	710679	40128	12058	18961	2358
+Snodgrassella sp. ESL0324	Bacteria	0	0	12744	0	0	0	0
+Solanum lycopersicum	Plants	471	0	0	0	0	0	0
+Solenopsis invicta	Arthropods	0	0	0	63	76	72	0
+Sporolactobacillus inulinus	Bacteria	0	0	24	0	0	0	0
+Staphylococcus aureus	Bacteria	0	0	0	0	4	0	0
+Streptococcus agalactiae	Bacteria	10	23	0	3	0	0	0
+Streptococcus pneumoniae	Bacteria	0	436	143	90	69	0	0
+Streptococcus suis	Bacteria	0	0	7260	0	0	0	0
+Streptococcus thermophilus	Bacteria	0	0	0	0	0	6	0
+Streptococcus urinalis	Bacteria	0	0	1	0	0	0	0
+Streptomyces globisporus	Bacteria	70	0	0	0	0	0	0
+Stylonychia lemnae	Others	33	380	12	8	0	0	17
+Subdoligranulum variabile	Bacteria	0	0	607	0	0	0	0
+Sugiyamaella lignohabitans	Fungi	0	0	0	0	0	2	0
+Temnothorax longispinosus	Arthropods	13	0	0	88	169	74	0
+Trachymyrmex septentrionalis	Arthropods	33	0	25	0	129	89	0
+Trachymyrmex zeteki	Arthropods	0	0	0	175	223	141	0
+Tribolium castaneum	Arthropods	0	0	0	70	212	0	0
+Trichococcus palustris	Bacteria	0	0	0	0	0	0	4
+Trichoderma atroviride	Fungi	0	0	1	0	0	0	0
+Trichuris trichiura	Others	1037	116	1555	151	227	52	0
+Trifolium subterraneum	Plants	4138	0	0	0	0	0	0
+Varroa destructor	Arthropods	0	27	1	1832	2447	1295	287
+Weissella cryptocerci	Bacteria	0	321	0	0	0	0	0
+Weissella viridescens	Bacteria	0	255	0	0	0	0	0
+Wickerhamiella sorbophila	Fungi	0	0	0	2058	0	12055	0
+Wohlfahrtiimonas populi	Bacteria	0	0	53	0	0	0	0
+Xenorhabdus bovienii	Bacteria	0	3	0	0	0	0	0
+Xylaria longipes	Fungi	0	0	0	0	0	1	0

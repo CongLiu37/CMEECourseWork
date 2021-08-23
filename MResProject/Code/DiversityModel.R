@@ -1,3 +1,16 @@
+# DESCRIPTION:
+# Functions used for rarefaction model fitting.
+
+# DEPENDENCIES:
+# minpack.lm
+
+# ARGUMENTS:
+
+# OUTPUT:
+
+# Note:
+# Take output of ComputeDiversity.py as input
+
 library(minpack.lm)
 
 ReadData = function(type){ # Taxon/Function
