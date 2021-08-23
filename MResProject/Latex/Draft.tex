@@ -18,8 +18,10 @@
 \usepackage{natbib}
 \usepackage{natbibspacing}
 \usepackage[toc,page]{appendix}
+\usepackage{makecell}
 
-\title{Metagenomic DNA discoveries after sequencing everything (bacteria, parasites, food, gut) inside a bee}
+% Metagenomic DNA discoveries after sequencing everything (bacteria, parasites, food, gut) inside a bee
+\title{Optimize sequencing depth required for reliable profiling of microbiome by rarefaction and multimodel inference, using shotgun metagenomic data from pollination system and a modular profiling pipeline}
 \author{Cong Liu}
 \date{2021.8}
 
@@ -34,103 +36,133 @@
   \maketitle
   \vspace*{\fill}
   \begin{center}
-    A thesis submitted in partial fulfilment of the requirements for the degree of Master
-of Science/Research at Imperial College London
+    A thesis submitted in partial fulfilment of the requirements for the degree of Master of Research at Imperial College London
 \newline
-Submitted for the MRes/MSc in Computational Methods in Ecology and Evolution
+Submitted for the MRes in Computational Methods in Ecology and Evolution
   \end{center}
 
   \newpage
   Declaration:
   \newline
+  All datasets used in this project are provided by Dr. Peter Graystock and the project was conducted under his supervison. 
+  I am responsible for the development and conduction of the analyses presented.
 
   \newpage
   \linenumbers
   \begin{abstract}
-    Bee-associated microbiome plays a crucial role in host health and relevant investigations have been boosted by shotgun metagenomics. 
-    However, bioinformatics for metagenomic data analysis is complex, and the results may be compromised by insufficient sequencing. 
-    Here, an integrated pipeline combining assembly-dependent and -independent methods was introduced for taxonomic and functional profiling of shotgun metagenomic data. 
-    It was used for profiling metagenomic datasets ($2 \times 150 bp$ read pairs) from honey bees, bumble bees and flower surface. 
-    Rarefaction and model fitting was conducted to compute expected species/function diversity (Hill numbers of order 0, 1, 2) returned by given sequencing effort in order to determine minimal sequencing depth capable of estimating diversity sufficiently. 
-    As a result, functional profiling was demanding about sequencing effort. 
-    None of datasets involved was sufficient for providing almost complete coverage of function diversity. 
-    As for species diversity, the average minimal sequencing depth for reliable estimation of Hill number of order 0, 1 and 2 for honey bee samples are 40.33 million (12.10 Gbp), 18.57 million (5.57 Gbp) and 17.45 million (5.24 Gbp), respectively; and for bumble bee samples, the averages are 42.49 million (12.75 Gbp), 40.33 million (12.10 Gbp) and 24.77 (7.43 Gbp) million. 
-    For flower surface, more than 0.88 million (0.26 Gbp) sequencing depth is needed. 
+    Bee-associated microbiome plays a crucial role in host health and relevant investigations have been boosted by shotgun metagenomics, which provides unique advantages by capturing diversity of multiple taxonomic clades and providing information on function potentiality. 
+    However, utilization of shotgun metagenomics is hindered by complexity of data analysis and high cost of sequencing. 
+    % However, bioinformatics for metagenomic data analysis is complex, and the results may be compromised by insufficient sequencing depth. 
+    Here, an integrated pipeline combining assembly-dependent and -independent methods was introduced for taxonomic and functional profiling of shotgun metagenomic data, and a framework of rarefaction and multimodel inference was constructed for optimizing sequencing depth. 
+    Both the pipeline and the framework were used for analysis of real metagenomic datasets ($2 \times 150 bp$ read pairs) from honey bees, bumble bees and flower washes. 
+    The integrated pipeline illustrated taxon composition and metabolic potentiality of metagenome, and provided improvement in species identification compared with an assembly-dependent procedure. 
+    Sequencing depth can be optimized for species diversity estimation especially when little emphasis is given to rare species, while functional profiling requires deeper sequencing than taxon profiling. 
+    % Rarefaction and model fitting was conducted to compute expected species/function diversity (Hill numbers of order 0, 1, 2) returned by given sequencing effort in order to optimize sequencing depth, balancing sequencing effort and capability of estimating diversity reliably. 
+    % As a result, functional profiling was demanding about sequencing effort. 
+    % None of datasets involved was sufficient for providing almost complete coverage of function diversity. 
+    % As for species diversity, the average optimal sequencing depth for reliable estimation of Hill number of order 0, 1 and 2 for honey bee samples are 40.33 million (12.10 Gbp), 18.57 million (5.57 Gbp) and 17.45 million (5.24 Gbp), respectively; and for bumble bee samples, the averages are 42.49 million (12.75 Gbp), 40.33 million (12.10 Gbp) and 24.77 (7.43 Gbp) million. 
+    % For flower surface, more than 0.88 million (0.26 Gbp) sequencing depth is needed. 
     These results are helpful for cost-effective utilization of shotgun metagenomics in investigations of pollination system. 
-    The integrated pipeline and the framework for rarefaction analysis can also be applied for researches on other environments. 
+    % The integrated pipeline and the framework for rarefaction analysis can also be applied for researches on other environments. 
   \end{abstract}
 
   \section{Introduction}
-  The health of bees is a crucial issue that has received increasing concern \citep{amiri2020using}. 
-  As pollinators of numerous plants, bees play an important role in the stability of natural and agricultural systems \citep{hristov2020significance,foldesi2021larger,bansch2021crop,khalifa2021overview}. 
-  However, diverse pathogens and environmental factors impose threaten on bee health. 
-  The trend of bee decline has been widely observed at a global scale and attributed to multiple factors including pesticide exposure, invasive species, habitat loss, disease prevalence and climate change \citep{brown2009conservation,hristov2020factors,cheng2021ecology,zattara2021worldwide}.
+  Pollinators such as bees are crucial to maintain global food security and provide stability of natural systems \citep{hristov2020significance,bansch2021crop,khalifa2021overview} but their health is under increasing concern \citep{amiri2020using}. 
+  % The health of bees is a crucial issue that has received increasing concern \citep{amiri2020using}. 
+  % As pollinators of numerous plants, bees play an important role in the stability of natural and agricultural systems \citep{hristov2020significance,bansch2021crop,khalifa2021overview}.
+  % foldesi2021larger 
+  Diverse pathogens and environmental factors threaten bee health and are contributing to their declines. 
+  % The trend of bee decline has been widely observed at a global scale and attributed to multiple factors including 
+  A combination of stressors including parasites, pesticide exposure, invasive species, habitat loss and climate change are all contributing to declines of bee populations. \citep{brown2009conservation,hristov2020factors,cheng2021ecology,zattara2021worldwide}.
   \newline
   Bees are associated with a community of microorganisms influencing host health \citep{engel2016bee,raymann2018role}. 
-  Bee-associated microbiome plays a role in food digestion and carbohydrate metabolism by mediating processes including breaking down 
-  % plant-produced polysaccharide including 
-  plant-produced pectin and hemicellulose \citep{zheng2019division}; hydrolysis of sucrose \citep{engel2012functional,lee2015saccharide}, a predominant component of nectar \citep{nicolson2007nectar} and metabolism of mannose \citep{engel2012functional,lee2015saccharide} which presents in nectar 
-  % of \textit{Tilia} 
-  \citep{adler2000ecological} and is poisonous to honey bees \citep{de1986mechanism}. 
-  Besides, it is also involved in immunity against pathogens, providing protection against pathogens including \textit{Crithidia}, 
+  Within the gut of bees, stable microbial communities (microbiomes) play crucial roles in food digestion, parasite defence and chemical detoxification. 
+  They mediate food digestion processes including 
+  % plant-produced polysaccharide including pectin and hemicellulose \citep{zheng2019division}
+  polysaccharides breakdown \citep{zheng2019division}, sucrose hydrolysis \citep{engel2012functional,lee2015saccharide}, 
+  % a predominant component of nectar \citep{nicolson2007nectar} 
+  and mannose metabolism \citep{engel2012functional,lee2015saccharide}. 
+  % which presents in nectar of \textit{Tilia} \citep{adler2000ecological} and is poisonous to honey bees \citep{de1986mechanism}. 
+  They also provide protection against pathogens including \textit{Crithidia}, 
   % a protozoan genus exclusively parasitising arthropods 
   \citep{koch2011socially,cariveau2014variation}, \textit{Paenibacillus larvae}, 
   % a bacteria causing lethal American foulbrood in honey bees 
-  \citep{ebeling2016biology,forsgren2010novel} and \textit{Nosema} 
+  \citep{ebeling2016biology,forsgren2010novel} and \textit{Nosema sp.} 
   % a genus of fungal pathogens 
-  \citep{cariveau2014variation,maes2016diet}.
+  \citep{cariveau2014variation,maes2016diet}. 
+  Besides, bee-associated symbionts can aid in detoxification. 
+  They are involved in resistance to both metal and metalloid toxins including cadmium \citep{rothman2019cadmium}, copper \citep{rothman2020direct} and selenate \citep{rothman2019bumble}. 
   \newline
-  Host-associated microbiome plays an important role in host homeostasis and metagenomics boosted by high throughput sequencing provides powerful tools for understanding its composition, function and dynamics. 
-  For example, amplicon sequencing is a powerful tool and has revealed incredible understanding in microbiome \citep{eckburg2005diversity,galloway2020tools,new2020metagenomics}. 
-  However, it only focuses on a small part of the whole microbiome. 
-  Shotgun sequencing of microbiome, or metagenomics, unselectively captures DNA in a sample and is capable of providing comprehensive inventories of taxa and functional gene clusters (FGCs) with high resolution \citep{quince2017shotgun,new2020metagenomics}.
+  Amplicon sequencing, in which a species-specific barcode region is amplified and sequenced, is a powerful method for investigations of microbiome \citep{abdelfattah2018metabarcoding}.  
+  It is vastly used in bee microbiome investigations to illustrate the taxonomic diversity of bee-associated bacteria and fungi (\textit{e.g.} \cite{geldert2021dietary,wang2021gut,powell9field,kapheim2021composition}). 
+  However, bees visit numerous niches during environment exploration and foraging activities, and can get contact with diverse eDNA signatures, which provide insight into bee ecology by reflecting interactions between bees and other organisms including bacteria, fungi, plants, arthropods and viruses \citep{bovo2018shotgun,ribani2020honey,bovo2020shotgun,matsuzawa2020application}. 
+  It is difficult to explore this diversity via amplicon sequencing because it only captures a fraction of the whole community since analysis of different taxonomic groups is based on different barcode regions, \textit{e.g.} 16S ribosomal RNA (rRNA) for bacteria \citep{hayashi2002phylogenetic,eckburg2005diversity}, internal transcribed spacer (ITS) for fungi \citep{nilsson2008intraspecific}, cytochrome c oxidase subunit I (COI) for Animalia \citep{hebert2003barcoding} 
+  and plastid genes for plants \citep{group2009dna}. 
+  As a result, amplicon sequencing only captures taxon diversity within a certain clade. 
+  Besides, it is difficult to illustrate function potentiality of bee-associated microbiome using amplicon sequencing since it does not provide information on content of functional gene clusters (FGCs), \textit{i.e.} aggregates of genes with same function. 
+  As a result, functional capacity needs to be inferred based on reference genomes \citep{asshauer2015tax4fun,douglas2018predicting}. 
+  However, bee bacterial symbionts are diversified at strain level \citep{engel2012functional,powell2016strain,ellegaard2020vast} and bacterial strains are often highly variable in gene content \citep{cordero2014explaining,brockhurst2019ecology}. 
+  As a result, amplicon sequencing-based inference of functional capacity of bee microbiome may not be reliable.
+  % Host-associated microbiome plays an important role in host homeostasis and metagenomics boosted by high throughput sequencing provides powerful tools for understanding its composition, function and dynamics. 
+  % For example, amplicon sequencing is a powerful tool and has revealed incredible understanding in microbiome \citep{eckburg2005diversity,galloway2020tools,new2020metagenomics}. 
+  % However, it only focuses on a small part of the whole microbiome. 
+  % Shotgun sequencing of microbiome, or metagenomics, unselectively captures DNA in a sample and is capable of providing comprehensive inventories of taxa and functional gene clusters (FGCs) with high resolution \citep{quince2017shotgun,new2020metagenomics}.
   \newline
+  Shotgun metagenomics provides an alternative for microbiome investigations to overcome drawbacks of amplicon sequencing. 
+  By capturing and sequencing DNA fragments unselectively, shotgun metagenomics is capable of providing comprehensive inventories of taxa and FGCs \citep{quince2017shotgun,new2020metagenomics,galloway2020tools}. 
   However, utilization of shotgun metagenomics is hindered by challenges in bioinformatics. 
-  Typical goal of metagenomics is to provide taxonomic and functional profile of the community, and there is not a golden standard for bioinformatics of metagenome. 
-  Generaly, one of the first steps in metagenomic analysis is assembling short reads into long contigs, which can help improve accuracy of metagenomic annotation \citep{tran2020assembling} and is necessary for 
+  Typical goal of metagenomics is to provide taxonomic and functional profile of microbiome, and there is not a golden standard for bioinformatics of metagenome. 
+  Generally, one of the first steps in metagenomic analysis is assembling short reads into long contigs, which can help improve accuracy of metagenomic annotation \citep{wommack2008metagenomics,carr2014comparative,tran2020assembling} and is necessary for 
   % tasks including recovery of uncultured genomes \citep{garza2015cultured,chen2020accurate} and 
   discovery of novel taxa and genes \citep{culligan2014metagenomics,youngblut2020large}. 
-  However, metagenome assembly is complex, compromised by fragmental assembly, chimeras \citep{mikheenko2016metaquast} and loss of taxon/function diversity due to unassembled reads \citep{vollmers2017comparing,ayling2020new}. 
-  Probably because of these shortcomings, assembly is skipped in some researches and short reads are directly proceeded for annotation \citep{tringe2005comparative,huson2007megan,abubucker2012metabolic,vermote2018amplicon,bovo2018shotgun}, although the accuracy may be compromised due to low information load of short reads \citep{wommack2008metagenomics,carr2014comparative,tran2020assembling}. 
-  A combination of both assembly-dependent and -free method might be helpful for overcoming the complexity of metagenomic assembly and inaccuracy of short read annotation \citep{becker2020modular}. 
+  However, metagenome assembly is complex, compromised by fragmental assembly, chimaeras \citep{mikheenko2016metaquast} and loss of taxon/function diversity due to unassembled reads \citep{vollmers2017comparing,ayling2020new}. 
+  Probably because of these shortcomings, assembly is skipped in some researches and short reads are directly proceeded for annotation \citep{tringe2005comparative,abubucker2012metabolic,vermote2018amplicon,bovo2018shotgun}, although the accuracy can be compromised due to low information load of short reads \citep{wommack2008metagenomics,carr2014comparative,tran2020assembling}. 
+  A combination of both assembly-dependent and -free methods could overcome the complexity and improving accuracy of metagenomic profiling \citep{becker2020modular}.
+  % complexity of metagenomic assembly and inaccuracy of short read annotation \citep{becker2020modular}. 
   \newline
-  Another challenge of metagenomics is the determination of sequencing depth. 
-  It is recommended to retrieve as many reads as possible \citep{quince2017shotgun}, since insufficient sequencing causes imprecise estimation of taxon/FGC diversity \citep{cattonaro2018you,zaheer2018impact,pereira2019impact,gweon2019impact}. 
-  However, deep sequencing is expensive, which hinders its utilization, especially in large-scale projects. 
-  Currently, there is hardly any published guideline for the sufficient sequencing depth of a given environment or study type in order to reach a trade-off between sequencing effort and reliable output. 
+  A remaining challenge of metagenomics is the determination of a sequencing depth that provides reliable estimation of taxon/FGC diversity without overspending. 
+  It is recommended to retrieve as many reads as possible \citep{quince2017shotgun} since insufficient sequencing causes compromise in metagenome profiling \citep{cattonaro2018you,zaheer2018impact,pereira2019impact,gweon2019impact}. 
+  However, deep metagenomic sequencing is expensive, which hinders its utilization, especially in large-scale projects. 
+  Currently, there are few published guidelines for the sufficient sequencing depth of a given environment or study type in order to reach a trade-off between sequencing effort and reliable output. 
   \newline
-  The determination of sequencing depth can be conducted by rarefaction analysis, a method originated from traditional ecology \citep{sanders1968marine,hurlbert1971nonconcept,heck1975explicit,moreno2000assessing,hortal2005ed,gomez2014using,hughes2021sampling}. 
-  In field based surveys, a random sample of individuals is drawn from a community and assigned to species. 
-  Then a rarefaction curve illustrating expected biodiversity represented by given sampling effort (often measured by number of captured individuals) is generated by random subsampling the original sample without replacement, and quantified by model fitting \citep{hughes2005application,gotelli2011estimating}. 
-  The slope of the rarefaction curve represents the expected rise of the curve if one more individual is captured. 
-  The sample is nearly complete if and only if the final slope is small, and the point at which the slope of rarefaction curve falls to a cut-off value represents the minimal sampling effort required for assessment of biodiversity \citep{heck1975explicit,moreno2000assessing,hortal2004butterfly,hortal2005ed,chao2012coverage,gomez2014using,roswell2021conceptual}. 
-  This framework for determination of sampling effort can be used in shotgun metagenomics, since a metagenomic dataset can be viewed as a random sample of an assemblage of genomic sequences, and 
-  profiling is the process by which reads are assigned to taxa or FGCs. 
-  The concept corresponding to sampling effort is sequencing depth in metagenomics, which is measured by read number.
-  \newline 
-  In macroecology, comprehensive analytical frameworks are available for computing expected biodiversity returned by given sample sizes using a reference sample \citep{heck1975explicit,chao2012coverage,chao2014rarefaction}. 
-  % However, analytical approaches derived for computing rarefaction curve in macroecology \citep{heck1975explicit,chao2012coverage,chao2014rarefaction} 
-  However, they are not suitable for metagenomics because 
-  % they are based on 
-  of the assumptions that every captured individual can be assuredly assigned to a species, and the present of rare species is as reliable as that of abundant species. 
-  In shotgun metagenomics, reads may be unannotated or annotated incorrectly due to low sequencing quality, host contamination, similar structures in genomes of different species, non-coding regions in genomes and limited sensitivity of profiling pipeline. 
-  As a result, taxa or FGCs of low relative abundance are more likely to be false positive than that of high abundance.
+  In order to balance sequencing cost and reliable estimation of taxon/FGC diversity, expected diversity represented by given sequencing depth need to be computed. 
+  Since a metagenomic dataset can be viewed as a random sample of an assemblage of genomic sequences, and profiling is the process by which reads are assigned to taxa or FGCs, the relationship between sequencing depth and diversity can be illustrated by rarefaction (randomly subsampling the original dataset without replacement) and quantified by model fitting, if the original dataset can provide an almost complete inventory of taxa/FGCs \citep{heck1975explicit,hortal2005ed,gomez2014using,hughes2021sampling}. 
+  The sequencing depth is sufficient for reliable estimation of taxon/FGC diversity if and only if the slope of the model is small \citep{hortal2005ed,chao2012coverage,roswell2021conceptual}. 
+  % The determination of sequencing depth can be conducted by rarefaction analysis, a method widely used in traditional ecology \citep{heck1975explicit,hortal2005ed,gomez2014using,hughes2021sampling}. 
+  % In field based surveys, a random sample of individuals is drawn from a community and assigned to species. 
+  % Then a rarefaction curve illustrating expected biodiversity represented by given sampling effort (often measured by number of captured individuals) is generated by random subsampling the original sample without replacement, and quantified by model fitting \citep{hughes2005application,gotelli2011estimating}. 
+  % The slope of the rarefaction curve represents the expected rise of the curve if one more individual is captured. 
+  % The sample is nearly complete if and only if the final slope is small, and the point at which the slope of rarefaction curve falls to a cut-off value represents the minimal sampling effort required for assessment of biodiversity \citep{hortal2005ed,chao2012coverage,gomez2014using,roswell2021conceptual}. 
+  % This framework for determination of sampling effort can be used in shotgun metagenomics, since a metagenomic dataset can be viewed as a random sample of an assemblage of genomic sequences, and 
+  % profiling is the process by which reads are assigned to taxa or FGCs. 
+  % The concept corresponding to sampling effort is sequencing depth in metagenomics, which is measured by read number.
+  % \newline 
+  % In macroecology, comprehensive analytical frameworks are available for computing expected biodiversity returned by given sample sizes using a reference sample \citep{heck1975explicit,chao2012coverage,chao2014rarefaction}. 
+  % % However, analytical approaches derived for computing rarefaction curve in macroecology \citep{heck1975explicit,chao2012coverage,chao2014rarefaction} 
+  % However, they are not suitable for metagenomics because 
+  % % they are based on 
+  % of the assumptions that every captured individual can be assuredly assigned to a species, and the present of rare species is as reliable as that of abundant species. 
+  % In shotgun metagenomics, reads may be unannotated or annotated incorrectly due to low sequencing quality, host contamination, similar structures in genomes of different species, non-coding regions in genomes and limited sensitivity of profiling pipeline. 
+  % As a result, taxa or FGCs of low relative abundance are more likely to be false positive than that of high abundance.
   \newline
-  In this project, I aimed to (1) construct an integrated pipeline combining assembly-dependent and -independent methods for metagenomic profiling and (2) estimate minimal sequencing depth sufficient for covering species and FGC diversity of metagenome from three environmental types: honey bees, bumble bees and surface of flowers. 
-  In the integrated pipeline (Figure \ref{Pipeline}), assembly-dependent taxon profiling is conducted after quality filtering and removing host contamination. 
+  In this project, I utilised metagenomes from three environmental types: the gut of a honey bee (\textit{Apis mellifera}), the gut of a common North American bumble bee (\textit{Bombus impatiens}) and the surface of a flower (\textit{Erigeron annuus}). 
+  I aimed to (1) develop an integrated pipeline combining assembly-dependent and -independent methods to deliver improved taxon annotation of sequencing data and (2) optimize sequencing depth to balance sequencing cost and requirement for reliable analysis of microbial species diversity, or the description of their functional diversity. 
+  In the integrated pipeline (Figure \ref{Pipeline}), 
+  assembly-dependent taxon profiling is conducted after quality filtering and removing host contamination. 
   To address high negative rate of assembly-dependent search, a reference database of genomes from species present in the assembly is constructed and used for filtering non-host reads. 
   Reads not recruited by the reference database are subjected to assembly-free taxonomic search. 
-  This integrated pipeline was used to profile metagenomic datasets from honey bees, bumble bees and environmental DNA (eDNA) washed from a flower (\textit{Erigeron annuus}). 
-  It was shown that the construction of reference database and assembly-free search helped identified species not represented by the assembly. 
-  Then I simulated different sequencing depth by rarefaction and profiled subsampled datasets using the integrated pipeline, generating inventories of species and Kyoto Encyclopedia of Genes and Genomes (KEGG) orthologies (KOs) \citep{kanehisa2000kegg}. 
-  Each KO represents one FGC, \textit{i.e.} an aggregate of genes with same function. 
+  This integrated pipeline was used to profile metagenomic datasets involved in this project. 
+  % It was shown that the construction of reference database and assembly-free search helped identified species not represented by the assembly. 
+  Then in order to estimate optimal sequencing depth for reliable representing taxonomic/functional diversity of metagenomes, I simulated different sequencing depth by rarefaction and profiled subsampled datasets using the integrated pipeline, generating inventories of species and FGCs represented by Kyoto Encyclopedia of Genes and Genomes (KEGG) orthologies (KOs) \citep{kanehisa2000kegg}. 
   Diversity of species and KOs was measured by Hill numbers of order 0, 1 and 2. 
   Sequencing depth was measured by number of clean read pairs (150 bp read length). 
   % The higher the order is, the more sensitive to relative abundances Hill number is. 
-  The relationship between Hill numbers and sequencing depth (number of 150 bp pair-end reads) was quantified by fitting and averaging asymptotic species accumulation models, and estimation of minimal sequencing depth was given by the point where the slope of rarefaction curve drops to cut-off values. 
-  Sample would be excluded from estimation of minimal sequencing depth if the original dataset was not sufficient for providing an almost complete inventory of species or KOs, which was characterized by small final slope of rarefaction curve for species or KO richness (Hill number of order 0). 
-  As a result, when measuring species diversity by Hill number of order 0, 1 and 2, the average minimal sequencing depth for honey bee samples are 40.33 million, 18.57 million and 17.45 million; for bumble bee samples, the averages are 42.49 million, 40.33 million and 24.77 million; and for flower surface, 0.88 million sequencing depth is not sufficient for providing an almost complete inventory of species, indicating higher sequencing depth is needed. 
-  As for functional diversity, no datasets involved in this project is big enough for providing an almost complete inventory of KOs, indicating the sequencing depth need to be higher than the maximum of each sample type, \textit{i.e.} 45.06 million for honey bees, 53.61 million for bumble bees and 0.88 million for flower surface. 
+  The relationship between Hill numbers and sequencing depth was quantified by fitting and averaging asymptotic species accumulation models, and estimation of optimal sequencing depth was given by the point where the slope of rarefaction curve drops to cut-off values. 
+  % Sample would be excluded from optimization of sequencing depth if the original dataset was not sufficient for providing an almost complete inventory of species or KOs, which was characterized by small final slope of rarefaction curve for species or KO richness (Hill number of order 0). 
+  % As a result, when measuring species diversity by Hill number of order 0, 1 and 2, the average optimal sequencing depth for honey bee samples are 40.33 million, 18.57 million and 17.45 million; for bumble bee samples, the averages are 42.49 million, 40.33 million and 24.77 million; and for flower surface, 0.88 million sequencing depth is not sufficient for providing an almost complete inventory of species, indicating higher sequencing depth is needed. 
+  % As for functional diversity, no datasets involved in this project is big enough for providing an almost complete inventory of KOs, indicating the sequencing depth need to be higher than the maximum of each sample type, \textit{i.e.} 45.06 million for honey bees, 53.61 million for bumble bees and 0.88 million for flower surface. 
+  % The integrated pipeline and the framework for rarefaction analysis can also be applied for investigations of microbiomes from other environments, and the estimations of optimal sequencing depth provide guidelines for cost-effective utilization of shotgun metagenomics in investigations of pollination system. 
+  
 
   \begin{figure}[H]
     \centering
@@ -145,13 +177,16 @@ Submitted for the MRes/MSc in Computational Methods in Ecology and Evolution
   
   \section{Materials and Methods}
     \subsection{Samples, DNA extraction and sequencing}
+    Samples include four honey bees (two from the same hive (hive 13), one from a hive in the same apiary (hive 15) and one caught foraging), three bumble bees from commercially supplied (Biobest) bumblebee colonies (two from the same colony), and one buffer wash of a wild flower (\textit{Erigeron annuus}).  
+    \newline
+    DNA extraction was performed as in \cite{graystock2020dominant}, followed by library preparation using a template protocol with Illumina Nextera Library Prep kits. Briefly, this involved tagmentation into fragments of 300 bases before eight samples of 10ng were pooled together and sent to Beijing Genomics Institute for further quality control and sequencing using a full lane in the X-ten platform. 
 
     \subsection{Metagenomic profiling using integrated pipeline}
       \subsubsection{Integrated pipeline}
-      The integrated pipeline was designed for shotgun metagenomic profiling (assigning reads to taxa or FGCs). 
+      The integrated pipeline was designed for shotgun metagenomic profiling, \textit{i.e.} assigning reads to taxa or FGCs. 
       It is separated into five modules (Figure \ref{Pipeline}).
       \newline
-      In the module of quality control and host removing, sequencing data quality is checked using FastQC v.0.11.5 \citep{andrews2010fastqc} and quality control is conducted by Trimmomatic v.0.39 \citep{bolger2014trimmomatic}. 
+      In quality control and host removing, raw sequencing data quality is checked using FastQC v.0.11.5 \citep{andrews2010fastqc} and filtered by Trimmomatic v.0.39 \citep{bolger2014trimmomatic}. 
       Then clean reads are mapped to host genome using Bowtie2 v.2.4.2 \citep{langmead2012fast} and non-host reads are extracted by SAMtools v.1.11 \citep{li2009sequence}. 
       \newline
       The non-host reads are subject to the module of assembly-dependent species identification. 
@@ -159,7 +194,7 @@ Submitted for the MRes/MSc in Computational Methods in Ecology and Evolution
       Assembled contigs are aligned to NCBI non-redundant (nr) database by DIAMOND v.2.0.7.145 \citep{buchfink2015fast}, and assigned to taxa by MEGAN6 \citep{huson2007megan}. 
       \newline
       Then fragment recruitment is conducted. 
-      A reference database comprising reference genome dataset, \textit{i.e.} genomic sequences in FASTA format and corresponding genome annotation in general feature format (gff), was constructed. 
+      A reference database is constructed and it comprises reference genome dataset, \textit{i.e.} genomic sequences in FASTA format and corresponding genome annotation in general feature format (gff). 
       For each species represented by assembly, its reference genome dataset, if available, is downloaded from NCBI using its \textit{datasets} command-line tool and added to the reference database. 
       Then non-host reads are mapped to the reference database by Bowtie2, and unmapped reads are extracted by SAMtools. 
       \newline
@@ -191,11 +226,11 @@ Submitted for the MRes/MSc in Computational Methods in Ecology and Evolution
       MinPath v.1.6 was used for pathway inference \citep{ye2009parsimony}. 
       It finds a minimal set of KEGG pathways that can explain all KOs provided as input. 
 
-    \subsection{Estimation of minimal sequencing depth required for metagenomic profiling}
-    The impact of sequencing depth on taxon/function diversity of metagenome was simulated by rarefaction. 
-    Diversity was measured by Hill numbers, which are calculated from inventory of relative abundances. 
-    For taxon diversity, the inventory was generated by assigning reads to species; while for function diversity, it was obtained by assigning reads to KOs. 
-    Then the rarefaction curve plotting Hill number against sequencing depth was computed, and minimal sequencing depth required for reliable extimation of diversity were given by the point where the slope of rarefaction curve drops to a cut-off value.
+    \subsection{Estimation of optimal sequencing depth required for metagenomic profiling}
+    % The impact of sequencing depth on taxon/function diversity of metagenome was simulated by rarefaction. 
+    % Diversity was measured by Hill numbers, which are calculated from inventory of relative abundances. 
+    % For taxon diversity, the inventory was generated by assigning reads to species; while for function diversity, it was obtained by assigning reads to KOs. 
+    % Then the rarefaction curve plotting Hill number against sequencing depth was computed, and optimal sequencing depth required for reliable estimation of diversity were given by the point where the slope of rarefaction curve drops to a cut-off value.
 
       \subsubsection{Simulating different sequencing depth by subsampling and measuring diversity by Hill numbers}
       Species/KO inventories obtained from different sequencing depth was simulated by rarefaction. 
@@ -272,19 +307,20 @@ Submitted for the MRes/MSc in Computational Methods in Ecology and Evolution
         \label{average_derivation}
       \end{equation}
       The asymptote of rarefaction curve as sequencing depth tends to infinity is given by Equation \ref{asymptote}. 
-      It provides an estimation of the total diversity and is comparable among metagenomic DNA samples with different sequencing depth \citep{lamas1991preliminary,soberonm1993use,hortal2004butterfly,jimenez2005determining,hortal2006evaluating}. 
-      However, the accuracy of asymptotic estimators is controversial in macroecology \citep{soberonm1993use,colwell1994estimating,chazdon1998statistical,jimenez2006comparing,hortal2006evaluating}, and their performance in shotgun metagenomics is seldom evaluated.
+      It provides an estimation of the total diversity and is comparable among metagenomic DNA samples with different sequencing depth. 
+      % \citep{lamas1991preliminary,soberonm1993use,hortal2004butterfly,jimenez2005determining,hortal2006evaluating}. 
+      However, the accuracy of asymptotic estimators is controversial \citep{colwell1994estimating,chazdon1998statistical,jimenez2006comparing,hortal2006evaluating}.
       \begin{equation}
         \lim_{x \to +\infty}D^{(q)}(x) = \sum_{i}w_i\lim_{x \to +\infty}D^{(q)}_i(x)
         \label{asymptote}
       \end{equation}
 
-      \subsubsection{Estimating minimal sequencing depth using rarefaction curves} 
-      Minimal sequencing depth is defined as the point at which diversity starts to level off as sequencing depth increases, and its precise estimation via rarefaction is based on the assumption that the original dataset is sufficient for detection of almost all species/KOs present. 
+      \subsubsection{Estimating optimal sequencing depth using rarefaction curves} 
+      Optimal sequencing depth is defined as the point at which diversity starts to level off as sequencing depth increases, and its precise estimation via rarefaction is based on the assumption that the original dataset is sufficient for detection of almost all species/KOs present. 
       % providing a reliable inventory of species/KOs present, \textit{i.e.} almost all species/KOs present in the DNA sample are detected. 
       This assumption can be verified by looking at the rarefaction curve that plots species/KO richness (Hill number of order 0) against sequencing depth. 
-      The original dataset is sufficient for providing a reliable inventory if and only if the rarefaction curve of richness is characterized by a small final slope \citep{heck1975explicit,moreno2000assessing,hortal2004butterfly,hortal2005ed,gomez2014using}. 
-      Then an estimation of minimal sequencing depth is provided by the point at which the slope of rarefaction curve decreases to a given cut-off value \citep{hortal2005ed}. 
+      The original dataset is sufficient for providing a reliable inventory if and only if the rarefaction curve of richness is characterized by a small final slope \citep{heck1975explicit,hortal2005ed,chao2012coverage}. 
+      Then an estimation of optimal sequencing depth is provided by the point at which the slope of rarefaction curve decreases to a given cut-off value \citep{hortal2005ed,gomez2014using}. 
       % \newline 
       % This method is on the analogy of that used in macroecology to determine whether more sampling effort is needed to illustrate biodiversity of a community. 
       % In macroecological researches, rarefaction curve plots detected biodiversity against sampling effort, which is often measured by number of captured individuals. 
@@ -300,22 +336,133 @@ Submitted for the MRes/MSc in Computational Methods in Ecology and Evolution
     
   \section{Results}
 
-    \subsection{Sequence reads and pipeline evaluation}
+    \subsection{Sequence reads}
     Eight samples (four honey bees, three bumble bees and one flower eDNA) were sequenced. 
     The quality reports of raw reads showed low-quality 3'-end (Figure \ref{QC}a), uneven base content in 5'-end (Figure \ref{QC}b) and the present of adaptors (Figure \ref{QC}c). 
     The quality control procedure covered these aspects and improved data quality (Figure \ref{QC}d, \ref{QC}e and \ref{QC}f).
     \newline
     After quality control, read pairs aligned to host genome were removed. 
     Table \ref{data_statistics} reports numbers of raw, clean and non-host read pairs. 
-    Honey bee sample \textit{Bee\_Amellifera\_13\_1} was dropped for further analysis since its raw read pair number (1.10 million) is significantly lower than three other samples (about 59 million). 
+    Honey bee sample \textit{Bee\_Amellifera\_13\_1} was filtered from further analysis since its low raw read pair number (1.10 million compared to the other samples at ~59 million) is suggestive of a poor quality sample.  
     After quality control, 62.08\%-76.52\% of raw read pairs were retained for these three honey bee samples. 
     Then a different proportion of non-host read pairs (29.52\%-86.19\%) were retained. 
     As for bumble bee samples, about 58 million raw read pairs were obtained for each sample and 82.1\%-83.8\% were retained after quality control. 
     After host removing, 7.35\%-10.08\% of clean reads were retained.  
     For flower eDNA sample, 1.44 million raw read pairs were obtained and 61.15\% of them were retained. 
+
+    % \subsection{Characterization of species composition}
+    \subsection{Application of integrated pipeline}
+    The integrated pipeline was used to profile metagenomic datasets from pollination system, illustrating its capacity in presenting taxon composition and functional potentiality of microbiome. 
+    Although samples are different in proportion of host contamination (Table \ref{data_statistics}, Figure \ref{GroupAbundance}a), diverse communities composed of multiple taxonomic clades were identified (Figure \ref{GroupAbundance}b), and most species identified are common in pollination system. 
+    % All seven samples were dominated by bacterial and/or arthropod species (Figure \ref{GroupAbundance}b). 
+    % Honey bee samples \textit{Bee\_Amellifers\_hv13\_2} and \textit{Bee\_Amellifera\_wild\_1} were dominated by bacteria (approximate 90\% relative abundance), while in \textit{Bee\_Amellifera\_hv15\_1}, arthropods, bacteria and viruses accounted for most annotated reads. 
+    % As for bumble bee samples, they were all dominated by bacteria and arthropods. 
+    % For the flower eDNA sample, arthropods were the most dominant and bacteria were the second.
+
+      \begin{figure}[H]
+        \begin{subfigure}
+          \centering
+          \textbf{a}
+        \end{subfigure}
+        \hspace{0.5\linewidth}
+        \begin{subfigure}
+          \textbf{b}
+        \end{subfigure}
+        \newline
+        \hfill
+        \begin{subfigure}
+          \centering
+          \includegraphics[width=0.48\linewidth,height=0.48\linewidth]{../Figures/NonHostRatio.pdf}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}
+          \centering
+          \includegraphics[width=0.48\linewidth,height=0.48\linewidth]{../Figures/1_species_RelAbundance_GroupAbundance.pdf}
+        \end{subfigure}
+
+        % \begin{subfigure}
+        %   \centering
+        %   \textbf{a}
+        % \end{subfigure}
+        % \newline
+        % \begin{subfigure}
+        %   \centering
+        %   \includegraphics[width=0.5\textwidth]{../Figures/NonHostRatio.pdf}
+        % \end{subfigure}
+        % \vfill
+        % \newline
+        % \begin{subfigure}
+        %   \centering
+        %   \textbf{b}
+        % \end{subfigure}
+        % \newline
+        % \begin{subfigure}
+        %   \centering
+        %   \includegraphics[width=0.5\textwidth]{../Figures/1_species_RelAbundance_GroupAbundance.pdf}
+        % \end{subfigure}
+        % \vfill
+        \caption{a. The number of host and non-host reads in each sample. 
+        b. The relative abundance of species under six taxonomic groups: superkingdom Viruses, superkingdom Bacteria, kingdom Viridiplantae (plants), kingdom Fungi, phylum Arthropoda and others (species that are not in the other five groups).}
+        \label{GroupAbundance}
+        \end{figure}
+    
+    The present of core members of bee-associated bacterial community including species within \textit{Bifidobacterium}, \textit{Frischella}, \textit{Gilliamella}, \textit{Snodgrassella}, \textit{Lactobacillus}, \textit{Apilactobacillus} and \textit{Bombilactobacillus} (Figure \ref{BacteriaHeatmap}) \citep{koch2011bacterial,moran2015genomics,kwong2017dynamic,zheng2020taxonomic} suggests good sample quality. 
+    As for other abundant bacteria, \textit{Fructobacillus sp.} are often found in fructose-rich environments like flowers \citep{endo2014genus}; \textit{Bartonella apis} is related to animal pathogens \citep{kevsnerova2016bartonella} and is widespread in honey bee workers \citep{raymann2018role}; \textit{Candidatus Schmidhempelia bombi} is a known uncultured symbiont of \textit{Bombus impatiens} \citep{martinson2014genomic}. 
+    It should be noted that some typical bee-associated bacteria were also found on the flower, including \textit{Bartonella apis}, \textit{Bifidobacterium asteroides}, \textit{Bombilactobacillus mellis} and \textit{Gilliamella apicola}. 
+    % \textit{Apilactobacillus} and \textit{Bombilactobacillus} are genera separated from \textit{Lactobacillus} recently \citep{zheng2020taxonomic}.  
+    % \textit{Bombiscardovia coagulans} is a member of Bifidobacteriaceae isolated from \textit{Bombus lapidarius} \citep{killer2010bombiscardovia}. 
+    % \newline
+    % Different sample types are different in abundance distribution of bacteria (Figure \ref{BacteriaHeatmap}). 
+    % For honey bee samples, bacterial community in \textit{Bee\_Amellifera\_hv13\_2} is dominated by \textit{Fructobacillus fructosus} (approximate 70\% relative abundance), while the other two honey bee samples share a similar bacteria abundance distribution with almost no species with relative sequence abundance $> 20\%$. 
+    % As for bumble bee samples, \textit{Bifidobacterium commune} is the most abundant bacterial species in all three samples (about $20\%$ in \textit{Bee\_Bimpatiens\_hv3\_1} and about $40\%$ in the other two samples). 
+    % Two bumble bees from the same hive (\textit{Bee\_Bimpatiens\_hv4\_1} and 
+    % \textit{Bee\_Bimpatiens\_hv4\_1}) share similarity in bacterial abundance distribution. 
+    % In the flower eDNA sample, some bee-associated bacteria were identified, including \textit{Bartonella apis}, \textit{Bifidobacterium asteroides}, \textit{Bombilactobacillus mellis} and \textit{Gilliamella apicola}.
     \newline
+    Composition of arthropods and plants indicating interactions within pollination networks. 
+    Most arthropods identified are pollinators within \textit{Apis} and \textit{Bombus} (Figure \ref{ArthropodHeatmap}). 
+    However, some of them might be considered as false positive. 
+    For example, \textit{Apis cerana}, \textit{Apis dorsata} and \textit{Apis florea} are mainly found in Asia and unlikely to present in the area where samples were collected. 
+    These might derive by similarity between genomes of \textit{Apis mellifera} and other \textit{Apis} species. 
+    % It should be noted that host contamination was removed before profiling. 
+    % As a result, in honey bee samples, \textit{Apis} species were rare and \textit{Bombus} species were abundant, while in bumble bee samples, \textit{Bombus} species were rare and \textit{Apis} species are abundant. 
+    As for plant species (Figure \ref{PlantHeatmap}), they indicate foraging areas of bees. Several crop species were identified, including \textit{Brassica napus} (rape), \textit{Brassica oleracea}, \textit{Cicer arietinum} (chickpea), \textit{Glycine max} (soybean), \textit{Helianthus annuus} (sunflower), \textit{Nicotiana sylvestris} (flowering tabacco) and \textit{Raphanus sativus} (radish). 
+    \newline
+    Fungal and viruse species were identified. 
+    In fungal communities of most samples, \textit{Nosema ceranae}, a widespread bee pathogen, was the dominant species. (Figure \ref{FungusHeatmap}). 
+    Besides, three yeast species (\textit{Clavispora lusitaniae}, \textit{Saprochaete ingens} and \textit{Wickerhamiella sorbophila}) were also found in bees.  
+    % and one opportunistic pathogen (\textit{Malassezia restricta}). 
+    As for viruses, most of them are phages or arthropod-infecting species (Figure \ref{ViruseHeatmap}). 
+    Phage species include \textit{Bifidobacterium phage BitterVaud1} infecting bee-commensal bacterium \textit{Bifidobacterium asteroides} \citep{bonilla2020honey}; \textit{Bacteriophage sp.} infecting \textit{Pseudomonas aeruginosa} \citep{essoh2015investigation}, an opportunistic pathogen that might contaminate bees \citep{bailey1968honey,papadopoulou1992experimental,papadopoulou1993haemocyte}; and unclassified species within Myoviridae and Siphoviridae. 
+    Listed arthropod-infecting viruses including \textit{Apis mellifera filamentous virus} and \textit{Bombus cryptarum densovirus} that infect bees; and several parvoviruses (\textit{Blattodean pefuambidensovirus 1}, \textit{Hemipteran scindoambidensovirus 1}, \textit{Hymenopteran scindoambidensovirus 1} and \textit{Orthopteran scindoambidensovirus 1}) \citep{penzes2020reorganizing}.
+    % % family Myoviridae and Siphoviridae
+    % Most of the others are arthropod-associated viruses. 
+    % \textit{Apis mellifera filamentous virus} and \textit{Bombus cryptarum densovirus} are bee-infecting viruses \citep{clark1978filamentous,bailey1981properties,schoonvaere2018study}. 
+    % Several arthropod-infecting parvoviruses were found, including \textit{Blattodean pefuambidensovirus 1}, \textit{Hemipteran scindoambidensovirus 1}, \textit{Hymenopteran scindoambidensovirus 1} and \textit{Orthopteran scindoambidensovirus 1} \citep{penzes2020reorganizing}.
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{../Figures/RelativeAbundance_0_01_species_Bacteria.pdf}
+        \caption{Heatmaps for bacterial species abundance distribution in all samples. 
+        The relative abundance takes reads assigned to bacterial species as background. 
+        Species with relative abundance smaller than 1\% in all samples are collapsed as "others".}
+        \label{BacteriaHeatmap}
+        \end{figure}
+
+    The integrated pipeline also provides information on FGC content, which shows function potentiality of metagenome. 
+    Here FGC content was represented by identified KOs, which were used for KEGG pathway inference in order to illustrate metabolic potentially of metagenomic samples. 
+    Reads assigned to plants and arthropods were not involved in pathway inference since they are unlikely to represent living organisms. 
+    The coverage of a pathway was calculated by the ratio between number of annotated KOs and total number of KOs involved in that pathway. 
+    \newline
+    Here concern is given to metabolism pathways of carbonhydrates and amino acids, which are crucial for bee health. 
+    Inferred pathways indicate potential capability of metabolism of sugars including fructose, sucrose, mannose and galactose (Figure \ref{Carbohydrate}), and all ten essential amino acids for honey bees (\textit{i.e.} arginine, histidine, isoleucine, leucine, lysine, methionine, phenylalanine, threonine, tryptophan and valine) (Figure \ref{AminoAcid}) \citep{groot1953protein}. 
+
+
+    \subsection{Evaluation of performance of integrated pipeline in species identification}
+    The performance of integrated pipeline in species identification was evaluated by comparing it with assembly-dependent method, using rarefied datasets. 
     In integrated pipeline (Figure \ref{Pipeline}), clean non-host reads are first assembled to into contigs and assigned to taxa. 
-    To address false negative results in assembly-dependent taxon search \citep{sharon2015accurate,vollmers2017comparing}, a reference database composed of genomes of species represented by contigs is constructed. 
+    % To address false negative results in assembly-dependent taxon search \citep{sharon2015accurate,vollmers2017comparing}, 
+    Then a reference database composed of genomes of assembly-represented species is constructed. 
     Reads not aligned to the reference database are subjected to assembly-independent taxon search. 
     The reference database and assembly-independent search helped improve species identification in all three sample types, especially in simulations of low sequencing depth (Figure \ref{CompareSensitivity}).
 
@@ -351,113 +498,21 @@ Submitted for the MRes/MSc in Computational Methods in Ecology and Evolution
           \includegraphics[width=0.3\linewidth,height=0.3\linewidth]{../Figures/ExtraSpecies_Flower.pdf}
         \end{subfigure}
         \caption{Integrated pipeline improves the detection of species richness. 
-        The horizonal axis represents sequencing depth, and the vertical axis represents the ratio between number of species only detected by assembly-independent search and number of species detected by assembly-dependent search. 
+        The horizonal axis represents sequencing depth, and the vertical axis represents growth rate of detected species richness comparing the integrated pipeline and assembly-dependent species identification. 
+        Different sequencing depth was simulated by rarefaction.
+        % the ratio between number of novel species detected by assembly-independent search and number of species detected by assembly-dependent search. 
         Sample type is shown in the top left of each subfigure.}
         \label{CompareSensitivity}
         \end{figure}
 
-    \subsection{Characterization of species composition}
-    All seven samples were dominated by bacterial and/or arthropod species (Figure \ref{GroupAbundance}b). 
-    Honey bee samples \textit{Bee\_Amellifers\_hv13\_2} and \textit{Bee\_Amellifera\_wild\_1} were dominated by bacteria (approximate 90\% relative abundance), while in \textit{Bee\_Amellifera\_hv15\_1}, arthropods, bacteria and viruses accounted for most annotated reads. 
-    As for bumble bee samples, they were all dominated by bacteria and arthropods. 
-    For the flower eDNA sample, arthropods were the most dominant and bacteria were the second.
-
-      \begin{figure}[H]
-        \centering
-        \begin{subfigure}
-          \centering
-          \textbf{a}
-        \end{subfigure}
-        \newline
-        \begin{subfigure}
-          \centering
-          \includegraphics[width=0.5\textwidth]{../Figures/NonHostRatio.pdf}
-        \end{subfigure}
-        \vfill
-        \newline
-        \begin{subfigure}
-          \centering
-          \textbf{b}
-        \end{subfigure}
-        \newline
-        \begin{subfigure}
-          \centering
-          \includegraphics[width=0.5\textwidth]{../Figures/1_species_RelAbundance_GroupAbundance.pdf}
-        \end{subfigure}
-        \vfill
-        \caption{a. The number of host and non-host reads in each sample. 
-        b. The relative abundance of species under six taxonomic groups: superkingdom Viruses, superkingdom Bacteria, kingdom Viridiplantae (plants), kingdom Fungi, phylum Arthropoda and others (species that are not in the other five groups).}
-        \label{GroupAbundance}
-        \end{figure}
-      
-    Figure \ref{BacteriaHeatmap} illustrates composition of bacteria, most of which are common bee-associated species within \textit{Bifidobacterium}, \textit{Frischella}, \textit{Gilliamella}, \textit{Snodgrassella} and \textit{Lactobacillus} \citep{koch2011bacterial,moran2015genomics,kwong2017dynamic}. 
-    \textit{Apilactobacillus} and \textit{Bombilactobacillus} are genera separated from \textit{Lactobacillus} recently \citep{zheng2020taxonomic}. 
-    \textit{Fructobacillus} is often found in fructose-rich environments like flowers \citep{endo2014genus}. 
-    \textit{Bartonella apis} is related to animal pathogens \citep{kevsnerova2016bartonella} and is widespread in honey bee workers \citep{raymann2018role}. 
-    % \textit{Bombiscardovia coagulans} is a member of Bifidobacteriaceae isolated from \textit{Bombus lapidarius} \citep{killer2010bombiscardovia}. 
-    % \textit{Candidatus Schmidhempelia bombi} is an uncultured symbiont of \textit{Bombus impatiens} \citep{martinson2014genomic}. 
-    % It should be noted that some typical bee-associated bacteria were found on the flower, including \textit{Bartonella apis}, \textit{Bifidobacterium asteroides}, \textit{Bombilactobacillus mellis} and \textit{Gilliamella apicola}.
-    % \newline
-    % Different sample types are different in abundance distribution of bacteria (Figure \ref{BacteriaHeatmap}). 
-    % For honey bee samples, bacterial community in \textit{Bee\_Amellifera\_hv13\_2} is dominated by \textit{Fructobacillus fructosus} (approximate 70\% relative abundance), while the other two honey bee samples share a similar bacteria abundance distribution with almost no species with relative sequence abundance $> 20\%$. 
-    % As for bumble bee samples, \textit{Bifidobacterium commune} is the most abundant bacterial species in all three samples (about $20\%$ in \textit{Bee\_Bimpatiens\_hv3\_1} and about $40\%$ in the other two samples). 
-    % Two bumble bees from the same hive (\textit{Bee\_Bimpatiens\_hv4\_1} and 
-    % \textit{Bee\_Bimpatiens\_hv4\_1}) share similarity in bacterial abundance distribution. 
-    % In the flower eDNA sample, some bee-associated bacteria were identified, including \textit{Bartonella apis}, \textit{Bifidobacterium asteroides}, \textit{Bombilactobacillus mellis} and \textit{Gilliamella apicola}.
-    \newline
-    Figure \ref{ArthropodHeatmap} shows composition of arthropods, and most of them are pollinators within \textit{Apis} and \textit{Bombus}. 
-    However, some of them might be considered as false positive. 
-    For example, \textit{Apis cerana}, \textit{Apis dorsata} and \textit{Apis florea} are mainly found in Asia and unlikely to present in the area where samples were collected. 
-    These might derive by similarity between genomes of \textit{Apis mellifera} and other \textit{Apis} species. 
-    % It should be noted that host contamination was removed before profiling. 
-    % As a result, in honey bee samples, \textit{Apis} species were rare and \textit{Bombus} species were abundant, while in bumble bee samples, \textit{Bombus} species were rare and \textit{Apis} species are abundant. 
-    \newline
-    Figure \ref{PlantHeatmap} illustrates plant species, indicating foraging area of bees. 
-    Most samples were dominanted by one or two plant species, except \textit{Bee\_Amellifera\_hv13\_2}. 
-    Some crops were identified, including \textit{Brassica napus} (rape), \textit{Brassica oleracea}, \textit{Cicer arietinum} (chickpea), \textit{Glycine max} (soybean), \textit{Helianthus annuus} (sunflower), \textit{Nicotiana sylvestris} (flowering tabacco) and \textit{Raphanus sativus} (radish).
-    \newline
-    Figure \ref{FungusHeatmap} shows compositions of fungal species. 
-    \textit{Nosema ceranae}, a widespread bee pathogen, was the dominant fungal species in most samples including the flower eDNA. 
-    Three yeast species (\textit{Clavispora lusitaniae}, \textit{Saprochaete ingens} and \textit{Wickerhamiella sorbophila}) were found in bees. 
-    % Other fungal species include three yeasts (\textit{Clavispora lusitaniae}, \textit{Saprochaete ingens} and \textit{Wickerhamiella sorbophila}) 
-    % and one opportunistic pathogen (\textit{Malassezia restricta}). 
-    \newline
-    Figure \ref{ViruseHeatmap} illustrates viruses identified. 
-    Several phages were identified, including \textit{Bifidobacterium phage BitterVaud1} that infects bee-commensal bacterium \textit{Bifidobacterium asteroides} \citep{bonilla2020honey}, \textit{Bacteriophage sp.} that infects \textit{Pseudomonas aeruginosa} \citep{essoh2015investigation}, an opportunistic pathogen that might contaminate bees \citep{bailey1968honey,papadopoulou1992experimental,papadopoulou1993haemocyte}, and species in Myoviridae and Siphoviridae. 
-    % family Myoviridae and Siphoviridae
-    Most of the others are arthropod-associated viruses. 
-    \textit{Apis mellifera filamentous virus} and \textit{Bombus cryptarum densovirus} are bee-infecting viruses \citep{clark1978filamentous,bailey1981properties,schoonvaere2018study}. 
-    Several arthropod-infecting parvoviruses were found, including \textit{Blattodean pefuambidensovirus 1}, \textit{Hemipteran scindoambidensovirus 1}, \textit{Hymenopteran scindoambidensovirus 1} and \textit{Orthopteran scindoambidensovirus 1} \citep{penzes2020reorganizing}.
-
-      \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{../Figures/RelativeAbundance_0_01_species_Bacteria.pdf}
-        \caption{Heatmaps for bacterial species abundance distribution in all samples. 
-        The relative abundance takes reads assigned to bacterial species as background. 
-        Species with relative abundance smaller than 1\% in all samples are collapsed as "others".}
-        \label{BacteriaHeatmap}
-        \end{figure}
-
-    \subsection{Characterization of functional profiling}
-    In order to illustrate metabolic potentially of metagenomic samples, KEGG pathways were inferred using a parsimony approach. 
-    Reads assigned to plant and arthropod species were not involved in pathway inference. 
-    The coverage of a pathway was calculated by the ratio between number of annotated KOs and total number of KOs involved in that pathway. 
-    \newline
-    Here concern is given to metabolism pathways of carbonhydrates and amino acids, which are crucial for bee health. 
-    Inferred pathways indicate potential capability of metabolism of sugars including fructose, sucrose, mannose and galactose (Figure \ref{Carbohydrate}), and all essential amino acids for honey bees (Figure \ref{AminoAcid})\citep{groot1953protein}. 
-
-      \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{../Figures/PathwayCov_AminoAcid.pdf}
-        \caption{Heatmaps for pathways of amino acid metabolism.}
-        \label{AminoAcid}
-        \end{figure}
-
-    \subsection{Minimal sequencing depth required for detection of species and function diversity}
-    In order to estimate minimal sequencing depth for combinations of sample type (honey bee, bumble bee and flower eDNA) and study type (species profiling and function profiling), shallow sequencing was simulated by rarefaction. 
-    The relationship between sequencing depth (clean read pairs) and species/KO diversity (Hill numbers of order 0, 1, 2) was quantified by fitting and averaging asymptotic species accumulation models. 
-    The asymptote of the model provides an estimation of total diversity and its slope reflects the increase rate of diversity. 
-    Minimal sequencing depth was estimated by the point at wich the slope of the rarefaction curve drops to a cut-off value.
+    \subsection{Optimal sequencing depth required for detection of species and function diversity}
+    In order to determine the influence of sequencing depth and thus optimize sequencing depth for 
+    analysing taxonomic and functional diversity, rarefactiona anlysis was conducted. 
+    Different sequencing depth was simulated by randomly subsampling original datasets at proportions from 10\% to 90\% at an interval of 10\%. 
+    The relationship between sequencing depth (clean read pair number) and species/KO diversity (Hill numbers of order 0, 1, 2) was quantified by fitting and averaging asymptotic species accumulation models. 
+    The slope of the model reflects the increase rate of diversity. 
+    The point at which it drops to a cut-off value provides an estimation of optimal sequencing depth. 
+    Besides, the asymptote of the model as sequencing depth tends to infinity provides an estimation of total diversity. 
     \newline
     Rarefaction assumes that the original dataset provides an almost complete inventory, which can be verified by final slope of rarefaction curve for Hill number of order 0 (richness). 
     Figure \ref{RichnessAccumulation} shows rarefaction curves for species/KO richness and Table \ref{RichnessModelSlope} summarizes their final slopes. 
@@ -468,7 +523,7 @@ Submitted for the MRes/MSc in Computational Methods in Ecology and Evolution
     % The final slope of \textit{Bee\_Amellifera\_hv13\_2} is 1.0958 and its completeness is 79.31\%, indicating insufficient sequencing. 
     For the flower eDNA sample, the final slope of species richness rarefaction curve is 10.8380 and its completeness is 1.32\%, indicating more sequencing effort is needed for species profiling. 
     As for function diversity rarefaction, the final slopes of all KO richness rarefaction curves are higher than 15, indicating no dataset can providing an almost complete inventory of KOs. 
-    Thus, estimation of minimal sequencing depth was conducted for the combinations of two sample types (honey bee and bumble bee) and one study type (species profiling), based on five datasets (two honey bees and three bumble bees).
+    Thus, estimation of optimal sequencing depth was conducted for the combinations of two sample types (honey bee and bumble bee) and one study type (species profiling), based on five datasets (two honey bees and three bumble bees).
     \begin{figure}[H]
       \begin{subfigure}
         \centering
@@ -828,13 +883,13 @@ Sample                           &Type   &Depth &OR  & ER          & FS      & A
 %         }
 %         \end{table}
 
-    Minimal sequencing depth is estimated by the point at which the slope of rarefaction curve drops to a cut-off value. 
-    Table \ref{MinDepth} summarizes estimations of minimal sequencing depth for detection of species diversity, using 0.5, 0.1, 0.05 and 0.01 as cut-off values.  
+    Optimal sequencing depth is estimated by the point at which the slope of rarefaction curve drops to a cut-off value. 
+    Table \ref{MinDepth} summarizes estimations of optimal sequencing depth for detection of species diversity, using 0.5, 0.1, 0.05 and 0.01 as cut-off values.  
     When order $q$ of Hill number equals 0, \textit{i.e.} species abundances are not considered, cut-off value of 0.1 for slope of rarefaction curve is sufficient for providing completeness $> 97\%$ in all samples. 
-    The average minimal sequencing depth are 40.33 million for honey bees and 42.49 million for bumble bees. 
+    The average optimal sequencing depth are 40.33 million for honey bees and 42.49 million for bumble bees. 
     When species abundances are considered (order $q$ equals 1 or 2), cut-off value of 0.01 can provide completeness $> 95\%$ in most pairs of sample and $q$ value. 
-    For honey bees, the average minimal sequencing depth are 18.57 million ($q = 1$) and 17.45 million ($q = 2$). 
-    For bumble bee samples, the average minimal sequencing depth are 40.33 million ($q = 1$) and 24.77 million ($q = 2$). 
+    For honey bees, the average optimal sequencing depth are 18.57 million ($q = 1$) and 17.45 million ($q = 2$). 
+    For bumble bee samples, the average optimal sequencing depth are 40.33 million ($q = 1$) and 24.77 million ($q = 2$). 
       \begin{table}[H]
         \centering
         \caption{Summary of minimal sequencing depth estimated from different cut-off values of slope. 
@@ -883,93 +938,110 @@ Sample&$q$&Asym  &MinD\_0.5&ED\_0.5&Comp\_0.5  &MinD\_0.1&ED\_0.1&Comp\_0.1  &Mi
         \end{table}
 
 \section{Discussion}
-Shotgun metagenomics provides powerful tools for microbiome investigations, yet its utilization is hindered by bioinformatical challenges and high cost of deep sequencing. 
-Here, I constructed an integrated pipeline, which combines assembly-dependent and -independent profiling methods to help detect species richness and profiled real metagenomic datasets from honey bees, bumble bees and flower surface.  
-Then I simulated the relationship between species/KO diversity measured by Hill numbers (order $q = 0, 1, 2$) and sequencing depth measured by clean read pair ($2 \times 150$ bp) number. 
-It is showed that to detect species diversity, the average minimal sequencing depth for honey bee samples are 40.33 million ($q = 0$), 18.57 million ($q = 1$) and 17.45 million ($q = 2$); for bumble bee samples, the averages are 42.49 million ($q = 0$), 40.33 million ($q = 1$) and 24.77 million ($q = 2$); and for flower surface, more than 0.88 million sequencing depth is needed. 
-As for function diversity, no datasets in this project is sufficient for providing an almost complete inventory of KOs, indicating deeper sequencing is needed, \textit{i.e.} sequencing depth need to be higher than 45.06 million for honey bees, 53.61 million for bumble bees and 0.88 million for flower surface. 
-Additionally, bee symbionts and pathogens were found on the flower eDNA sample, and pathway inference indicates that bee-associated microbiome may have capability of metabolizing amino acids that are essential for host.
+% Shotgun metagenomics provides powerful tools for microbiome investigations, yet its utilization is hindered by bioinformatical challenges and high cost of deep sequencing. 
+Here, I constructed an integrated pipeline combining assembly-dependent and -independent methods for taxonomic and functional profiling of shotgun metagenomics, and applied it to analysis of metagenomes from honey bees, bumble bees and flower washes. 
+The profiling results showed that the integrated pipeline is able to capture taxonomic diversity by identifying species from multiple clades and infer metabolic potentiality of metagenome by providing information on FGC content. 
+It can be more sensitive in species identification compared with standard assembly-dependent methods. 
+Then I computed expected species/FGC diversity represented by given sequencing depth through rarefaction analysis, in order to optimize sequencing depth to balance cost and reliability of analysis results. 
+Optimal sequencing depth differs by types of samples and investigations. 
+For estimation of species diversity, sequencing depth can be optimized especially when low leverage is given to rare species. 
+As for functional profiling, deeper sequencing depth is required.  
+% Then I simulated the relationship between species/KO diversity measured by Hill numbers (order $q = 0, 1, 2$) and sequencing depth measured by clean read pair ($2 \times 150$ bp) number. 
+% It is showed that to detect species diversity, the average minimal sequencing depth for honey bee samples are 40.33 million ($q = 0$), 18.57 million ($q = 1$) and 17.45 million ($q = 2$); for bumble bee samples, the averages are 42.49 million ($q = 0$), 40.33 million ($q = 1$) and 24.77 million ($q = 2$); and for flower surface, more than 0.88 million sequencing depth is needed. 
+% As for function diversity, no datasets in this project is sufficient for providing an almost complete inventory of KOs, indicating deeper sequencing is needed, \textit{i.e.} sequencing depth need to be higher than 45.06 million for honey bees, 53.61 million for bumble bees and 0.88 million for flower surface. 
+% Additionally, bee symbionts and pathogens were found on the flower eDNA sample, and pathway inference indicates that bee-associated microbiome may have capability of metabolizing amino acids that are essential for host.
 \newline
-% High throughput sequencing provides approaches including amplicon sequencing and shotgun metagenomics for investigations of bee-associated microbiome, which imposes significant impact on bee health \citep{engel2016bee,raymann2018role,bonilla2018functional}. 
-% a crucial issue receiving increasing concern \citep{breeze2011pollination,hristov2020significance}. 
-Shotgun metagenomics provides unique advantages over amplicon sequencing, which is vastly used in bee microbiome investigations (\textit{e.g.} \cite{geldert2021dietary,wang2021gut,powell9field,kapheim2021composition}). 
-In amplicon sequencing, a species-specific barcode region is amplified and sequenced \citep{abdelfattah2018metabarcoding}. 
-Since it captures a small region of the whole genome, amplicon sequencing dataset is relatively small in size, which makes it low-cost both economically and computationally. 
-Besides, comprehensive and streamlined softwares for amplicon sequencing analysis are available, including QIIME \citep{bolyen2019reproducible}, Mothur \citep{schloss2020reintroducing} and VSEARCH \citep{rognes2016vsearch}. 
-However, a single amplicon sequencing dataset does not represent all taxa in the community since different barcode region is used for identification of different taxonomic group, \textit{e.g.} 
-16S ribosomal RNA (rRNA) for bacteria \citep{hayashi2002phylogenetic,eckburg2005diversity}, 
-internal transcribed spacer (ITS) for fungi \citep{nilsson2008intraspecific}, 
-cytochrome c oxidase subunit I (COI) for Animalia \citep{hebert2003barcoding} 
-and plastid genes for plants \citep{group2009dna}. 
-Besides, it does not provide information on FGCs. 
-Metabolic capacity of microbiome need to be inferred based on reference genomes \Citep{asshauer2015tax4fun,douglas2018predicting}. 
-Shotgun metagenomics provides an alternative to overcome these drawbacks by capturing and sequencing DNA in a sample unselectively. 
-It is capable of representing all taxonomic groups and providing information on FGC composition. 
-\newline
-The advantages of shotgun metagenomics over amplicon sequencing are valuable for investigations in bee-associated microbiome for two reasons. 
-First, bees vist numerous niches during environment exploration and foraging activities, and can get contact with diverse eDNA signatures, which provide insight into bee ecology by reflecting interactions between bees and other organisms including plants, arthropods, bacteria and viruses \citep{bovo2018shotgun,ribani2020honey,bovo2020shotgun,matsuzawa2020application}. 
-These materials represent a diverse assemblage which is difficult to be profiled comprehensively via amplicon sequencing. 
-Besides, bee bacterial symbionts are diversified at strain level \citep{engel2012functional,powell2016strain,ellegaard2020vast}. 
-Bacterial strains are often highly variable in gene content \citep{cordero2014explaining,brockhurst2019ecology}, and thus different in metabolic capacity. 
-However, resolving strain-level diversity by species-specific region is difficult \citep{rodriguez2018much,ciufo2018using,olm2020consistent}, and no information on gene content is provided by amplicon sequencing. 
-Based on these considerations, shotgun metagenomics provides valuable tools for bee microbiome investigations. 
-However, utilization of shotgun metagenomics is hindered by unique challenges. 
-First, there is not a golden standard for bioinformatics of metagenomic annotation pipeline to provide abundances of taxa and FGCs. 
-Second, shotgun metagenomics is often associated with high cost since it captures a big proportion of microbial genomes. 
-\newline
-The integrated pipeline for taxonomic and functional profiling of metagenomic dataset provides several advantages. 
+The integrated pipeline (Figure \ref{Pipeline}) for taxonomic and functional profiling of metagenome provides several advantages. 
 First, through combination with assembly-free taxon search, it helps solve high false negative rate associated with assembly-dependent species identification, which is caused by reads left unassembled. 
 This was shown by analyzing real metagenomic datasets from pollination system and simulating different sequencing depth by rarefaction (Figure \ref{CompareSensitivity}). 
 Second, the modularity of integrated pipeline provides flexibility for incorporation of alternative tools. 
 For example, BWA aligner \citep{li2009fast} serves as an alternative for Bowtie2, and SPAdes can be replaced by other metagenomic assemblers such as Megahit \citep{li2015megahit} and IDBA-UD \citep{peng2012idba}. 
-Third, the output files generated by each step are recorded and can be inspected easily, which is important for troubleshooting. 
+Third, the output files generated by each step are recorded and can be inspected easily, which provides transparence for troubleshooting. 
+However, the performance of integrated pipeline need to be evaluated more comprehensively by analysis of mock datasets and comparison with other profiling strategies. 
+Standardized mock dataset can be used to benchmark sensitivity and accuracy of integrated pipeline since it is an artificial metagenome with predefined diversity, generated by combining known sequences from different species \citep{vollmers2017comparing,sczyrba2017critical,becker2020modular}. 
+Besides, the performance of integrated pipeline need to be compared with other widely used analysis strategies, such as MG-RAST \citep{meyer2008metagenomics}, SqueezeMeta \citep{tamames2019squeezemeta} and Kraken \citep{wood2014kraken}. 
+% High throughput sequencing provides approaches including amplicon sequencing and shotgun metagenomics for investigations of bee-associated microbiome, which imposes significant impact on bee health \citep{engel2016bee,raymann2018role,bonilla2018functional}. 
+% a crucial issue receiving increasing concern \citep{breeze2011pollination,hristov2020significance}. 
+% Shotgun metagenomics provides unique advantages over amplicon sequencing, which is vastly used in bee microbiome investigations (\textit{e.g.} \cite{geldert2021dietary,wang2021gut,powell9field,kapheim2021composition}). 
+% In amplicon sequencing, a species-specific barcode region is amplified and sequenced \citep{abdelfattah2018metabarcoding}. 
+% Since it captures a small region of the whole genome, amplicon sequencing dataset is relatively small in size, which makes it low-cost both economically and computationally. 
+% Besides, comprehensive and streamlined softwares for amplicon sequencing analysis are available, including QIIME \citep{bolyen2019reproducible}, Mothur \citep{schloss2020reintroducing} and VSEARCH \citep{rognes2016vsearch}. 
+% However, a single amplicon sequencing dataset does not represent all taxa in the community since different barcode region is used for identification of different taxonomic group, \textit{e.g.} 
+% 16S ribosomal RNA (rRNA) for bacteria \citep{hayashi2002phylogenetic,eckburg2005diversity}, 
+% internal transcribed spacer (ITS) for fungi \citep{nilsson2008intraspecific}, 
+% cytochrome c oxidase subunit I (COI) for Animalia \citep{hebert2003barcoding} 
+% and plastid genes for plants \citep{group2009dna}. 
+% Besides, it does not provide information on FGCs. 
+% Metabolic capacity of microbiome need to be inferred based on reference genomes \Citep{asshauer2015tax4fun,douglas2018predicting}. 
+% Shotgun metagenomics provides an alternative to overcome these drawbacks by capturing and sequencing DNA in a sample unselectively. 
+% It is capable of representing all taxonomic groups and providing information on FGC composition. 
+% \newline
+% The advantages of shotgun metagenomics over amplicon sequencing are valuable for investigations in bee-associated microbiome for two reasons. 
+% First, bees vist numerous niches during environment exploration and foraging activities, and can get contact with diverse eDNA signatures, which provide insight into bee ecology by reflecting interactions between bees and other organisms including plants, arthropods, bacteria and viruses \citep{bovo2018shotgun,ribani2020honey,bovo2020shotgun,matsuzawa2020application}. 
+% These materials represent a diverse assemblage which is difficult to be profiled comprehensively via amplicon sequencing. 
+% Besides, bee bacterial symbionts are diversified at strain level \citep{engel2012functional,powell2016strain,ellegaard2020vast}. 
+% Bacterial strains are often highly variable in gene content \citep{cordero2014explaining,brockhurst2019ecology}, and thus different in metabolic capacity. 
+% However, resolving strain-level diversity by species-specific region is difficult \citep{rodriguez2018much,ciufo2018using,olm2020consistent}, and no information on gene content is provided by amplicon sequencing. 
+% Based on these considerations, shotgun metagenomics provides valuable tools for bee microbiome investigations. 
+% However, utilization of shotgun metagenomics is hindered by unique challenges. 
+% First, there is not a golden standard for bioinformatics of metagenomic annotation pipeline to provide abundances of taxa and FGCs. 
+% Second, shotgun metagenomics is often associated with high cost since it captures a big proportion of microbial genomes. 
 \newline
-Determination of sequencing depth is important for shotgun metagenomics since insufficient sequencing causes underestimation of taxonomic/functional diversity \citep{cattonaro2018you,zaheer2018impact,gweon2019impact,pereira2019impact}, while deep sequencing is of high cost. 
-Here, expected species/KO diversity provided by given sequencing depth was estimated by rarefaction and model fitting, using datasets from honey bees, bumble bees and flower surface. 
-It was shown that increasing sequencing depth boosted identification of species/KO (Figure \ref{RichnessAccumulation}, Table \ref{RichnessModelSlope}), highlighting value of deep metagenomic sequencing. 
-For function profiling, no dataset involved here is big enough to provide an almost complete inventory of KOs (Table \ref{RichnessModelSlope}) even though most samples were deeply sequenced (Table \ref{QC}), indicating such task is demanding about sequencing depth. 
-Therefore, when dealing with function potentiality of microbiome associated with bees or flowers, retrieving as many reads as possible would be recommended. 
-As for species profiling, although deep sequencing is still valuable, optimization of sequencing depth can be made when the budget is limited (Table \ref{MinDepth}). 
-For honey bees, approximate 40 million sequencing depth can be sufficient for representing species richness. 
-When assessing biodiversity by Hill numbers of order 1 (Equation \ref{HillShannon}) or 2 (Equation \ref{HillSimpson}), 17-19 million sequencing depth can provide robust estimation. 
-As for bumble bees, about 40-43 million sequencing depth can provide reliable estimation for Hill numbers of order 0 (richness) or 1, and about 25 million sequencing depth can be sufficient for representing biodiversity measured by Hill number of order 2.  
-\newline
-Additionally, the results of metagenomic profiling indicate overlap between microbiome of bees and flowers, and provide evidence on potentiality of bee microbiome in metabolism of carbonhydrates and amino acids.
-In the flower eDNA sample, bee-associated microorganisms were identified, including both pathogens (\textit{e.g.} \textit{Nosema ceranae} and \textit{Apis mellifera filamentous virus}) and typical bee symbionts (\textit{e.g.} \textit{Bifidobacterium asteroides}, \textit{Bombilactobacillus mellis} and \textit{Gilliamella apicola}) (Figure \ref{BacteriaHeatmap}, \ref{FungusHeatmap} and \ref{ViruseHeatmap}). 
-Shared microbiome between bees and flowers is revealed by growing evidence, although its role in pollination system remains an open question \citep{keller2020more,vannette2020floral}. 
+The integrated pipeline was used to analyze metagenomes of bees and flower washes, illustrating their taxon composition and metabolic potentiality. 
+Bee-associated microorganisms were identified in flower washes, including both pathogens (\textit{e.g.} \textit{Nosema ceranae} and \textit{Apis mellifera filamentous virus}) and symbionts (\textit{e.g.} \textit{Bifidobacterium asteroides}, \textit{Bombilactobacillus mellis} and \textit{Gilliamella apicola}) (Figure \ref{BacteriaHeatmap}, \ref{FungusHeatmap} and \ref{ViruseHeatmap}). 
+Flowers have been indicated as hubs for transmission of bee pathogens \cite{durrer1994shared,koch2017role}. 
+Through shared flower use, multiple pathogens transmit between pollinators, including \textit{Nosema ceranae} \citep{furst2014disease} and \textit{Crithidia bombi} \citep{figueroa2019bee}. 
+There is also growing evidence for present of bee symbionts on flower \citep{mcfrederick2012environment,mcfrederick2017flowers,keller2020more,vannette2020floral}.
+However, its role in bee microbiome assembly and functional importance in pollination remains an open question \citep{keller2020more,vannette2020floral}. 
 As for function profiling, it is indicated that bee-associated microbiome is capable of metabolizing carbohydrates such as glucose, fructose, sucrose and mannose (Figure \ref{Carbohydrate}). 
 Carbohydrates are main component of bee diet and microbiome-mediated carbohydrate-processing have been vastly investigated \citep{engel2012functional,lee2015saccharide,lee2018differential,taylor2019effect}. 
-Besides, pathways for metabolism of all ten essential amino acids for honey bees (arginine, histidine, isoleucine, leucine, lysine, methionine, phenylalanine, threonine, tryptophan and valine) \citep{groot1953protein} were inferred (Figure \ref{AminoAcid}). 
+Besides, pathways for metabolism of all ten essential amino acids for honey bees \citep{groot1953protein} were inferred (Figure \ref{AminoAcid}). 
 Essential amino acids are crucial for bee health \citep{simcock2014single,paoli2014dietary,stabler2015nutrient,hendriksma2019effects} and influence feeding preference due to their potential deficiency in single pollen source \citep{cook2003honey,hendriksma2014amino,hendriksma2016honey}. 
 Whether bee-associated microbiome influences host health by providing amino acids need to be further investigated. 
 % deficiency of arginine in dandelion \citep{herbert1970brood} and histidine in corn \citep{hocherl2012evaluation}.
 \newline
-There are several limitations of this project. 
-First, the integrated pipeline need to be evaluated more comprehensively. 
-Mock metagenomic datasets of different diversity can be used to evaluate sensitivity and accuracy of integrated pipeline and its performance need to be compared with other profiling methods. 
-Second, the efficacy of estimation of minimal sequencing depth required for different environmental types is reduced by limited number of samples. 
+Optimization of sequencing depth is important for shotgun metagenomics since insufficient sequencing causes underestimation of taxonomic/functional diversity \citep{cattonaro2018you,zaheer2018impact,gweon2019impact,pereira2019impact}, while deep sequencing is of high cost. 
+Here, expected species/KO diversity provided by given sequencing depth was estimated by rarefaction and model fitting, using datasets from honey bees, bumble bees and flower washes. 
+It was shown that increasing sequencing depth boosted identification of species/KO (Figure \ref{RichnessAccumulation}, Table \ref{RichnessModelSlope}), highlighting value of deep metagenomic sequencing. 
+For function profiling, no dataset involved here is big enough to provide an almost complete inventory of KOs (Table \ref{RichnessModelSlope}) even though most samples were deeply sequenced (Table \ref{QC}), indicating such task is demanding about sequencing depth. 
+Therefore, when dealing with function potentiality of microbiome associated with bees or flowers, retrieving as many reads as possible would be recommended. 
+As for species profiling, although deep sequencing is still valuable, sequencing depth can be optimized when the budget is limited (Table \ref{MinDepth}), especially when low leverage is given to rare species. 
+For honey bees, approximate 40 million sequencing depth (12 Gbp) can be sufficient for representing species richness. 
+When assessing biodiversity with reduced emphasis on rare species, 17-19 million sequencing depth (5.1-5.7 Gbp) can provide robust estimation. 
+As for bumble bees, about 40-43 million sequencing depth (12-12.9 Gbp) can provide reliable estimation for species richness and diversity index with emphasis on species of general abundance, and about 25 (7.5 Gbp) million sequencing depth can be sufficient for estimation of biodiversity with high leverage on abundant species. 
+It should be noted that the efficacy of optimal sequencing depth estimation is reduced by limited number of samples. 
 Here, honey bee and bumble bee associated microbiome was represented by only three samples, and there was only one sample of flower eDNA. 
 However, microbiomes of pollination system are highly dynamic and variable in diversity. 
-To generate reliable guideline for sufficient sequencing depth, more samples need to be evolved. 
-Third, there is a lack of repeat in sequencing depth subsampling. 
-Repeated subsampling boosts precise computation of rarefaction curve and increases accuracy of estimation of minimal sequencing depth. 
-\newline
-Oerall, I constructed an integrated pipeline, combining assembly-dependent and -free methods for metagenomic profiling. 
-The pipeline was used for profiling metagenomic datasets ($2 \times 150 bp$ read pairs) from pollination system. 
-Then I conducted rarefaction analysis, computing expected species/KO diversity (Hill numbers of order 0, 1, 2) returned by given sequencing effort in order to determine minimal sequencing depth capable of reliably estimating diversity. 
-It was shown that functional profiling is demanding about sequencing effort. 
-Sequencing depth of 45.06 million (13.52 Gbp) for honey bees, 53.61 million (16.08 Gbp) for bumble bees and 0.88 million (0.26 Gbp) for flower surface were not sufficient for providing almost complete inventories of KOs. 
-For species diversity of order 0, 1 and 2, the average minimal sequencing depth for honey bee samples are 40.33 million (12.10 Gbp), 18.57 million (5.57 Gbp) and 17.45 million (5.24 Gbp), respectively; for bumble bee samples, the averages are 42.49 million (12.75 Gbp), 40.33 million (12.10 Gbp) and 24.77 (7.43 Gbp) million. 
-As for species profiling of flower surface, more than 0.88 million (0.26 Gbp) sequencing depth is needed. 
-These results are helpful for applying shotgun metagenomics to pollination system investigations in an cost-effective way. 
-The integrated pipeline and the framework for rarefaction analysis can be used for researches on other environments. 
+To generate reliable guideline for sequencing depth optimization, more samples need to be evolved. 
+Besides, there is a lack of repeat in sequencing depth subsampling. 
+Repeated subsampling boosts precise computation of rarefaction curve and increases accuracy of estimation of optimal sequencing depth. 
+
+\section{Conclusion}
+Shotgun metagenomics is capable of illustrating diversity of multiple taxonomic clades and gene content, and thus provides unique advantages over vastly used amplicon sequencing, particularly for investigations of highly diverse microbial communities. 
+However, utilization of shotgun metagenomics is hindered by challenges in data analysis and high cost of sequencing. 
+Here, I constructed an integrated pipeline for analysis of shotgun metagenomic data. 
+It provides benefits in terms of results, flexibility and transparence. 
+% The pipeline was used for profiling metagenomic datasets from pollination system. 
+I also constructed a framework for optimizing depth of shotgun metagenomic sequencing in order to balance high cost of sequencing and reliability of analysis results. 
+The pipeline and the framework were used for analysis of real datasets from pollination system, providing guidelines for cost-effective metagenomic investigations of bee- and flower-associated microbiomes.
+% Then I conducted rarefaction analysis, computing expected species/KO diversity (Hill numbers of order 0, 1, 2) returned by given sequencing effort in order to optimize sequencing depth for balancing cost and reliable estimation of diversity. 
+% It was shown that functional profiling is demanding about sequencing effort and obtaining as many sequencing reads as possible would be recommended. 
+% For taxonomic profiling, deep sequencing is still valuable but sequencing depth can be optimized, especially when little emphasis is given to rare taxa. 
+% Sequencing depth of 45.06 million (13.52 Gbp) for honey bees, 53.61 million (16.08 Gbp) for bumble bees and 0.88 million (0.26 Gbp) for flower surface were not sufficient for providing almost complete inventories of KOs. 
+% For species diversity of order 0, 1 and 2, the average minimal sequencing depth for honey bee samples are 40.33 million (12.10 Gbp), 18.57 million (5.57 Gbp) and 17.45 million (5.24 Gbp), respectively; for bumble bee samples, the averages are 42.49 million (12.75 Gbp), 40.33 million (12.10 Gbp) and 24.77 (7.43 Gbp) million. 
+% As for species profiling of flower surface, more than 0.88 million (0.26 Gbp) sequencing depth is needed. 
+% These results are helpful for applying shotgun metagenomics to pollination system investigations in an cost-effective way. 
+% The integrated pipeline and the framework for rarefaction analysis can be used for researches on other environments. 
 
 % bee importance {gallai2009economic,gill2016protecting,ferrier2018economic,cooley2021buzz}, 
 % bee decline {cappa2021analysis,frizzera2021interaction,hemberger2021historical}
 
 
 \section{Data and Code Availability}
-
+% Personal access token:
+% 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
+Scripts used for the analyses are available at \href{https://github.com/CongLiu37/CMEECourseWork/tree/main/MResProject}{github}. 
+Metagenomic datasets involved in this project cannot be made available publicly since they are yet to be formally published.
 
 % \appendix
 % \appendixpage
@@ -986,10 +1058,10 @@ The integrated pipeline and the framework for rarefaction analysis can be used f
   \label{ParameterSetting}
     \subsubsection{Quality control and host removing}
     \label{HostRemove}
-    Quality control was conducted to reduce compromise from low quality reads.
-    Data quality was checked using FastQC v.0.11.5 \citep{andrews2010fastqc} before filtering. 
+    Raw data quality control was conducted to reduce compromise from low quality reads.
+    Raw data quality was checked using FastQC v.0.11.5 \citep{andrews2010fastqc} before filtering. 
     FastQC reports of raw reads showed the following aspects need to be covered in quality control: (1) low base quality in 3'-end (Figure \ref{QC}a); (2) uneven base content in 5'-end (Figure \ref{QC}c) and (3) the present of Nextera adaptors (Figure \ref{QC}e). 
-    Therefore, quality control was conducted using Trimmomatic v.0.39 \citep{bolger2014trimmomatic}, which (1) trimmed adaptors; (2) cutted 15 bases from the 5'-ends of reads; (3) cutted bases off from 3'-ends of reads if Phred-33 quality is below 20; (4) dropped reads shorter than 50 bp; (5) dropped reads if average Phred-33 quality is below 20. 
+    Therefore, raw reads were filtered using Trimmomatic v.0.39 \citep{bolger2014trimmomatic}, which (1) trimmed adaptors; (2) cutted 15 bases from the 5'-ends of reads; (3) cutted bases off from 3'-ends of reads if Phred-33 quality is below 20; (4) dropped reads shorter than 50 bp; (5) dropped reads if average Phred-33 quality is below 20. 
     Then unpaired reads were removed and quality of clean data was checked using FastQC (Figure \ref{QC}d, \ref{QC}e, \ref{QC}f).
     \newline  
     After quality control, host read pairs were removed. 
@@ -1041,7 +1113,7 @@ The integrated pipeline and the framework for rarefaction analysis can be used f
     \subsubsection{Functional annotation}
     Functional annotation was conducted by EggNOG-mapper v.2.1.2 \citep{huerta2017fast}. 
     Sequences were searched against eggNOG database \citep{huerta2019eggnog} for best seed orthologs using DIAMOND and fine-grained orthology assignments were retrieved from pre-computed eggNOG phylogenetic trees. 
-    Then functional descriptions of retrieved orthologs including Gene Ontology (GO) terms \citep{gene2004gene}, KOs, Enzyme Commission (EC) numbers \cite{webb1992enzyme}, Carbohydrate-Active Enzymes (CAZy) terms \cite{cantarel2009carbohydrate} and Clusters of Orthologous Groups (COG) functional categories \cite{tatusov2000cog} were transferred to query sequences.
+    Then functional descriptions of retrieved orthologs including Gene Ontology (GO) terms \citep{gene2004gene}, KOs, Enzyme Commission (EC) numbers \citep{webb1992enzyme}, Carbohydrate-Active Enzymes (CAZy) terms \citep{cantarel2009carbohydrate} and Clusters of Orthologous Groups (COG) functional categories \citep{tatusov2000cog} were transferred to query sequences.
 
   \subsection{Candidate models for fitting rarefaction curves}
   \begin{table}[H]
@@ -1133,25 +1205,24 @@ The integrated pipeline and the framework for rarefaction analysis can be used f
     d, e and f shows the same results from clean data.}
     \label{QC}
     \end{figure}
-  
+
   \subsection{Numbers of raw, clean and non-host read pairs}
   \begin{table}[H]
     \centering
-    \caption{Basic statistics of sequenced read pairs. 
-    Data in "Clean" considers as background the numbers of raw read pairs ("Raw"), while data in "Non-host" considers as background the numbers of clean read pairs ("Clean").}
+    \caption{Statistics of sequenced read pairs.}
     \label{data_statistics}
     \resizebox{\textwidth}{!}{
     \begin{tabular}{@{}ccccc@{}}
     \toprule
-    Sample                           &Host                     &Raw    &Clean (\%)&Non-host (\%) \\ \midrule
-    \textit{Bee\_Amellifera\_hv13\_1}&\textit{Apis mellifera}  &1104861&842095 (76.22\%)&665507 (79.03\%) \\
-    \textit{Bee\_Amellifera\_hv13\_2}&\textit{Apis mellifera}  &56836899&35282101 (62.08\%)&10413704 (29.52\%) \\
-    \textit{Bee\_Amellifera\_hv15\_1}&\textit{Apis mellifera}  &63159968&45059211 (71.34\%)&38837759 (86.19\%) \\
-    \textit{Bee\_Amellifera\_wild\_1}&\textit{Apis mellifera}  &58113227&44466776 (76.52\%)&17014144 (38.26\%) \\
-    \textit{Bee\_Bimpatiens\_hv3\_1} &\textit{Bombus impatiens}&63973750&53612702 (83.80\%)&5300592 (9.89\%) \\
-    \textit{Bee\_Bimpatiens\_hv4\_1} &\textit{Bombus impatiens}&58988182&48426748 (82.10\%)&3557052 (7.35\%) \\
-    \textit{Bee\_Bimpatiens\_hv4\_2}&\textit{Bombus impatiens} &54955553&45805759 (83.35\%)&4618023 (10.08\%) \\
-    \textit{Flower\_eDNA}           &None                      &1443107&882436 (61.15\%)&882436 (100\%) \\
+    Sample                           &Host                     &Raw read pair   &\makecell[c]{Clean read pair\\\left[percentage\ of\ raw\ read\ pair\right]}&\makecell[c]{Non-host read pair\\\left[percentage\ of\ clean\ read\ pair]} \\ \midrule
+    \textit{Bee\_Amellifera\_hv15\_1}&\textit{Apis mellifera}  &63159968&45059211 \left[71.34\%\right]&38837759 \left[86.19\%\right] \\
+    \textit{Bee\_Amellifera\_wild\_1}&\textit{Apis mellifera}  &58113227&44466776 \left[76.52\%\right]&17014144 \left[38.26\%\right] \\
+    \textit{Bee\_Amellifera\_hv13\_2}&\textit{Apis mellifera}  &56836899&35282101 \left[62.08\%\right]&10413704 \left[29.52\%\right] \\
+    \textit{Bee\_Amellifera\_hv13\_1}&\textit{Apis mellifera}  &1104861&842095 \left[76.22\%\right]&665507 \left[79.03\%\right] \\
+    \textit{Bee\_Bimpatiens\_hv3\_1} &\textit{Bombus impatiens}&63973750&53612702 \left[83.80\%\right]&5300592 \left[9.89\%\right] \\
+    \textit{Bee\_Bimpatiens\_hv4\_1} &\textit{Bombus impatiens}&58988182&48426748 \left[82.10\%\right]&3557052 \left[7.35\%\right] \\
+    \textit{Bee\_Bimpatiens\_hv4\_2}&\textit{Bombus impatiens} &54955553&45805759 \left[83.35\%\right]&4618023 \left[10.08\%\right] \\
+    \textit{Flower\_eDNA}           &None                      &1443107&882436 \left[61.15\%\right]&882436 \left[100\%\right] \\
     \bottomrule
     \end{tabular}}
     \end{table}
@@ -1195,13 +1266,20 @@ The integrated pipeline and the framework for rarefaction analysis can be used f
     \label{ViruseHeatmap}
     \end{figure}
   
-  \subsection{Inferred carbohydrate metabolism pathways}
+  \subsection{Inferred pathways of carbohydrate and amino acid metabolism}
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{../Figures/PathwayCov_Carbonhydrate.pdf}
     \caption{Heatmaps for pathways of carbohydrate metabolism.}
     \label{Carbohydrate}
     \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.8\textwidth]{../Figures/PathwayCov_AminoAcid.pdf}
+      \caption{Heatmaps for pathways of amino acid metabolism.}
+      \label{AminoAcid}
+      \end{figure}
 
   \newpage
   
