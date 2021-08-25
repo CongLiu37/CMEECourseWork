@@ -14,7 +14,7 @@
 
 library(ggplot2)
 
-HillDiversity = read.table("Taxon_HillDiversity.txt",sep="\t",header=TRUE,row.names = NULL)
+HillDiversity = read.table("/home/cong/CMEECourseWork/MResProject/Tables/Taxon_HillDiversity.txt",sep="\t",header=TRUE,row.names = NULL)
 
 LF_F18 = subset(HillDiversity,HillDiversity$Sample=="LF_F18")
 PGcomcol3_Bimp = subset(HillDiversity,HillDiversity$Sample=="PGcomcol3_Bimp")
@@ -25,7 +25,7 @@ PGnos_high_hv13_2 = subset(HillDiversity,HillDiversity$Sample=="PGnos_high_hv13-
 PGnos_inter_hv15 = subset(HillDiversity,HillDiversity$Sample=="PGnos_inter_hv15")
 PGpollen_fresh = subset(HillDiversity,HillDiversity$Sample=="PGpollen_fresh")
 
-pdf("ExtraSpecies_Bumble.pdf")
+pdf("/home/cong/CMEECourseWork/MResProject/Figures/ExtraSpecies_Bumble.pdf")
 p1 = ggplot()+
   geom_point(size=4,(aes(x=PGcomcol3_Bimp$CleanRead*PGcomcol3_Bimp$SubsamplePercent/1e+6,
                          y=(PGcomcol3_Bimp$SpeciesRichness-PGcomcol3_Bimp$AssemblySpeciesRichness)/PGcomcol3_Bimp$AssemblySpeciesRichness,
@@ -48,7 +48,8 @@ p1 = ggplot()+
   scale_x_continuous(expand = c(0,0),limits = c(0,65))+
   scale_y_continuous(expand = c(0,0),limits = c(-1,1))+
   scale_color_manual(values=c("#FF3399","#FF3300","#990000"),
-                     labels=c("Bee_Bimpatiens_hv3_1","Bee_Bimpatiens_hv4_1","Bee_Bimpatiens_hv4_2"))
+                     labels=c("Bee_Bimpatiens_hv3_1","Bee_Bimpatiens_hv4_1","Bee_Bimpatiens_hv4_2"))+
+  geom_hline(aes(yintercept = 0,linetype="dashed",size=10))
 print(p1)
 dev.off()
 #
@@ -82,9 +83,9 @@ p2 = ggplot()+
 print(p2)
 dev.off()
 #
-pdf("ExtraSpecies_Flower.pdf")
+pdf("/home/cong/CMEECourseWork/MResProject/Figures/ExtraSpecies_Flower.pdf")
 p3 = ggplot()+
-  geom_point(size=2,(aes(x=LF_F18$CleanRead*LF_F18$SubsamplePercent/1e+6,
+  geom_point(size=3,(aes(x=LF_F18$CleanRead*LF_F18$SubsamplePercent/1e+6,
                          y=(LF_F18$SpeciesRichness-LF_F18$AssemblySpeciesRichness)/LF_F18$AssemblySpeciesRichness,
                          colour="LF_F18")))+
   labs(colour="Sample",title="Flower")+
@@ -93,10 +94,13 @@ p3 = ggplot()+
   theme_classic()+
   theme(axis.title=element_text(size=20,face="bold"),
         axis.text=element_text(size=20,face="bold"),
-        legend.text=element_text(size=15,face="bold"),
-        legend.title=element_text(size=15,face="bold"),
-        title=element_text(size=20,face="bold"))+
-  scale_x_continuous(expand = c(0,0),limits = c(0,1.5))+
+        # legend.text=element_text(size=15,face="bold"),
+        # legend.title=element_text(size=15,face="bold"),
+        legend.position = "none",
+        title=element_text(size=20,face="bold"),
+        plot.margin=unit(c(5.5, 250, 5.5, 5.5),"points")
+        )+
+  scale_x_continuous(expand = c(0,0),limits = c(0,1.7))+
   scale_y_continuous(expand = c(0,0),limits = c(-1,4))+
   scale_color_manual(values=c("#00CC00"),labels=c("Flower_eDNA"))
 print(p3)

@@ -35,12 +35,12 @@ data = rbind(
 pdf("NonHostRatio.pdf")
 p = ggplot(data,aes(fill=Type,x=relabel,y=ReadCount/1e+6))+
   geom_bar(stat = "identity")+
-  ylab("Read (million)")+
+  ylab("Reads (million)")+
   xlab(NULL)+
   theme_classic()+
   theme(axis.title.y=element_text(size=12,face="bold"),
         axis.text.y=element_text(size=12,face="bold"),
-        axis.text.x=element_text(size=12,face="bold",angle=-62,hjust=0,vjust=0),
+        axis.text.x=element_text(size=12,face="bold",angle=90,hjust=0,vjust=0), # 
         legend.text=element_text(size=12,face="bold"),
         legend.title=element_text(size=12,face="bold"),
         legend.position="top")+
@@ -98,7 +98,7 @@ Plot = function(rank){
     theme_classic()+
     theme(axis.title.y=element_text(size=12,face="bold"),
           axis.text.y=element_text(size=12,face="bold"),
-          axis.text.x=element_text(size=12,face="bold",angle=-62,hjust=0,vjust=0),
+          axis.text.x=element_text(size=12,face="bold",angle=90,hjust=0,vjust=0),
           legend.text=element_text(size=12,face="bold"),
           legend.title=element_text(size=12,face="bold"),
           legend.position="top")+
@@ -239,8 +239,8 @@ Matrix2Heatmap = function(rank,dominance,group,width,height){
   
   pdf(figure,width=width,height=height)
   p = Heatmap(data,
-              name="Relative Abundance",
-              heatmap_legend_param = list(title_position="topleft",
+              heatmap_legend_param = list(title = "Relative Abundance",
+                                          title_position="topleft",
                                           title_gp=gpar(fontsize=5, fontface="bold"),
                                           labels_gp = gpar(fontsize = 5)),
               # column_title=FALSE,
@@ -249,7 +249,8 @@ Matrix2Heatmap = function(rank,dominance,group,width,height){
               row_title_gp=gpar(fontface = "bold",fontsize=8),
               column_names_gp=gpar(fontface ="bold",fontsize=5),
               column_title_gp=gpar(fontface="bold",fontsize=8),
-              column_names_side = "top",
+              column_names_side = "bottom",
+              column_names_rot = 90,
               cluster_rows=FALSE,
               cluster_columns=FALSE,
               col=circlize::colorRamp2(c(0,1),c("#FFFFFF",EndCol))
@@ -362,7 +363,8 @@ Matrix2Heatmap = function(file,RowTitle){
               row_title_gp=gpar(fontface = "bold",fontsize=5),
               column_names_gp=gpar(fontface ="bold",fontsize=6),
               column_title_gp=gpar(fontface="bold",fontsize=5),
-    column_names_side = "top",
+    column_names_rot = 90,
+    column_names_side = "bottom",
     cluster_rows=FALSE,
     cluster_columns=FALSE,
     col=circlize::colorRamp2(c(0,1),c("#FFFFFF","red"))
