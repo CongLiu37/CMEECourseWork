@@ -12,3 +12,6 @@ rm $1.blg
 rm $1.synctex.gz
 rm $1.fdb_latexmk
 rm $1.fls
+rm $1.nav
+rm $1.snm
+rm $1.toc
