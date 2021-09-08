@@ -17,7 +17,7 @@
 library(ggplot2)
 library(minpack.lm)
 
-source("Diversity.R")
+source("DiversityModel.R")
 
 q_values = c("0","1","2")
 Samples = c("LF_F18","PGcomcol3_Bimp","PGcomcol4a_Bimp","PGcomcol4b_Bimp",
@@ -304,8 +304,10 @@ p7 = ggplot()+
   theme_classic()+
   theme(axis.title=element_text(size=20,face="bold"),
         axis.text=element_text(size=20,face="bold"),
-        legend.text=element_text(size=15,face="bold"),
-        legend.title=element_text(size=15,face="bold"),
+        #legend.text=element_text(size=15,face="bold"),
+        #legend.title=element_text(size=15,face="bold"),
+        legend.position="none",
+        plot.margin=unit(c(5.5, 230, 5.5, 5.5),"points"),
         title=element_text(size=20,face="bold"))+
   scale_x_continuous(expand = c(0,0),limits = c(0,1))+
   scale_y_continuous(expand = c(0,0),limits = c(0,180))+
@@ -325,8 +327,10 @@ p8 = ggplot()+
   theme_classic()+
   theme(axis.title=element_text(size=20,face="bold"),
         axis.text=element_text(size=20,face="bold"),
-        legend.text=element_text(size=15,face="bold"),
-        legend.title=element_text(size=15,face="bold"),
+        # legend.text=element_text(size=15,face="bold"),
+        # legend.title=element_text(size=15,face="bold"),
+        legend.position="none",
+        plot.margin=unit(c(5.5, 230, 5.5, 5.5),"points"),
         title=element_text(size=20,face="bold"))+
   scale_x_continuous(expand = c(0,0),limits = c(0,1))+
   scale_y_continuous(expand = c(0,0),limits = c(0,22))+
@@ -346,8 +350,10 @@ p9 = ggplot()+
   theme_classic()+
   theme(axis.title=element_text(size=20,face="bold"),
         axis.text=element_text(size=20,face="bold"),
-        legend.text=element_text(size=15,face="bold"),
-        legend.title=element_text(size=15,face="bold"),
+        # legend.text=element_text(size=15,face="bold"),
+        # legend.title=element_text(size=15,face="bold"),
+        legend.position="none",
+        plot.margin=unit(c(5.5, 230, 5.5, 5.5),"points"),
         title=element_text(size=20,face="bold"))+
   scale_x_continuous(expand = c(0,0),limits = c(0,1))+
   scale_y_continuous(expand = c(0,0),limits = c(0,12))+
@@ -533,8 +539,10 @@ p16 = ggplot()+
   theme_classic()+
   theme(axis.title=element_text(size=20,face="bold"),
         axis.text=element_text(size=20,face="bold"),
-        legend.text=element_text(size=15,face="bold"),
-        legend.title=element_text(size=15,face="bold"),
+        #legend.text=element_text(size=15,face="bold"),
+        #legend.title=element_text(size=15,face="bold"),
+        legend.position="none",
+        plot.margin=unit(c(5.5, 230, 5.5, 5.5),"points"),
         title=element_text(size=20,face="bold"))+
   scale_x_continuous(expand = c(0,0),limits = c(0,1))+
   scale_y_continuous(expand = c(0,0),limits = c(0,9000))+
@@ -554,8 +562,10 @@ p17 = ggplot()+
   theme_classic()+
   theme(axis.title=element_text(size=20,face="bold"),
         axis.text=element_text(size=20,face="bold"),
-        legend.text=element_text(size=15,face="bold"),
-        legend.title=element_text(size=15,face="bold"),
+        # legend.text=element_text(size=15,face="bold"),
+        # legend.title=element_text(size=15,face="bold"),
+        legend.position="none",
+        plot.margin=unit(c(5.5, 230, 5.5, 5.5),"points"),
         title=element_text(size=20,face="bold"))+
   scale_x_continuous(expand = c(0,0),limits = c(0,1))+
   scale_y_continuous(expand = c(0,0),limits = c(0,2000))+
@@ -575,8 +585,10 @@ p18 = ggplot()+
   theme_classic()+
   theme(axis.title=element_text(size=20,face="bold"),
         axis.text=element_text(size=20,face="bold"),
-        legend.text=element_text(size=15,face="bold"),
-        legend.title=element_text(size=15,face="bold"),
+        # legend.text=element_text(size=15,face="bold"),
+        # legend.title=element_text(size=15,face="bold"),
+        legend.position="none",
+        plot.margin=unit(c(5.5, 230, 5.5, 5.5),"points"),
         title=element_text(size=20,face="bold"))+
   scale_x_continuous(expand = c(0,0),limits = c(0,1))+
   scale_y_continuous(expand = c(0,0),limits = c(0,1200))+

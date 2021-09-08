@@ -49,22 +49,22 @@ p1 = ggplot()+
   scale_y_continuous(expand = c(0,0),limits = c(-1,1))+
   scale_color_manual(values=c("#FF3399","#FF3300","#990000"),
                      labels=c("Bee_Bimpatiens_hv3_1","Bee_Bimpatiens_hv4_1","Bee_Bimpatiens_hv4_2"))+
-  geom_hline(aes(yintercept = 0,linetype="dashed",size=10))
+  geom_hline(yintercept = 0,linetype="dotted",size=2)
 print(p1)
 dev.off()
 #
-pdf("ExtraSpecies_Honey.pdf")
+pdf("/home/cong/CMEECourseWork/MResProject/Figures/ExtraSpecies_Honey.pdf")
 p2 = ggplot()+
   # geom_point(size=2,(aes(x=PGnos_high_hv13_1$CleanRead*PGnos_high_hv13_1$SubsamplePercent/1e+6,
   #                        y=(PGnos_high_hv13_1$SpeciesRichness-PGnos_high_hv13_1$AssemblySpeciesRichness)/PGnos_high_hv13_1$AssemblySpeciesRichness,
   #                        colour="PGnos_high_hv13_1")))+
-  geom_point(size=2,(aes(x=PGnos_high_hv13_2$CleanRead*PGnos_high_hv13_2$SubsamplePercent/1e+6,
+  geom_point(size=4,(aes(x=PGnos_high_hv13_2$CleanRead*PGnos_high_hv13_2$SubsamplePercent/1e+6,
                          y=(PGnos_high_hv13_2$SpeciesRichness-PGnos_high_hv13_2$AssemblySpeciesRichness)/PGnos_high_hv13_2$AssemblySpeciesRichness,
                          colour="PGnos_high_hv13_2")))+
-  geom_point(size=2,(aes(x=PGnos_inter_hv15$CleanRead*PGnos_inter_hv15$SubsamplePercent/1e+6,
+  geom_point(size=4,(aes(x=PGnos_inter_hv15$CleanRead*PGnos_inter_hv15$SubsamplePercent/1e+6,
                          y=(PGnos_inter_hv15$SpeciesRichness-PGnos_inter_hv15$AssemblySpeciesRichness)/PGnos_inter_hv15$AssemblySpeciesRichness,
                          colour="PGnos_inter_hv15")))+
-  geom_point(size=2,(aes(x=PGpollen_fresh$CleanRead*PGpollen_fresh$SubsamplePercent/1e+6,
+  geom_point(size=4,(aes(x=PGpollen_fresh$CleanRead*PGpollen_fresh$SubsamplePercent/1e+6,
                          y=(PGpollen_fresh$SpeciesRichness-PGpollen_fresh$AssemblySpeciesRichness)/PGpollen_fresh$AssemblySpeciesRichness,
                          colour="PGpollen_fresh")))+
   labs(colour="Sample",title="Honey bee")+
@@ -79,13 +79,15 @@ p2 = ggplot()+
   scale_x_continuous(expand = c(0,0),limits = c(0,65))+
   scale_y_continuous(expand = c(0,0),limits = c(-1,1))+
   scale_color_manual(values=c("#000099","#33FFFF","#0066CC","#6600FF"),
-                     labels=c("Bee_Amellifera_hv13_1","Bee_Amellifera_hv13_2","Bee_Amellifera_hv15_1","Bee_Amellifera_wild_1"))
+                     labels=c("Bee_Amellifera_hv13_1","Bee_Amellifera_hv13_2",
+                              "Bee_Amellifera_hv15_1","Bee_Amellifera_wild_1"))+
+  geom_hline(yintercept = 0,linetype="dotted",size=2)
 print(p2)
 dev.off()
 #
 pdf("/home/cong/CMEECourseWork/MResProject/Figures/ExtraSpecies_Flower.pdf")
 p3 = ggplot()+
-  geom_point(size=3,(aes(x=LF_F18$CleanRead*LF_F18$SubsamplePercent/1e+6,
+  geom_point(size=4,(aes(x=LF_F18$CleanRead*LF_F18$SubsamplePercent/1e+6,
                          y=(LF_F18$SpeciesRichness-LF_F18$AssemblySpeciesRichness)/LF_F18$AssemblySpeciesRichness,
                          colour="LF_F18")))+
   labs(colour="Sample",title="Flower")+
@@ -98,10 +100,11 @@ p3 = ggplot()+
         # legend.title=element_text(size=15,face="bold"),
         legend.position = "none",
         title=element_text(size=20,face="bold"),
-        plot.margin=unit(c(5.5, 250, 5.5, 5.5),"points")
+        plot.margin=unit(c(5.5, 230, 5.5, 5.5),"points")
         )+
   scale_x_continuous(expand = c(0,0),limits = c(0,1.7))+
   scale_y_continuous(expand = c(0,0),limits = c(-1,4))+
-  scale_color_manual(values=c("#00CC00"),labels=c("Flower_eDNA"))
+  scale_color_manual(values=c("#00CC00"),labels=c("Flower_eDNA"))+
+  geom_hline(yintercept = 0,linetype="dotted",size=2)
 print(p3)
 dev.off()

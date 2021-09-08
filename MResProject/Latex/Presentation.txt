@@ -1,51 +1,155 @@
-Bee pollination is important for food supply and provides huge economic benefit, but bee populations are facing challenges from parasites, pesticide exposure, habitat loss and climate change. 
+As pollinators, bees play crucial role in agriculture and provide huge economic benefit
+
+but bee populations are facing challenges from invasive species, parasites, pesticide exposure, habitat loss and climate change. 
 Together, these make bee health a crucial issue.
 
-Within the gut of bees, there is a diverse microbial community impacting host health. 
-There are core bacteria that present in almost all individuals. 
-and diverse non-core bacteria, fungi and viruses. 
-Besides, bee microbiome also provides materials of eDNA, which indicates interactions between bees and other organisms.
+Like other animals, bees are associated with diverse gut microbial communities impacting host health. 
+It includes bacteria, fungi and viruses. 
+It also provides materials of environmental DNA, indicating interactions with other organisms.
 
-This microbiome mediates multiple biological processes including food digestion, parasite defence and chemical detoxification. 
+This microbiome influences bee health significantly by mediating processes including food digestion, parasite defence and chemical detoxification. 
 
-To explore diversity of bee microbiome, amplicon sequencing is vastly used. 
-It amplifies species-specific region from DNA sample using well-designed PCR primers and illustrates taxon composition of microbiome.
-
-However, amplicon sequencing only provides limited understanding in bee microbiome diversity. 
-Since different barcodes are used for taxonomic clades, amplicon sequencing only reveals diversity within certain clade, while bee gut microbail community is diversified and composed of multi-kingdom species.
-Besides, amplicon sequencing provides no information on gene content. 
-Function potentiality need to be inferred from pre-sequenced genomes. 
-However, bee bacterial symbionts are highly diversified at strain level and different strains often variant in gene repertoires and metabolic functions. 
+Exploration of bee microbiome has been boosted by high throughput methods such as amplicon sequencing and shotgun metagenomics.
+Amplicon sequencing captures species-specific region to reveal composition of bacterial or fungal communities. 
+It is cost-effective and is vastly used. 
+However, it does not cover all taxa and does not provide information on gene content, making unreliable function inference. (strain diversity)
 (Strains of Gilliamella apicola variant in metabolizing mannose, xylose, arabinose, and rhamnose, all of which are toxic to bees)
 (Strains of lactobacilli and bifidobacteria are highly variant in carbohydrate metabolism)
+Shotgun metagenomics provides a solution to overcome these drawbacks by capturing DNA fragments unselectively.
 
-Shotgun metagenomics provides a solution to overcome these draw backs. 
-It captures DNA fragments unselectively, providing information on multi-kingdom taxa and gene content. 
-
-However, utilization of shotgun metagenomics is hindered by challenges in data analysis. 
-The goal of metagenomics is typically to provide a taxonomic and functional profile of the microbiome. 
-Generally, one of the first steps of metagenomic data analysis is assembling short reads into informative long contigs, which enable accurate taxonomic/functional annotation. 
-But metagenome assembly is a complex and computationally intensive task, compromised by fragmental assembly, chimaeras and high false negative rate caused by unassembled reads. 
-Short reads can also be processed directly for annotation, but the output might be compromised in terms of accuracy due to limited mappability.
-
+However, utilization of shotgun metagenomics is hindered by complex data analysis and high cost.   
+Generally, one of the first steps of data analysis is assembling short reads into long contigs, which enable accurate taxonomic/functional annotation. 
+But metagenome assembly is of high false negative rate since there is always a proportion of reads left unassembled. 
+Alternatively, short reads can also be processed directly by mapping to a reference database, but the output might be inaccurate due to limited mappability.
 A remaining challenge is high cost of shotgun metagenomics. 
-Deep sequencing is expensive. 
-Assume there are 100 samples to be sequenced and from per sample, we want at least 12 Gbp metagenomic data, or 40k 16S reads. 
-The former would take about 20k pounds, while the latter is 2k pounds. 
+A shallow 6 Gbp metagenomic dataset may cost 120 pounds per sample, while a standard 15 Mbp amplicon sequencing only costs about 20 pounds per sample. 
 
-Here, I aimed to (1) develop a pipeline combining assembly-dependent and -independent methods for metagenomic profiling and (2) optimize sequencing depth to define a compromise for sequencing cost and requirement for reliable taxonomic/functional diversity analysis.
+Here, I aimed to address data analysis and high cost shotgun metagenomics. 
 
-To address challenges of metagenomic data analysis, I developed such an integrated pipeline. 
-It is composed of five modules indicated by blue boxes. 
-After quality control and host removing, assembly-dependent taxon profiling is conducted. 
-To address high negative rate of assembly-dependent search, a reference database of genomes from species present in the assembly is constructed and used for filtering non-host reads. 
-Reads not recruited by the reference database are subjected to assembly-free taxonomic search. 
-Finally, function annotation is conducted. 
+I developed an integrated pipeline combining assembly-dependent and assembly-free methods. 
+Raw reads are first filtered to remove low quality data and host contamination. 
+Then clean reads are assembled for species identification. 
+To resolve species not represent by the assembly, I mapped reads to genomes of identified species. 
+Unmapped reads are processed directly for species identification. 
 
-The integrated pipeline was used to analyze seven deep sequenced metagenomic datasets: three from honey bees, three from bumble bees and one from flower washes. 
+I processed datasets from hony bees, bumble bees and flower washes using the integrated pipeline. 
 
-Although Although samples are different in proportion of host contamination, diverse communities composed of multiple taxonomic clades were identified. 
+Although these datasets are different in proportion of host contamination, they all represent a multi-kingdom community.
 
-Specifically, core bacterial symbionts of bees were identified. In this heatmap, from top to bottom, 
+Bees possess a highly conserved and specialized core gut microbiome, which consists of bacteria including Bifidobacterium, Lactobacillus, Gilliamella, Frischella and Snodgrassella. 
+This heatmap shows the composition of bacterial communities and as expected, a complete set of core bacterial were found. 
+It indicates these samples were of good quality and representivity.
 
-Besides, other species common in pollination system were identified. 
+As for other species, there were insect pollinators and crops. Fungal communities were dominated by Nosema, a widespread bee pathogen and some yeast species. 
+
+Then I compared integrated pipeline with a standard assembly-dependent methods. 
+These points above zero means the integrated pipeline resolved species not represented by assembly
+
+A brief summary: I developed a pipeline analyzing metagenomic data. 
+It is capable of finding more species than assembly-dependent methods. 
+Besides, it is easy to incorporate alternative tools into each module and is easy for troubleshooting since all output files are well documented. 
+
+Then I optimized sequencing depth for metagenomics of host species, in order to define a trade-off between sequencing effort and reliable species/function diversity analysis.
+
+First, I measured species/function diversity by diversity indexes. 
+There are several diversity indexes used in ecology and among them, I chose Hill numbers. 
+Hill number is a family of parametric diversity indexes and it provides several unique advantages. 
+First, it obeys a simple replication principle: 
+Assume there are two equally diverse assemblages with no shared species, the diversity of pooled assemblage is twice the single assemblages. 
+It indicates that as sequencing depth increase, discovery of novel species would lead to increase in Hill numbers. 
+When the sequencing depth is so big that almost all species have been found, Hill numbers would level off. 
+Second, its sensitivity to species abundances can be modulated by values of order. 
+Big order value means little emphasis on rare species. 
+This is useful for metagenomics because rare species are more likely to be false positives than abundant species.
+FInally, it can be transformed to other diversity indexes like richness, shannon index and simpson index through simple Algebraic transformation.
+
+So I simulated shallow sequencing by randomly subsampling the original datasets and fitted the relationship between Hill numbers and sequencing depth. 
+The slope of the curve reflects extra diversity brought by additional sequencing effort. 
+So I looked the point at which the curve slope is small enough and defined it as the optimal sequencing depth, a trade-off between sequencing cost and obtaining meaningful information on species/function diversity. 
+
+This analysis assumes that the original dataset is almost complete, namely almost all species or function category are represented by the original dataset. 
+So I first looked at relationship between number of species or function category and sequencing depth. 
+If the original dataset is complete, the model should level off at the final points. 
+Figures in first row are for species richness. 
+One honey bee sample and the flower sample were dropped because of incompleteness. 
+Figures in second row are for function diversity and none of these datasets is complete.
+
+As a result, 
+for species diversity estimation, 12.10 Gbp for honey bees and 12.75 Gbp for bumble bees would be sufficient. 
+Sequencing depth can be further reduced if there is little emphasis on rare species. 
+As for functional diversity, no datasets were complete.
+
+So I estimated optimal sequencing depth for species diversity estimation of honey bee and bumble bee samples. 
+For function diversity, even the deepest dataset was not sufficient, indicating more sequencing effort is needed.
+
+Finally some take-home message. 
+I developed a pipeline for metagenomic data analysis and it provides improvement in species identification. 
+Then I found that about 12 Gbp would be sufficient for species diversity estimation of honey bee and bumble bee samples, and that would be about 200 pounds per sample. 
+This sequencing depth can be further reduced if little weight is given to rare species. 
+As for function diversity, deep sequencing is valuable. 
+Similar experiments can be performed as pilot study of large scale projects and are helpful for budget management.
+
+
+
+
+
+
+By Andreas Trepte - Own work, CC BY-SA 2.5, https://commons.wikimedia.org/w/index.php?curid=10979574
+By Scott Bauer, USDA ARS - This image was released by the Agricultural Research Service, the research agency of the United States Department of Agriculture, with the ID K9152-1 (next)., Public Domain, https://commons.wikimedia.org/w/index.php?curid=110700
+By © User:Colin / Wikimedia Commons, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=26689765
+By Jamie Nettles - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=1496773
+By Canada Hky - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=11109585
+By CClaude Truong-Ngoc - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=17716352
+By Frank Mikley - Own work, CC BY 2.5, https://commons.wikimedia.org/w/index.php?curid=540763
+By Wazouille - montage photo sur photoshop à partir de la numérisation de plusieurs billets, Public Domain, https://commons.wikimedia.org/w/index.php?curid=1733993
+By This vector image is completely made by Ali Zifan - Own work; used information from Biology 10e Textbook (chapter 4, Pg: 63) by: Peter Raven, Kenneth Mason, Jonathan Losos, Susan Singer · McGraw-Hill Education., CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=44194140
+By Penicillium_labeled.jpg: Y_tambederivative work: Adrian J. Hunter (talk) - Penicillium_labeled.jpg, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=10883561
+By Dr. Victor Padilla-Sanchez, PhD - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=92020519
+By fir0002flagstaffotos [at] gmail.comCanon 20D + Sigma 150mm f/2.8 + Canon MT 24-EX - Own work, GFDL 1.2, https://commons.wikimedia.org/w/index.php?curid=4870231
+https://www.nature.com/articles/nrmicro.2016.43/figures/1
+By Dartmouth Electron Microscope Facility, Dartmouth College - Source and public domain notice at Dartmouth Electron Microscope Facility ([1], [2]), Public Domain, https://commons.wikimedia.org/w/index.php?curid=14840522
+By Daiju Azuma - Own work, CC BY-SA 2.5, https://commons.wikimedia.org/w/index.php?curid=605167
+By Banchob Sripa, Sasithorn Kaewkes, Paiboon Sithithaworn, Eimorn Mairiang, Thewarach Laha, Michael Smout, Chawalit Pairojkul, Vajaraphongsa Bhudhisawasdi, Smarn Tesana, Bandit Thinkamrop, Jeffrey M. Bethony, Alex Loukas &amp; Paul J. Brindley - Sripa B., Kaewkes S., Sithithaworn P., Mairiang E., Laha T., et al. (2007). &quot;Liver Fluke Induces Cholangiocarcinoma&quot;. PLoS Medicine 4(7): e201. doi:10.1371/journal.pmed.0040201. Cropped from the figure 2., CC BY 2.5, https://commons.wikimedia.org/w/index.php?curid=10718921
+By Unknown author - EPS file skull.eps from UNECE web site converted with ImageMagick convert and with potrace, edited in inkscape, Public Domain, https://commons.wikimedia.org/w/index.php?curid=4983904
+By Bank of England - Original publication: https://www.bankofengland.co.uk/banknotes/polymer-50-pound-noteImmediate source: https://www.bankofengland.co.uk/-/media/boe/images/banknotes/50/polymer/polymer-50-specimen-front.jpg, https://en.wikipedia.org/w/index.php?curid=67883975
+By Wazouille - montage photo sur photoshop à partir de la numérisation de plusieurs billets, Public Domain, https://commons.wikimedia.org/w/index.php?curid=1733993
+By Mousebelt - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=98700493
+By contri from Yonezawa-Shi, Yamagata, Japan - DSCN5431, CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=23451854
+By Tilo Hauke - Self-published work by Tilo Hauke, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=777407
+CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=56480
+By Sanjay Acharya - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=3131388
+By 維基小霸王 - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=88894809
+By Fir0002 - Own work, GFDL 1.2, https://commons.wikimedia.org/w/index.php?curid=7613324
+By Hedwig Storch - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2633684
+By Self, en:User:Jengod - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=6292330
+https://www.semanticscholar.org/paper/Nosema-ceranae-in-Europe%3A-an-emergent-type-C-Higes-Mart%C3%ADn-Hern%C3%A1ndez/cdb1865d30dc5ba789f192e0f573f259dabeffd3
+By Masur - Own work, Public Domain, https://commons.wikimedia.org/w/index.php?curid=1069017
+By Alexey Solodovnikov (Idea, Producer, CG, Editor), Valeria Arkhipova (Scientific Сonsultant) - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=104914011
+By http://phil.cdc.gov/PHIL_Images/20031208/15dc7a2463b842c69afc2db6c07f7b9f/5262_lores.jpg, Public Domain, https://commons.wikimedia.org/w/index.php?curid=776698
+By http://www.cgpgrey.com, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=12118665
+By Scott Ehardt - Own work, Public Domain, https://commons.wikimedia.org/w/index.php?curid=702909
+By Jami Dwyer - https://www.flickr.com/photos/74281168@N00/173937750/, Public Domain, https://commons.wikimedia.org/w/index.php?curid=1363210
+By NASA’s Scientific Visualization Studio, Key and Title by uploader (Eric Fisk) - https://data.giss.nasa.gov/gistemp/maps/index_v4.html, Public Domain, https://commons.wikimedia.org/w/index.php?curid=86928646
+https://chem.libretexts.org/Bookshelves/General_Chemistry/Map%3A_A_Molecular_Approach_(Tro)/22%3A_Biochemistry/22.07%3A_DNA_Replication_the_Double_Helix_and_Protein_Synthesis
+
+
+bee economics  
+bee health   
+bee microbiome
+
+pipeline: step by step
+difference from others
+
+what core bacteria are
+
+replication principle 
+
+define depth
+define optimal depth
+diversity index
+
+q: order of Hill numbers
+
+function: deeper than xxx
+
+go back to metagenomics/amplicon

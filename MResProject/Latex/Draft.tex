@@ -1356,4 +1356,97 @@ Metagenomic datasets involved in this project cannot be made available publicly 
       \label{AminoAcid}
       \end{figure}
 
+\newpage
+\subsection{Presentation}
+As pollinators, bees play crucial role in agriculture and provide huge economic benefit
+\newline
+but their populations are facing challenges from factors like invasive species, parasites, pesticide exposure, habitat loss and climate change. 
+Together, these make bee health a crucial issue.
+\newline
+Like other animals, bees are associated with diverse gut microbial communities impacting host health. 
+It includes bacteria, fungi and viruses. 
+It also provides materials of environmental DNA, indicating interactions with other organisms.
+\newline
+This microbiome influences bee health significantly by mediating processes including food digestion, parasite defence and chemical detoxification. 
+\newline
+Exploration of bee microbiome has been boosted by high throughput methods such as amplicon sequencing and shotgun metagenomics.
+Amplicon sequencing captures species-specific region to reveal composition of microbial communities. 
+It is cost-effective and is vastly used. 
+However, it does not cover all taxa and does not provide information on gene content, making unreliable function inference. (strain diversity)
+(Strains of Gilliamella apicola variant in metabolizing mannose, xylose, arabinose, and rhamnose, all of which are toxic to bees)
+(Strains of lactobacilli and bifidobacteria are highly variant in carbohydrate metabolism)
+Shotgun metagenomics provides a solution to overcome these drawbacks by capturing DNA fragments unselectively.
+\newline
+However, shotgun metagenomics is of complex data analysis and high cost.   
+Generally, one of the first steps of data analysis is assembling short reads into long contigs, which enable accurate taxonomic/functional annotation. 
+But assembly is of high false negative rate since there are always reads left unassembled. 
+Alternatively, short reads can also be processed directly by mapping to a reference database, but the output might be inaccurate due to limited mappability.
+Besides, shotgun metagenomics is high cost. 
+A shallow 6 Gbp metagenomic dataset may cost 120 pounds per sample, while a standard 15 Mbp amplicon sequencing only costs about 20 pounds per sample. 
+\newline
+Here, I aimed to address data analysis pipeline and high cost shotgun metagenomics. 
+\newline
+I developed an integrated pipeline combining assembly-dependent and assembly-free methods. 
+Raw reads are first filtered to remove low quality data and host contamination. 
+Then clean reads are assembled for species identification. 
+To resolve species not represent by the assembly, I mapped reads to genomes of identified species. 
+Unmapped reads are processed directly for species identification. 
+\newline
+Using this pipeline, I processed datasets from hony bees, bumble bees and flower washes.
+\newline
+Although these datasets are different in proportion of host contamination, they all represent a multi-kingdom community.
+\newline
+Bees possess a highly conserved and specialized core gut microbiome, which consists of bacteria including Bifidobacterium, Lactobacillus, Gilliamella, Frischella and Snodgrassella. 
+This heatmap shows the composition of bacterial communities and as expected, a complete set of core bacterial were found. 
+It indicates these samples were of good quality and representivity.
+\newline
+As for other species, there were insect pollinators and crops. Fungal communities were dominated by Nosema, a widespread bee pathogen and some yeast species. 
+\newline
+Then I compared integrated pipeline with a standard assembly-dependent methods. 
+These points above zero means the integrated pipeline resolved species not represented by assembly
+\newline
+A brief summary: I developed a pipeline analyzing metagenomic data. 
+It is capable of finding more species than assembly-dependent methods. 
+Besides, it is easy to incorporate alternative tools into each module and is easy for troubleshooting since all output files are well documented. 
+\newline
+Then I optimized sequencing depth for metagenomics of different host species, in order to define a trade-off between sequencing effort and reliable species/function diversity analysis.
+\newline
+First, I measured species/function diversity. 
+There are several diversity indexes used in ecology and among them, I picked Hill numbers. 
+Hill number is a family of parametric diversity indexes and it provides several unique advantages. 
+First, it obeys replication principle: 
+Assume there are two equally diverse assemblages with no shared species, the diversity of pooled assemblage is twice the single assemblages. 
+It indicates that as sequencing depth increase, discovery of novel species would lead to increase in Hill numbers. 
+When the sequencing depth is so big that almost all species have been found, Hill numbers would level off. 
+Second, its sensitivity to relative abundances can be modulated by values of order. 
+Big order value means little emphasis on rare species. 
+This is useful for metagenomics because rare species are more likely to be false positives than abundant species.
+Finally, it can be transformed to other diversity indexes like richness, shannon index and simpson index through simple algebraic transformation.
+\newline
+So I simulated shallow sequencing by randomly subsampling the original datasets and fitted the relationship between Hill numbers and sequencing depth. 
+The slope of the curve reflects extra diversity brought by additional sequencing effort. 
+So I looked the point at which the curve slope is small enough and defined it as the optimal sequencing depth, a trade-off between sequencing cost and obtaining meaningful information on species/function diversity. 
+\newline
+This analysis assumes that the original dataset is almost complete, namely almost all species or function category are represented by the original dataset. 
+So I first looked at relationship between richness, or Hill number of order zero, and sequencing depth. 
+If the original dataset is complete, the model should level off at the final point. 
+Figures in first row are for species richness. 
+One honey bee sample and the flower sample were dropped because of incompleteness. 
+Figures in second row are for function diversity and no curve levels off.
+\newline
+As a result, 
+for species diversity estimation, 12.10 Gbp for honey bees and 12.75 Gbp for bumble bees would be sufficient. 
+Sequencing depth can be further reduced if there is little emphasis on rare species. 
+As for functional diversity, no datasets were complete.
+\newline
+So I estimated optimal sequencing depth for species diversity estimation of honey bee and bumble bee samples. 
+For function diversity, even the deepest dataset was not sufficient, indicating more sequencing effort is needed.
+\newline
+Finally some take-home message. 
+I developed a pipeline for metagenomic data analysis and it provides improvement in species identification. 
+Then I found that about 12 Gbp would be sufficient for species diversity estimation of honey bee and bumble bee samples, and that would be about 200 pounds per sample. 
+This sequencing depth can be further reduced if little weight is given to rare species. 
+As for function diversity, deep sequencing is valuable. 
+Similar experiments can be performed as pilot study of large scale projects and are helpful for budget management.
+
 \end{document}
